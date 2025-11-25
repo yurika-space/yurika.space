@@ -1,0 +1,89 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
+const themes = [
+  { value: "default", label: "Default" },
+  { value: "sega", label: "Sega" },
+  { value: "nintendo", label: "Nintendo" },
+  { value: "gameboy", label: "Game Boy" },
+  { value: "atari", label: "Atari" },
+  { value: "arcade", label: "Arcade" },
+  { value: "neo-geo", label: "Neo Geo" },
+  { value: "soft-pop", label: "Soft Pop" },
+  { value: "vhs", label: "VHS" },
+  { value: "pacman", label: "Pac-Man" },
+  { value: "cassette", label: "Cassette" },
+  { value: "rusty-byte", label: "Rusty Byte" },
+];
+
+export default function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true);
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleDarkMode = () => {
+    const root = document.documentElement;
+    const newDarkState = !isDark;
+    setIsDark(newDarkState);
+    
+    if (newDarkState) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center gap-4">
+      <div className="relative inline-block">
+        <select
+          value={theme || "default"}
+          onChange={(e) => setTheme(e.target.value)}
+          className="appearance-none bg-background border border-border text-foreground px-4 py-2 pr-8 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          aria-label="Select theme"
+        >
+          {themes.map((themeOption) => (
+            <option key={themeOption.value} value={themeOption.value}>
+              {themeOption.label}
+            </option>
+          ))}
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-foreground">
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+      <button
+        onClick={toggleDarkMode}
+        className="px-4 py-2 bg-background border border-border text-foreground rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+        aria-label="Toggle dark mode"
+      >
+        {isDark ? "☀️" : "🌙"}
+      </button>
+    </div>
+  );
+}
+

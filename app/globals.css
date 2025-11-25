@@ -8,8 +8,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-ibm-plex-sans: var(--font-ibm-plex-sans);
+  --font-pixelify-sans: var(--font-pixelify-sans);
+  --font-sixtyfour: var(--font-sixtyfour);
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +24,187 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-ibm-plex-sans), var(--font-pixelify-sans), var(--font-sixtyfour), var(--font-jetbrains-mono), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom animations and effects for Hero component */
+
+/* Grid background pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 159, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 159, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Grid pulse animation */
+@keyframes gridPulse {
+  0%, 100% { 
+    transform: perspective(500px) rotateX(60deg) scale(1); 
+  }
+  50% { 
+    transform: perspective(500px) rotateX(60deg) scale(1.1); 
+  }
+}
+
+.animate-grid-pulse {
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+/* Float animation for glowing orbs */
+@keyframes float {
+  0%, 100% { 
+    transform: translate(0, 0); 
+  }
+  33% { 
+    transform: translate(30px, -30px); 
+  }
+  66% { 
+    transform: translate(-20px, 20px); 
+  }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Glitch effect for title */
+@keyframes glitchPulse {
+  0%, 90%, 100% {
+    text-shadow: 
+      2px 2px 0 #00ff9f,
+      -2px -2px 0 #ff006e;
+  }
+  95% {
+    text-shadow: 
+      -2px 2px 0 #00ff9f,
+      2px -2px 0 #ff006e;
+  }
+}
+
+.glitch-text {
+  text-shadow: 
+    2px 2px 0 #00ff9f,
+    -2px -2px 0 #ff006e;
+}
+
+.animate-glitch {
+  animation: glitchPulse 3s ease-in-out infinite;
+}
+
+/* Spinning emoji animation */
+@keyframes spin-emoji {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+
+/* Eyebrow prefix */
+.eyebrow::before {
+  margin: 0;
+  padding-right: 1rem;
+  content: '> ';
+  color: #ff006e;
+  display: inline-block;
+  animation: spin-emoji 3s linear infinite;
+}
+
+/* Highlight underline effect */
+.highlight {
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00ff9f;
+  animation: underlinePulse 2s ease-in-out infinite;
+}
+
+@keyframes underlinePulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scaleX(1); 
+  }
+  50% { 
+    opacity: 0.5; 
+    transform: scaleX(0.8); 
+  }
+}
+
+/* Button shimmer effect */
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Button fill effect */
+.btn-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #00ff9f;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-fill:hover::after {
+  width: 100%;
+}
+
+/* Scroll indicator */
+.scroll-indicator::before {
+  content: '↓';
+  font-size: 2rem;
+  color: #00ff9f;
+}
+
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0); 
+  }
+  50% { 
+    transform: translateX(-50%) translateY(10px); 
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce 2s ease-in-out infinite;
 }

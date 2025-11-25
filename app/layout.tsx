@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Sans, Pixelify_Sans, Sixtyfour, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import ThemeWrapper from "@/components/providers/ThemeWrapper";
 import "./globals.css";
+import "./retro-globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+});
+const pixelifySans = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pixelify-sans",
+});
+const sixtyfour = Sixtyfour({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-sixtyfour",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrains-mono",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +38,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${ibmPlexSans.variable} ${pixelifySans.variable} ${sixtyfour.variable} ${jetBrainsMono.variable} antialiased`}>
+        <ThemeProvider
+        attribute="class"
+        defaultTheme="default"
+        themes={[
+          "default",
+          "sega",
+          "nintendo",
+          "gameboy",
+          "atari",
+          "arcade",
+          "neo-geo",
+          "soft-pop",
+          "vhs",
+          "pacman",
+          "cassette",
+          "rusty-byte",
+        ]}
+        enableSystem={false}
+        enableColorScheme={false}
       >
-        {children}
+          <ThemeWrapper>{children}</ThemeWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );
