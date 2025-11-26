@@ -1,0 +1,502 @@
+/* Mission Component Styles - Retro 8-bit Theme */
+
+/* Pixel static background */
+.pixel-static {
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px);
+    animation: staticNoise 0.5s steps(2) infinite;
+  }
+  
+  @keyframes staticNoise {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.15; }
+  }
+  
+  /* Floating pixels effect */
+  .floating-pixels {
+    background-image: 
+      radial-gradient(circle, #00ff9f 1px, transparent 1px),
+      radial-gradient(circle, #ff006e 1px, transparent 1px),
+      radial-gradient(circle, #00d9ff 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    background-position: 0 0, 50px 50px, 100px 100px;
+    animation: floatPixels 40s linear infinite;
+  }
+  
+  @keyframes floatPixels {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+  }
+  
+  /* Mission badge */
+  .mission-badge {
+    background: rgba(0, 255, 159, 0.1);
+    border: 3px solid #00ff9f;
+    padding: 0.75rem 2rem;
+    position: relative;
+    box-shadow: 
+      0 0 20px rgba(0, 255, 159, 0.3),
+      inset 0 0 20px rgba(0, 255, 159, 0.1);
+    animation: badgeGlow 3s ease-in-out infinite;
+  }
+  
+  .mission-badge::before,
+  .mission-badge::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #00ff9f;
+    box-shadow: 0 0 10px #00ff9f;
+  }
+  
+  .mission-badge::before {
+    top: -4px;
+    left: -4px;
+  }
+  
+  .mission-badge::after {
+    bottom: -4px;
+    right: -4px;
+  }
+  
+  @keyframes badgeGlow {
+    0%, 100% {
+      box-shadow: 
+        0 0 20px rgba(0, 255, 159, 0.3),
+        inset 0 0 20px rgba(0, 255, 159, 0.1);
+    }
+    50% {
+      box-shadow: 
+        0 0 30px rgba(0, 255, 159, 0.5),
+        inset 0 0 30px rgba(0, 255, 159, 0.2);
+    }
+  }
+  
+  .badge-text {
+    color: #00ff9f;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-shadow: 0 0 10px rgba(0, 255, 159, 0.5);
+  }
+  
+  /* Pixel border frame - recreating the uploaded image */
+  .mission-frame {
+    position: relative;
+    background: #f5f0e1; /* Beige/cream color from the image */
+    margin: 2rem 0;
+  }
+  
+  .pixel-border-frame {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  /* Corner pieces - pixel art style */
+  .corner-tl,
+  .corner-tr,
+  .corner-bl,
+  .corner-br {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #5d4e37; /* Brown color from border */
+  }
+  
+  /* Top-left corner */
+  .corner-tl {
+    top: 0;
+    left: 0;
+    clip-path: polygon(
+      0 0, 100% 0, 100% 20%, 80% 20%, 80% 40%, 60% 40%, 60% 60%, 40% 60%, 40% 80%, 20% 80%, 20% 100%, 0 100%
+    );
+  }
+  
+  /* Top-right corner */
+  .corner-tr {
+    top: 0;
+    right: 0;
+    clip-path: polygon(
+      0 0, 100% 0, 100% 100%, 80% 100%, 80% 80%, 60% 80%, 60% 60%, 40% 60%, 40% 40%, 20% 40%, 20% 20%, 0 20%
+    );
+  }
+  
+  /* Bottom-left corner */
+  .corner-bl {
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(
+      0 0, 20% 0, 20% 20%, 40% 20%, 40% 40%, 60% 40%, 60% 60%, 80% 60%, 80% 80%, 100% 80%, 100% 100%, 0 100%
+    );
+  }
+  
+  /* Bottom-right corner */
+  .corner-br {
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(
+      0 80%, 20% 80%, 20% 60%, 40% 60%, 40% 40%, 60% 40%, 60% 20%, 80% 20%, 80% 0, 100% 0, 100% 100%, 0 100%
+    );
+  }
+  
+  /* Border edges with pixel teeth */
+  .border-top,
+  .border-bottom {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    height: 12px;
+    background: #5d4e37;
+  }
+  
+  .border-top {
+    top: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        #5d4e37 0px,
+        #5d4e37 20px,
+        transparent 20px,
+        transparent 24px,
+        #5d4e37 24px,
+        #5d4e37 44px,
+        transparent 44px,
+        transparent 48px
+      );
+  }
+  
+  .border-bottom {
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        #5d4e37 0px,
+        #5d4e37 20px,
+        transparent 20px,
+        transparent 24px,
+        #5d4e37 24px,
+        #5d4e37 44px,
+        transparent 44px,
+        transparent 48px
+      );
+  }
+  
+  .border-left,
+  .border-right {
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    width: 12px;
+    background: #5d4e37;
+  }
+  
+  .border-left {
+    left: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        #5d4e37 0px,
+        #5d4e37 20px,
+        transparent 20px,
+        transparent 24px,
+        #5d4e37 24px,
+        #5d4e37 44px,
+        transparent 44px,
+        transparent 48px
+      );
+  }
+  
+  .border-right {
+    right: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        #5d4e37 0px,
+        #5d4e37 20px,
+        transparent 20px,
+        transparent 24px,
+        #5d4e37 24px,
+        #5d4e37 44px,
+        transparent 44px,
+        transparent 48px
+      );
+  }
+  
+  /* Frame content */
+  .frame-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Server hearts container */
+  .server-hearts-container {
+    animation: heartsBob 3s ease-in-out infinite;
+  }
+  
+  @keyframes heartsBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Mission text blocks */
+  .mission-text-block {
+    background: rgba(17, 24, 39, 0.3);
+    border-left: 4px solid #00ff9f;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+  }
+  
+  .mission-text-block:hover {
+    background: rgba(17, 24, 39, 0.5);
+    border-left-width: 6px;
+    transform: translateX(4px);
+  }
+  
+  /* Mission quote */
+  .mission-quote {
+    background: rgba(0, 255, 159, 0.05);
+    border: 2px solid #00ff9f;
+    padding: 2rem;
+    position: relative;
+    margin: 2rem 0;
+  }
+  
+  .quote-decoration {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #00ff9f;
+    text-align: center;
+    animation: decorationPulse 2s ease-in-out infinite;
+  }
+  
+  .quote-decoration.bottom {
+    animation-delay: 1s;
+  }
+  
+  @keyframes decorationPulse {
+    0%, 100% { opacity: 0.5; transform: scaleX(1); }
+    50% { opacity: 1; transform: scaleX(1.1); }
+  }
+  
+  /* Pixel divider with glow */
+  .pixel-divider-glow {
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      #00ff9f 20%,
+      #00d9ff 50%,
+      #ff006e 80%,
+      transparent
+    );
+    box-shadow: 0 0 15px rgba(0, 255, 159, 0.6);
+    animation: dividerScan 3s ease-in-out infinite;
+  }
+  
+  @keyframes dividerScan {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(0, 255, 159, 0.6);
+      transform: scaleX(1);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 255, 159, 0.9);
+      transform: scaleX(0.95);
+    }
+  }
+  
+  /* Mission CTA button */
+  .mission-cta-button {
+    position: relative;
+    font-size: 1.125rem;
+    padding: 1.25rem 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .button-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00ff9f, #00d9ff);
+    transition: all 0.3s ease;
+    z-index: 0;
+  }
+  
+  .mission-cta-button:hover .button-bg {
+    background: linear-gradient(135deg, #00d9ff, #00ff9f);
+    box-shadow: 0 0 30px rgba(0, 255, 159, 0.6);
+  }
+  
+  .mission-cta-button:active .button-bg {
+    transform: scale(0.95);
+  }
+  
+  .button-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #0a0e17;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  
+  .button-icon {
+    transition: transform 0.3s ease;
+    font-size: 1.5rem;
+  }
+  
+  .mission-cta-button:hover .button-icon {
+    transform: translateX(6px);
+  }
+  
+  /* Add pixel corners to button */
+  .mission-cta-button::before,
+  .mission-cta-button::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00ff9f;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .mission-cta-button::before {
+    top: -2px;
+    left: -2px;
+    box-shadow: 0 0 10px #00ff9f;
+  }
+  
+  .mission-cta-button::after {
+    bottom: -2px;
+    right: -2px;
+    box-shadow: 0 0 10px #00ff9f;
+  }
+  
+  .mission-cta-button:hover::before,
+  .mission-cta-button:hover::after {
+    width: 15px;
+    height: 15px;
+  }
+  
+  /* Pixel hearts row */
+  .pixel-hearts-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .pixel-heart {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 110, 0.6));
+    animation: heartFloat 3s ease-in-out infinite;
+  }
+  
+  .pixel-heart.delay-1 { animation-delay: 0.2s; }
+  .pixel-heart.delay-2 { animation-delay: 0.4s; }
+  .pixel-heart.delay-3 { animation-delay: 0.6s; }
+  .pixel-heart.delay-4 { animation-delay: 0.8s; }
+  
+  @keyframes heartFloat {
+    0%, 100% { 
+      transform: translateY(0) scale(1); 
+      opacity: 0.8;
+    }
+    50% { 
+      transform: translateY(-15px) scale(1.1); 
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .mission-badge {
+      padding: 0.5rem 1.5rem;
+    }
+    
+    .badge-text {
+      font-size: 0.75rem;
+    }
+    
+    .frame-content {
+      padding: 1.5rem !important;
+    }
+    
+    .server-hearts-container img {
+      width: 280px;
+      height: auto;
+    }
+    
+    .mission-text-block {
+      padding: 1rem;
+    }
+    
+    .mission-quote {
+      padding: 1rem;
+    }
+    
+    .mission-quote p {
+      font-size: 1rem;
+    }
+    
+    .mission-cta-button {
+      padding: 1rem 2rem;
+      font-size: 0.875rem;
+    }
+    
+    .pixel-hearts-row {
+      gap: 0.5rem;
+    }
+    
+    .pixel-heart {
+      font-size: 1.25rem;
+    }
+    
+    /* Simplify border on mobile */
+    .corner-tl,
+    .corner-tr,
+    .corner-bl,
+    .corner-br {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .border-top,
+    .border-bottom {
+      left: 24px;
+      right: 24px;
+      height: 8px;
+    }
+    
+    .border-left,
+    .border-right {
+      top: 24px;
+      bottom: 24px;
+      width: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .server-hearts-container img {
+      width: 200px;
+    }
+    
+    .mission-text-block,
+    .mission-quote {
+      font-size: 0.875rem;
+    }
+  }

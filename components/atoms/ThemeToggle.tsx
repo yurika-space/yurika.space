@@ -21,25 +21,14 @@ const themes = [
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [isDark, setIsDark] = useState(false);
 
-  // useEffect only runs on the client, so now we can safely show the UI
+  // Ensure dark mode is always enabled
   useEffect(() => {
     setMounted(true);
-    setIsDark(document.documentElement.classList.contains("dark"));
-  }, []);
-
-  const toggleDarkMode = () => {
     const root = document.documentElement;
-    const newDarkState = !isDark;
-    setIsDark(newDarkState);
-    
-    if (newDarkState) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  };
+    // Always add dark class
+    root.classList.add("dark");
+  }, []);
 
   if (!mounted) {
     return null;
@@ -76,13 +65,6 @@ export default function ThemeToggle() {
           </svg>
         </div>
       </div>
-      <button
-        onClick={toggleDarkMode}
-        className="px-4 py-2 bg-background border border-border text-foreground rounded-md hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-        aria-label="Toggle dark mode"
-      >
-        {isDark ? "☀️" : "🌙"}
-      </button>
     </div>
   );
 }
