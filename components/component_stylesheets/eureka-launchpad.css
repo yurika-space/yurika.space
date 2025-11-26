@@ -1,0 +1,539 @@
+/* Eureka Launchpad Component Styles - Power-Up Theme */
+
+/* Circuit pattern background */
+.circuit-pattern {
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(0, 217, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(0, 217, 255, 0.03) 3px),
+    repeating-linear-gradient(90deg, rgba(0, 217, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(0, 217, 255, 0.03) 3px),
+    repeating-linear-gradient(45deg, rgba(255, 0, 110, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 0, 110, 0.03) 3px);
+  animation: circuitFlow 30s linear infinite;
+}
+
+@keyframes circuitFlow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
+/* Power-up glow effect */
+.power-up-glow {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.3), transparent 70%);
+  filter: blur(60px);
+  animation: powerPulse 4s ease-in-out infinite;
+}
+
+@keyframes powerPulse {
+  0%, 100% { 
+    transform: translate(-50%, 0) scale(1); 
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translate(-50%, 0) scale(1.2); 
+    opacity: 0.5;
+  }
+}
+
+/* Power-up badge */
+.power-up-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(255, 0, 110, 0.2));
+  border: 2px solid;
+  border-image: linear-gradient(90deg, #00d9ff, #ff006e) 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.power-up-badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: badgeShine 3s linear infinite;
+}
+
+@keyframes badgeShine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.badge-icon {
+  font-size: 1.25rem;
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+.badge-icon:first-child {
+  animation-delay: 0s;
+}
+
+.badge-icon:last-child {
+  animation-delay: 0.5s;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.1); }
+}
+
+.badge-text {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e5e7eb;
+}
+
+/* Pixel frame */
+.pixel-frame {
+  position: relative;
+  padding: 3px;
+  background: linear-gradient(135deg, #00ff9f, #00d9ff, #ff006e);
+  animation: frameRotate 6s linear infinite;
+}
+
+@keyframes frameRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.pixel-frame-content {
+  background: #111827;
+  padding: 2rem;
+}
+
+/* Feature cards */
+.feature-card {
+  background: rgba(10, 14, 23, 0.6);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 0, 110, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  border-color: #00d9ff;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 217, 255, 0.2);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.feature-title {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #00d9ff;
+  margin-bottom: 0.5rem;
+}
+
+.feature-description {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff9f, transparent);
+}
+
+.header-text {
+  white-space: nowrap;
+}
+
+/* Terminal mockup */
+.terminal-mockup {
+  background: #0a0e17;
+  border: 3px solid #00d9ff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 30px rgba(0, 217, 255, 0.3),
+    inset 0 0 30px rgba(0, 217, 255, 0.05);
+}
+
+.terminal-header {
+  background: #111827;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 2px solid #00d9ff;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 5px currentColor;
+}
+
+.terminal-button.red {
+  color: #ff006e;
+}
+
+.terminal-button.yellow {
+  color: #fbbf24;
+}
+
+.terminal-button.green {
+  color: #00ff9f;
+}
+
+.terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  flex: 1;
+  text-align: center;
+}
+
+.terminal-body {
+  padding: 2rem;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Mock project card */
+.mock-project-card {
+  background: rgba(17, 24, 39, 0.8);
+  border: 2px solid rgba(0, 255, 159, 0.3);
+  padding: 1.5rem;
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+.mock-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mock-avatar {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 217, 255, 0.2);
+  border: 2px solid #00d9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.mock-info {
+  flex: 1;
+}
+
+.mock-name {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 0.25rem;
+}
+
+.mock-domain {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #00ff9f;
+}
+
+.mock-status {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 255, 159, 0.2);
+  border: 1px solid #00ff9f;
+  color: #00ff9f;
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.mock-progress-section {
+  margin-bottom: 1.5rem;
+}
+
+.mock-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.mock-stat {
+  text-align: center;
+}
+
+.mock-stat-value {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.mock-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.mock-progress-bar {
+  height: 2rem;
+  background: rgba(17, 24, 39, 0.8);
+  border: 2px solid #00ff9f;
+  position: relative;
+  overflow: hidden;
+}
+
+.mock-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff9f, #00d9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: width 1s ease-out;
+}
+
+.progress-text {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0a0e17;
+}
+
+.mock-description {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid #00d9ff;
+}
+
+.mock-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.mock-button {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid;
+  cursor: not-allowed;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.mock-button.primary {
+  background: #00ff9f;
+  border-color: #00ff9f;
+  color: #0a0e17;
+}
+
+.mock-button.secondary {
+  background: transparent;
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+/* Coming soon overlay */
+.coming-soon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.coming-soon-badge {
+  position: relative;
+  padding: 2rem 3rem;
+  background: rgba(10, 14, 23, 0.95);
+  border: 3px solid #ff006e;
+  box-shadow: 
+    0 0 30px rgba(255, 0, 110, 0.5),
+    inset 0 0 30px rgba(255, 0, 110, 0.1);
+}
+
+.badge-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 110, 0.3), transparent);
+  animation: shimmerMove 2s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Pixel button secondary */
+.pixel-button-secondary {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: #00d9ff;
+  border: 3px solid #00d9ff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pixel-button-secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #00d9ff;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.pixel-button-secondary:hover::after {
+  width: 100%;
+}
+
+.pixel-button-secondary:hover {
+  color: #0a0e17;
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Info banner */
+.info-banner {
+  background: rgba(0, 217, 255, 0.1);
+  border: 2px solid #00d9ff;
+  border-left: 4px solid #00d9ff;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.info-text strong {
+  color: #00d9ff;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .terminal-body {
+    padding: 1rem;
+    min-height: 300px;
+  }
+  
+  .mock-project-card {
+    padding: 1rem;
+  }
+  
+  .mock-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .mock-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .mock-stat-value {
+    font-size: 1rem;
+  }
+  
+  .mock-actions {
+    flex-direction: column;
+  }
+  
+  .coming-soon-badge {
+    padding: 1.5rem 2rem;
+  }
+  
+  .coming-soon-badge .font-pixel {
+    font-size: 1.5rem;
+  }
+}

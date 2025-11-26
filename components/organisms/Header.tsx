@@ -46,7 +46,7 @@ export default function Header() {
     }
 
     return (
-        <header className="font-primary w-full border-b border-foreground/20 sticky top-0 left-0 right-0 z-50 h-20">
+        <header className="font-primary w-full bg-background border-b border-foreground/20 fixed top-0 left-0 right-0 z-50 h-20">
             <div className="w-full p-4 px-8 sm:px-6 md:w-screen md:flex md:justify-self-center">
                 <div className="flex items-center justify-between align-center text-center w-full">
                     {/* Left section: Logo + Desktop Navigation */}

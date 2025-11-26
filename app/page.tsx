@@ -6,6 +6,9 @@ import Header from "@/components/organisms/Header";
 import LoadingScreen from "@/components/organisms/LoadingScreen";
 import Footer from "@/components/organisms/Footer";
 import Hero from "@/components/layouts/Hero";
+import Haccelerator from "@/components/layouts/Haccelerator";
+import EurekaLaunchpad from "@/components/layouts/EurekaLaunchpad";
+import GameOver from "@/components/layouts/GameOver";
 
 export default function Home() {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
@@ -31,13 +34,16 @@ export default function Home() {
     <>
       <LoadingScreen isLoaded={assetsLoaded} />
       <div
-        className={`flex flex-col items-center justify-center min-h-screen w-screen bg-background text-foreground overflow-x-hidden line-height-1.6 font-jetbrains-mono transition-opacity duration-500 ${
+        className={`flex flex-col items-center justify-center min-h-screen w-full bg-background text-foreground overflow-x-hidden line-height-1.6 font-jetbrains-mono transition-opacity duration-500 ${
           assetsLoaded ? "opacity-100" : "opacity-0"
         }`}
         aria-busy={!assetsLoaded}
       >
         <Header />
         <Hero />
+        <Haccelerator />
+        <EurekaLaunchpad />
+        <GameOver />
       </div>
       <Footer />
     </>
