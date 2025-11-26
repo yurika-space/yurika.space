@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const themes = [
   { value: "default", label: "Default" },
@@ -20,19 +20,11 @@ const themes = [
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
   // Ensure dark mode is always enabled
   useEffect(() => {
-    setMounted(true);
-    const root = document.documentElement;
-    // Always add dark class
-    root.classList.add("dark");
+    document.documentElement.classList.add("dark");
   }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <div className="flex items-center gap-4">

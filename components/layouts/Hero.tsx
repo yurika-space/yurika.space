@@ -1,49 +1,51 @@
+import Link from "next/link";
 import React from "react";
 
-interface HeroProps {
-  title: string;
-  description: string;
-  image: string;
-}
+
 
 export default function Hero() {
-  return (
-    <section className="flex flex-col items-center justify-center h-screen w-full">
-      <div className=" relative h-full w-screen overflow-hidden">
-        <div className="relative h-full w-screen flex items-center justify-center">
-          {/* Grid background - needs custom CSS */}
-          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse" />
+    const motivations = [
+        "Discover.",
+        "Build.",
+        "Fund.",
+        "Together.",
+    ];
 
+  return (
+    <section className="flex flex-col items-center justify-center h-screen w-full px-4 overflow-hidden">
+      <div className=" relative h-full w-screen">
+        <div className="relative h-full w-full">
+          {/* Grid background - needs custom CSS */}
+          <div className="grid-bg absolute inset-0 opacity-80 animate-grid-pulse" />
           {/* Glowing orbs with float animation */}
           <div
-            className="absolute w-[400px] h-[400px] rounded-full bg-yurika-electric blur-[80px] opacity-30 -top-24 -left-24 animate-float"
+            className="absolute w-[400px] h-[400px] rounded-full bg-brown-300 blur-[80px] opacity-40 -top-24 -left-24 animate-float"
             style={{ animationDelay: "0s" }}
           />
           <div
-            className="absolute w-[300px] h-[300px] rounded-full bg-yurika-pink blur-[80px] opacity-30 -bottom-12 -right-12 animate-float"
+            className="absolute w-[300px] h-[300px] rounded-full bg-sidebar-accent blur-[80px] opacity-5 -bottom-12 -right-12 animate-float"
             style={{ animationDelay: "7s" }}
           />
           <div
-            className="absolute w-[250px] h-[250px] rounded-full bg-yurika-cyan blur-[80px] opacity-30 top-1/2 right-[20%] animate-float"
+            className="absolute w-[250px] h-[250px] rounded-full bg-green-500 blur-[80px] opacity-20 top-1/2 right-[20%] animate-float"
             style={{ animationDelay: "14s" }}
           />
         </div>
         {/* Hero content */}
-
         <div className="absolute z-5 inset-0 w-full text-center">
           {/* Title with glitch effect */}
           <h1
-            className="eyebrow font-pixel text-3xl pt-25 sm:text-7xl lg:text-8xl font-bold leading-tight mb-6 opacity-0 animate-fade-in-up"
+            className="eyebrow font-pixel text-4xl pt-30 lg:text-8xl font-bold leading-tight mb-8 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <span className="glitch-text animate-glitch">
+            <span className="glitch-text animate-glitch tracking-tight px-2">
               Welcome to the Uprising
             </span>
           </h1>
 
           {/* Subtitle with highlights */}
           <p
-            className="relative font-pixel text-md px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
+            className="relative font-pixel text-2xl px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
             For the{" "}
@@ -63,19 +65,20 @@ export default function Hero() {
 
           {/* Body text */}
           <p
-            className="font-pixel text-sm px-8 py-1 lg:text-xl text-yurika-text-muted max-w-2xl mx-auto mb-6 leading-relaxed opacity-0 animate-fade-in-up"
+            className="font-pixel text-lg tracking-tighter px-4 py-1 lg:text-xl text-yurika-text-muted max-w-2xl mx-auto mb-6 leading-relaxed opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.8s" }}
           >
             A digital ecosystem that demolishes the walls between education,
             experience, and entrepreneurship.
           </p>
 
-          <h2
-            className="font-press-start-2p text-sm px-2 text-yurika-text-muted lg:text-3xl font-bold mb-6 opacity-0 animate-fade-in-up leading-relaxed"
-            style={{ animationDelay: "1s" }}
-          >
-            Discover. Build. Fund. Together.
-          </h2>
+          <div className="flex flex-col justify-center flex-wrap opacity-0 animate-fade-in-up" style={{ animationDelay: "1s" }}>
+            {motivations.map((motivation, index) => (
+              <h2 key={index} className="font-sixtyfour text- px-2 text-yurika-text-muted lg:text-3xl font-bold mb-4 opacity-0 animate-fade-in-up leading-relaxed">
+                {motivation}
+              </h2>
+            ))}
+          </div>
 
           {/* CTA Buttons */}
           <div
@@ -84,26 +87,24 @@ export default function Hero() {
           >
             <a
               href="#"
-              className="btn-shimmer relative font-pixel text-base px-10 py-2 bg-yurika-electric text-yurika-bg-primary font-semibold uppercase tracking-wider overflow-hidden scroll-hidden shadow-glow-electric hover:shadow-glow-electric-lg transition-all duration-300 hover:-translate-y-0.5"
+              className="hidden btn-shimmer relative font-pixel text-base px-10 py-2 bg-yurika-electric text-yurika-bg-primary font-semibold uppercase tracking-wider overflow-hidden scroll-hidden shadow-glow-electric hover:shadow-glow-electric-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Start Your Project
             </a>
             <a
               href="#"
-              className="btn-fill relative font-pixel text-base px-10 py-2 bg-transparent text-yurika-text-primary font-semibold uppercase tracking-wider border-2 border-yurika-electric  transition-all duration-300 hover:text-yurika-bg-primary hover:-translate-y-0.5"
+              className="hidden btn-fill relative font-pixel text-base px-10 py-2 bg-transparent text-yurika-text-primary font-semibold uppercase tracking-wider border-2 border-yurika-electric  transition-all duration-300 hover:text-yurika-bg-primary hover:-translate-y-0.5"
             >
               Explore Ideas
             </a>
           </div>
-            {/* Scroll indicator */}
-        <div
-          className="scroll-indicator absolute bottom-5 left-1/2 -translate-x-1/2 opacity-100 animate-fade-in-up animate-bounce-slow"
-          style={{ animationDelay: "1.4s" }}
-        />
-      </div>
+          {/* Scroll indicator */}
+          <div
+            className="scroll-indicator absolute bottom-10 before:text-6xl! left-1/2 -translate-x-1/2 opacity-100 animate-fade-in-up animate-bounce-slow duration-500 ease-in-out"
+            style={{ animationDelay: "1.4s" }}
+          />
         </div>
-
-      
+      </div>
     </section>
   );
 }

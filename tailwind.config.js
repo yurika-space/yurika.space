@@ -1,4 +1,4 @@
-export default {
+const config = {
   darkMode: 'class', // Enable selector-based dark mode
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,13 +15,13 @@ export default {
       },
       colors: {
         'yurika': {
-          'bg-primary': '#0a0e17',
-          'bg-secondary': '#111827',
-          'electric': '#00ff9f',
-          'pink': '#ff006e',
-          'cyan': '#00d9ff',
-          'text-primary': '#e5e7eb',
-          'text-muted': '#9ca3af',
+          'bg-primary': 'var(--background)',
+          'bg-secondary': 'var(--card)',
+          'electric': 'var(--primary)',
+          'pink': 'var(--destructive)',
+          'cyan': 'var(--accent)',
+          'text-primary': 'var(--foreground)',
+          'text-muted': 'var(--muted-foreground)',
         }
       },
       keyframes: {
@@ -36,10 +36,10 @@ export default {
         },
         glitchPulse: {
           '0%, 90%, 100%': {
-            textShadow: '2px 2px 0 #00ff9f, -2px -2px 0 #ff006e',
+            textShadow: '2px 2px 0 var(--primary), -2px -2px 0 var(--destructive)',
           },
           '95%': {
-            textShadow: '-2px 2px 0 #00ff9f, 2px -2px 0 #ff006e',
+            textShadow: '-2px 2px 0 var(--primary), 2px -2px 0 var(--destructive)',
           },
         },
         underlinePulse: {
@@ -58,14 +58,16 @@ export default {
         },
         bounce: {
           '0%, 100%': { transform: 'translateX(-50%) translateY(0)' },
-          '50%': { transform: 'translateX(-50%) translateY(10px)' },
+          '25%': { transform: 'translateX(-50%) translateY(25px)' },
+          '50%': { transform: 'translateX(-50%) translateY(50px)' },
+          '75%': { transform: 'translateX(-50%) translateY(25px)' },
         },
         blink: {
           '0%, 50%': { opacity: '1' },
           '50.01%, 100%': { opacity: '0' },
         },
         blinkCaret: {
-          '0%, 49%': { borderColor: '#00ff9f' },
+          '0%, 49%': { borderColor: 'var(--primary)' },
           '50%, 100%': { borderColor: 'transparent' },
         },
       },
@@ -76,7 +78,7 @@ export default {
         'glitch': 'glitchPulse 3s ease-in-out infinite',
         'underline-pulse': 'underlinePulse 2s ease-in-out infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-        'bounce-slow': 'bounce 2s ease-in-out infinite',
+        'bounce-slow': 'bounce 150ms ease-in-out infinite',
         'blink': 'blink 1s steps(2, start) infinite',
         'blink-caret': 'blinkCaret 0.8s step-end infinite',
       },
@@ -85,8 +87,8 @@ export default {
       },
       // Custom box shadows for glow effects
       boxShadow: {
-        'glow-electric': '0 0 20px rgba(0, 255, 159, 0.3)',
-        'glow-electric-lg': '0 0 30px rgba(0, 255, 159, 0.6)',
+        'glow-electric': '0 0 20px color-mix(in oklch, var(--primary) 30%, transparent)',
+        'glow-electric-lg': '0 0 30px color-mix(in oklch, var(--primary) 60%, transparent)',
       },
       transitionDelay: {
         '700': '700ms',
@@ -96,3 +98,5 @@ export default {
   },
   plugins: [],
 }
+
+export default config;

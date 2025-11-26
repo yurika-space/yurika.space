@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 type Datetime = string | Date;
 
 const CountdownTimer = ({ targetDate }: { targetDate: Datetime }) => {
-  const calculateTimeRemaining = () => {
+  const calculateTimeRemaining = useCallback(() => {
     const now = new Date().getTime();
     const target = new Date(targetDate).getTime();
     const distance = target - now;
@@ -20,9 +20,9 @@ const CountdownTimer = ({ targetDate }: { targetDate: Datetime }) => {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     return { days, hours, minutes, seconds, expired: false };
-  };
+  }, [targetDate]);
 
-  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
+  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -31,7 +31,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Datetime }) => {
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(timer);
-  }, [targetDate]); // Re-run effect if targetDate changes
+  }, [calculateTimeRemaining]); // Re-run effect if targetDate changes
 
   if (timeRemaining.expired) {
     return <div>Countdown Expired!</div>;

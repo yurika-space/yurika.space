@@ -120,9 +120,9 @@ export default function Haccelerator() {
           </h2>
           
           <p className="font-mono text-base sm:text-lg text-yurika-text-muted max-w-2xl mx-auto leading-relaxed px-4">
-            We've created a 16-week program that takes you from idea to
+            We&apos;ve created a 16-week program that takes you from idea to
             launch, including tech support and business advice—because we
-            can't all afford Harvard, Wharton, or whatever fancy
+            can&apos;t all afford Harvard, Wharton, or whatever fancy
             institution is gatekeeping success this week.
           </p>
         </div>
@@ -193,7 +193,7 @@ export default function Haccelerator() {
                     <div className="pixel-divider" />
                     <p className="font-mono text-sm text-yurika-text-muted">
                       {level.week === 16
-                        ? "The final challenge! Launch your product to the world and prepare for scale. You've completed the training—now it's time to dominate."
+                        ? "The final challenge! Launch your product to the world and prepare for scale. You&apos;ve completed the training—now it&apos;s time to dominate."
                         : level.week >= 12
                           ? "Advanced stage: Focus on launch preparation, community building, and setting up systems for long-term success."
                           : level.week >= 8

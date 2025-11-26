@@ -50,13 +50,13 @@ export default function GameOver() {
         >
           <div className="message-box">
             <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed mb-6">
-              We're dismantling the gatekeeping and nurturing collaboration for a more open, 
+              We&apos;re dismantling the gatekeeping and nurturing collaboration for a more open, 
               inclusive, and equitable digital future. Take a module. Join a team. Support a project. 
               Complete a quest to help an up-and-coming visionary.
             </p>
             <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
               Stick around, unleash your voice, and connect with other like-minded rebels. 
-              You might just find your own <span className="text-yurika-electric font-bold">"Yurika!"</span> moment.
+              You might just find your own <span className="text-yurika-electric font-bold">&quot;Yurika!&quot;</span> moment.
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function GameOver() {
               FOR CREATORS
             </h3>
             <p className="card-description font-mono text-sm text-yurika-text-muted mb-6">
-              You have ideas that could change the world. Let's build them together.
+              You have ideas that could change the world. Let&apos;s build them together.
             </p>
             <a 
               href="/join-fight/creators"

@@ -1,0 +1,446 @@
+/* Pixel Border Frame - Portrait Version with Theme Colors */
+/* Uses CSS variables from retro-globals.css for automatic theme support */
+
+.pixel-frame-portrait {
+  position: relative;
+  background: var(--background);
+  padding: 3rem 2rem; /* Adjusted for portrait orientation */
+  margin: 2rem 0;
+  min-height: 400px; /* Minimum height for portrait */
+}
+
+/* Border container */
+.pixel-border-portrait {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner pieces - optimized for portrait (taller) layout */
+.corner-tl-portrait,
+.corner-tr-portrait,
+.corner-bl-portrait,
+.corner-br-portrait {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: var(--border);
+}
+
+/* Top-left corner */
+.corner-tl-portrait {
+  top: 0;
+  left: 0;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 12%, 88% 12%, 88% 24%, 76% 24%, 76% 36%, 
+    64% 36%, 64% 48%, 52% 48%, 52% 60%, 40% 60%, 40% 72%, 28% 72%, 
+    28% 84%, 16% 84%, 16% 96%, 12% 96%, 12% 100%, 0 100%
+  );
+}
+
+/* Top-right corner */
+.corner-tr-portrait {
+  top: 0;
+  right: 0;
+  clip-path: polygon(
+    0 0, 100% 0, 100% 100%, 88% 100%, 88% 96%, 84% 96%, 84% 84%, 
+    72% 84%, 72% 72%, 60% 72%, 60% 60%, 48% 60%, 48% 48%, 36% 48%, 
+    36% 36%, 24% 36%, 24% 24%, 12% 24%, 12% 12%, 0 12%
+  );
+}
+
+/* Bottom-left corner */
+.corner-bl-portrait {
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(
+    0 0, 12% 0, 12% 4%, 16% 4%, 16% 16%, 28% 16%, 28% 28%, 
+    40% 28%, 40% 40%, 52% 40%, 52% 52%, 64% 52%, 64% 64%, 76% 64%, 
+    76% 76%, 88% 76%, 88% 88%, 100% 88%, 100% 100%, 0 100%
+  );
+}
+
+/* Bottom-right corner */
+.corner-br-portrait {
+  bottom: 0;
+  right: 0;
+  clip-path: polygon(
+    0 88%, 12% 88%, 12% 76%, 24% 76%, 24% 64%, 36% 64%, 36% 52%, 
+    48% 52%, 48% 40%, 60% 40%, 60% 28%, 72% 28%, 72% 16%, 84% 16%, 
+    84% 4%, 88% 4%, 88% 0, 100% 0, 100% 100%, 0 100%
+  );
+}
+
+/* Border edges with pixel teeth pattern */
+.border-top-portrait,
+.border-bottom-portrait {
+  position: absolute;
+  left: 50px;
+  right: 50px;
+  height: 12px;
+  background: var(--border);
+}
+
+.border-top-portrait {
+  top: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      var(--border) 0px,
+      var(--border) 28px,
+      transparent 28px,
+      transparent 34px,
+      var(--border) 34px,
+      var(--border) 48px,
+      transparent 48px,
+      transparent 54px,
+      var(--border) 54px,
+      var(--border) 68px,
+      transparent 68px,
+      transparent 76px
+    );
+}
+
+.border-bottom-portrait {
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      var(--border) 0px,
+      var(--border) 22px,
+      transparent 22px,
+      transparent 30px,
+      var(--border) 30px,
+      var(--border) 52px,
+      transparent 52px,
+      transparent 60px,
+      var(--border) 60px,
+      var(--border) 72px,
+      transparent 72px,
+      transparent 82px
+    );
+}
+
+.border-left-portrait,
+.border-right-portrait {
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  width: 12px;
+  background: var(--border);
+}
+
+.border-left-portrait {
+  left: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      var(--border) 0px,
+      var(--border) 22px,
+      transparent 22px,
+      transparent 30px,
+      var(--border) 30px,
+      var(--border) 52px,
+      transparent 52px,
+      transparent 60px,
+      var(--border) 60px,
+      var(--border) 72px,
+      transparent 72px,
+      transparent 82px
+    );
+}
+
+.border-right-portrait {
+  right: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      var(--border) 0px,
+      var(--border) 28px,
+      transparent 28px,
+      transparent 36px,
+      var(--border) 36px,
+      var(--border) 48px,
+      transparent 48px,
+      transparent 58px,
+      var(--border) 58px,
+      var(--border) 72px,
+      transparent 72px,
+      transparent 80px
+    );
+}
+
+/* Content area - ensure it's above the border */
+.pixel-frame-content-portrait {
+  position: relative;
+  z-index: 2;
+  color: var(--foreground);
+}
+
+/* Optional: Add inner shadow for depth using theme colors */
+.pixel-frame-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  box-shadow: inset 0 0 20px var(--ring);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Theme-aware variants */
+.pixel-frame-portrait.frame-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.pixel-frame-portrait.frame-primary .corner-tl-portrait,
+.pixel-frame-portrait.frame-primary .corner-tr-portrait,
+.pixel-frame-portrait.frame-primary .corner-bl-portrait,
+.pixel-frame-portrait.frame-primary .corner-br-portrait,
+.pixel-frame-portrait.frame-primary .border-top-portrait,
+.pixel-frame-portrait.frame-primary .border-bottom-portrait,
+.pixel-frame-portrait.frame-primary .border-left-portrait,
+.pixel-frame-portrait.frame-primary .border-right-portrait {
+  background: var(--primary-foreground);
+}
+
+.pixel-frame-portrait.frame-card {
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.pixel-frame-portrait.frame-card .corner-tl-portrait,
+.pixel-frame-portrait.frame-card .corner-tr-portrait,
+.pixel-frame-portrait.frame-card .corner-bl-portrait,
+.pixel-frame-portrait.frame-card .corner-br-portrait,
+.pixel-frame-portrait.frame-card .border-top-portrait,
+.pixel-frame-portrait.frame-card .border-bottom-portrait,
+.pixel-frame-portrait.frame-card .border-left-portrait,
+.pixel-frame-portrait.frame-card .border-right-portrait {
+  background: var(--border);
+}
+
+.pixel-frame-portrait.frame-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.pixel-frame-portrait.frame-secondary .corner-tl-portrait,
+.pixel-frame-portrait.frame-secondary .corner-tr-portrait,
+.pixel-frame-portrait.frame-secondary .corner-bl-portrait,
+.pixel-frame-portrait.frame-secondary .corner-br-portrait,
+.pixel-frame-portrait.frame-secondary .border-top-portrait,
+.pixel-frame-portrait.frame-secondary .border-bottom-portrait,
+.pixel-frame-portrait.frame-secondary .border-left-portrait,
+.pixel-frame-portrait.frame-secondary .border-right-portrait {
+  background: var(--secondary-foreground);
+}
+
+.pixel-frame-portrait.frame-accent {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.pixel-frame-portrait.frame-accent .corner-tl-portrait,
+.pixel-frame-portrait.frame-accent .corner-tr-portrait,
+.pixel-frame-portrait.frame-accent .corner-bl-portrait,
+.pixel-frame-portrait.frame-accent .corner-br-portrait,
+.pixel-frame-portrait.frame-accent .border-top-portrait,
+.pixel-frame-portrait.frame-accent .border-bottom-portrait,
+.pixel-frame-portrait.frame-accent .border-left-portrait,
+.pixel-frame-portrait.frame-accent .border-right-portrait {
+  background: var(--accent-foreground);
+}
+
+.pixel-frame-portrait.frame-muted {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+
+.pixel-frame-portrait.frame-muted .corner-tl-portrait,
+.pixel-frame-portrait.frame-muted .corner-tr-portrait,
+.pixel-frame-portrait.frame-muted .corner-bl-portrait,
+.pixel-frame-portrait.frame-muted .corner-br-portrait,
+.pixel-frame-portrait.frame-muted .border-top-portrait,
+.pixel-frame-portrait.frame-muted .border-bottom-portrait,
+.pixel-frame-portrait.frame-muted .border-left-portrait,
+.pixel-frame-portrait.frame-muted .border-right-portrait {
+  background: var(--border);
+}
+
+/* Special effects */
+.pixel-frame-portrait.frame-glow {
+  box-shadow: 
+    0 0 30px var(--ring),
+    0 0 60px var(--primary);
+}
+
+.pixel-frame-portrait.frame-destructive {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+}
+
+.pixel-frame-portrait.frame-destructive .corner-tl-portrait,
+.pixel-frame-portrait.frame-destructive .corner-tr-portrait,
+.pixel-frame-portrait.frame-destructive .corner-bl-portrait,
+.pixel-frame-portrait.frame-destructive .corner-br-portrait,
+.pixel-frame-portrait.frame-destructive .border-top-portrait,
+.pixel-frame-portrait.frame-destructive .border-bottom-portrait,
+.pixel-frame-portrait.frame-destructive .border-left-portrait,
+.pixel-frame-portrait.frame-destructive .border-right-portrait {
+  background: var(--destructive-foreground);
+}
+
+/* Chart color variants (for dashboard/analytics) */
+.pixel-frame-portrait.frame-chart-1 {
+  background: var(--chart-1);
+  color: var(--foreground);
+}
+
+.pixel-frame-portrait.frame-chart-1 .corner-tl-portrait,
+.pixel-frame-portrait.frame-chart-1 .corner-tr-portrait,
+.pixel-frame-portrait.frame-chart-1 .corner-bl-portrait,
+.pixel-frame-portrait.frame-chart-1 .corner-br-portrait,
+.pixel-frame-portrait.frame-chart-1 .border-top-portrait,
+.pixel-frame-portrait.frame-chart-1 .border-bottom-portrait,
+.pixel-frame-portrait.frame-chart-1 .border-left-portrait,
+.pixel-frame-portrait.frame-chart-1 .border-right-portrait {
+  background: var(--foreground);
+}
+
+.pixel-frame-portrait.frame-chart-2 {
+  background: var(--chart-2);
+  color: var(--foreground);
+}
+
+.pixel-frame-portrait.frame-chart-2 .corner-tl-portrait,
+.pixel-frame-portrait.frame-chart-2 .corner-tr-portrait,
+.pixel-frame-portrait.frame-chart-2 .corner-bl-portrait,
+.pixel-frame-portrait.frame-chart-2 .corner-br-portrait,
+.pixel-frame-portrait.frame-chart-2 .border-top-portrait,
+.pixel-frame-portrait.frame-chart-2 .border-bottom-portrait,
+.pixel-frame-portrait.frame-chart-2 .border-left-portrait,
+.pixel-frame-portrait.frame-chart-2 .border-right-portrait {
+  background: var(--foreground);
+}
+
+/* Responsive adjustments for portrait */
+@media (max-width: 768px) {
+  .pixel-frame-portrait {
+    padding: 2.5rem 1.5rem;
+    min-height: 300px;
+  }
+  
+  .corner-tl-portrait,
+  .corner-tr-portrait,
+  .corner-bl-portrait,
+  .corner-br-portrait {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .border-top-portrait,
+  .border-bottom-portrait {
+    left: 35px;
+    right: 35px;
+    height: 10px;
+  }
+  
+  .border-left-portrait,
+  .border-right-portrait {
+    top: 35px;
+    bottom: 35px;
+    width: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-frame-portrait {
+    padding: 2rem 1rem;
+    min-height: 250px;
+  }
+  
+  .corner-tl-portrait,
+  .corner-tr-portrait,
+  .corner-bl-portrait,
+  .corner-br-portrait {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .border-top-portrait,
+  .border-bottom-portrait {
+    left: 28px;
+    right: 28px;
+    height: 8px;
+  }
+  
+  .border-left-portrait,
+  .border-right-portrait {
+    top: 28px;
+    bottom: 28px;
+    width: 8px;
+  }
+}
+
+/* Animation variants */
+.pixel-frame-portrait.frame-animate-entrance {
+  animation: portraitEntrance 0.6s ease-out;
+}
+
+@keyframes portraitEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.pixel-frame-portrait.frame-animate-pulse {
+  animation: portraitPulse 3s ease-in-out infinite;
+}
+
+@keyframes portraitPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px var(--ring),
+      0 0 40px var(--primary);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px var(--ring),
+      0 0 80px var(--primary);
+  }
+}
+
+/* Hover effects */
+.pixel-frame-portrait:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+.pixel-frame-portrait.frame-hover-glow:hover {
+  box-shadow: 
+    0 0 40px var(--ring),
+    0 0 80px var(--primary);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Portrait-specific utility classes */
+.pixel-frame-portrait.frame-tall {
+  min-height: 600px;
+}
+
+.pixel-frame-portrait.frame-extra-tall {
+  min-height: 800px;
+}
+
+.pixel-frame-portrait.frame-compact {
+  min-height: 200px;
+  padding: 2rem 1.5rem;
+}

@@ -1,0 +1,459 @@
+/* Donate Modal Styles - Retro Gaming UI */
+
+:root {
+  --donate-primary-strong: color-mix(in oklch, var(--primary) 80%, black);
+  --donate-primary-shadow: color-mix(in oklch, var(--primary) 60%, black);
+  --donate-destructive-strong: color-mix(in oklch, var(--destructive) 80%, black);
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in oklch, var(--background) 90%, transparent);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Donate modal */
+.donate-modal {
+  background: var(--card);
+  border: 4px solid var(--primary);
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 
+    0 0 40px color-mix(in oklch, var(--primary) 40%, transparent),
+    inset 0 0 40px color-mix(in oklch, var(--primary) 10%, transparent);
+  animation: modalSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background: var(--destructive);
+  border: 2px solid var(--foreground);
+  border-radius: 4px;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--donate-destructive-strong);
+  transform: rotate(90deg);
+  box-shadow: 0 0 20px color-mix(in oklch, var(--destructive) 60%, transparent);
+}
+
+/* Modal header */
+.modal-header {
+  padding: 2rem 2rem 1rem;
+  border-bottom: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  text-align: center;
+}
+
+/* Modal body */
+.modal-body {
+  padding: 2rem;
+}
+
+/* Amount section */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.amount-button {
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.amount-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in oklch, var(--primary) 20%, transparent), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.amount-button:hover::before {
+  opacity: 1;
+}
+
+.amount-button:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.amount-button.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 20px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.amount-button.selected::before {
+  opacity: 0;
+}
+
+.amount-currency {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.amount-button.selected .amount-currency {
+  color: var(--background);
+}
+
+.amount-value {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.amount-button.selected .amount-value {
+  color: var(--background);
+}
+
+/* Custom amount input */
+.custom-amount-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix {
+  position: absolute;
+  left: 1rem;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.125rem;
+  color: var(--primary);
+  pointer-events: none;
+}
+
+.custom-amount-input input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.5rem;
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  border-radius: 4px;
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-amount-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.custom-amount-input input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Payment method tabs */
+.payment-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.payment-tab {
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border: 2px solid color-mix(in oklch, var(--accent) 30%, transparent);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.payment-tab:hover {
+  border-color: var(--accent);
+  background: color-mix(in oklch, var(--card) 100%, transparent);
+}
+
+.payment-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px color-mix(in oklch, var(--accent) 50%, transparent);
+}
+
+.tab-icon {
+  font-size: 1.5rem;
+}
+
+.tab-text {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+.payment-tab.active .tab-text {
+  color: var(--background);
+}
+
+/* Crypto tabs */
+.crypto-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.crypto-tab {
+  background: color-mix(in oklch, var(--card) 60%, transparent);
+  border: 2px solid color-mix(in oklch, var(--destructive) 30%, transparent);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.crypto-tab:hover {
+  border-color: var(--destructive);
+  background: color-mix(in oklch, var(--card) 90%, transparent);
+}
+
+.crypto-tab.active {
+  background: color-mix(in oklch, var(--destructive) 20%, transparent);
+  border-color: var(--destructive);
+  box-shadow: 0 0 15px color-mix(in oklch, var(--destructive) 30%, transparent);
+}
+
+.crypto-symbol {
+  font-size: 1.25rem;
+}
+
+.crypto-name {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+
+/* Donation summary */
+.donation-summary {
+  background: color-mix(in oklch, var(--primary) 5%, transparent);
+  border: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.summary-row:not(:last-child) {
+  border-bottom: 1px solid color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+/* Modal actions */
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.donate-button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.donate-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.donate-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.donate-button.primary {
+  background: var(--primary);
+  color: var(--background);
+  box-shadow: 0 4px 0 0 var(--donate-primary-strong);
+}
+
+.donate-button.primary:hover:not(:disabled) {
+  background: var(--donate-primary-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 var(--donate-primary-shadow), 0 0 25px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.donate-button.primary:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 var(--donate-primary-strong);
+}
+
+.donate-button.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.donate-button.secondary:hover {
+  background: color-mix(in oklch, var(--accent) 10%, transparent);
+  box-shadow: 0 0 20px color-mix(in oklch, var(--accent) 30%, transparent);
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.button-icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.donate-button:hover:not(:disabled) .button-icon {
+  transform: translateX(4px);
+}
+
+/* Payment info */
+.payment-info {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+/* Scrollbar styling */
+.donate-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.donate-modal::-webkit-scrollbar-track {
+  background: color-mix(in oklch, var(--card) 50%, transparent);
+}
+
+.donate-modal::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.donate-modal::-webkit-scrollbar-thumb:hover {
+  background: var(--donate-primary-strong);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .donate-modal {
+    border-width: 3px;
+    max-width: 100%;
+    margin: 0 0.5rem;
+  }
+  
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+  
+  .amount-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .amount-button {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .amount-value {
+    font-size: 1rem;
+  }
+  
+  .payment-tabs {
+    grid-template-columns: 1fr;
+  }
+  
+  .crypto-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .amount-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .amount-button {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .amount-currency {
+    font-size: 0.75rem;
+  }
+  
+  .amount-value {
+    font-size: 0.875rem;
+  }
+}

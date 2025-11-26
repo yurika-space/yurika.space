@@ -1,6 +1,7 @@
 'use client';
 import Button from "./Button";
 
+
 interface BurgerButtonProps {
     handleClick: () => void;
     isOpen: boolean;

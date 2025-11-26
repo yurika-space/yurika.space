@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import "@/components/component_stylesheets/mission.css";
+import { NesHeart } from "@/components/atoms/NesHeart";
 
 export default function Mission() {
   return (
@@ -76,7 +77,7 @@ export default function Mission() {
                 style={{ animationDelay: "0.6s" }}
               >
                 <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
-                  We're tired of watching the same damn casinos gobble up all the funding, 
+                  We&apos;re tired of watching the same damn casinos gobble up all the funding, 
                   only for everyone to pull a shocked Pikachu face when their unsustainable 
                   business models inevitably collapse.{" "}
                   <span className="text-yurika-electric font-bold">Yurika.space</span> gives 
@@ -90,7 +91,7 @@ export default function Mission() {
                 style={{ animationDelay: "0.8s" }}
               >
                 <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
-                  We're not promising you the next billion users. But we{" "}
+                  We&apos;re not promising you the next billion users. But we{" "}
                   <span className="text-yurika-cyan font-bold">ARE</span> promising more 
                   accessible blockchain tooling for future generations. We{" "}
                   <span className="text-yurika-cyan font-bold">ARE</span> promising work 
@@ -108,7 +109,7 @@ export default function Mission() {
               >
                 <div className="quote-decoration">&gt;&gt;&gt;</div>
                 <p className="font-pixel text-xl sm:text-2xl text-yurika-electric text-center py-6">
-                  We don't believe in failure.
+                  We don&apos;t believe in failure.
                   <br />
                   Just lessons for improvement.
                 </p>
@@ -143,12 +144,11 @@ export default function Mission() {
           className="flex justify-center mt-12 animate-fade-in-up"
           style={{ animationDelay: "1.6s" }}
         >
-          <div className="pixel-hearts-row">
-            <span className="pixel-heart">❤️</span>
-            <span className="pixel-heart delay-1">❤️</span>
-            <span className="pixel-heart delay-2">❤️</span>
-            <span className="pixel-heart delay-3">❤️</span>
-            <span className="pixel-heart delay-4">❤️</span>
+          <div className="pixel-hearts-row space-x-4">
+            <span className="pixel-heart"><NesHeart variant="full" size={2} /></span>
+            <span className="pixel-heart delay-1"><NesHeart variant="full" size={2} /></span>
+            <span className="pixel-heart delay-2"><NesHeart variant="full" size={2} /></span>
+            <span className="pixel-heart delay-3"><NesHeart variant="half" size={2} /></span>
           </div>
         </div>
       </div>

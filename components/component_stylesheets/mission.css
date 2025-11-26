@@ -1,10 +1,15 @@
 /* Mission Component Styles - Retro 8-bit Theme */
 
+:root {
+  --mission-frame-fill: color-mix(in oklch, var(--background) 85%, var(--primary) 15%);
+  --mission-border-color: color-mix(in oklch, var(--primary) 40%, var(--foreground) 60%);
+}
+
 /* Pixel static background */
 .pixel-static {
     background-image: 
-      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px),
-      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0px, transparent 1px, transparent 2px, rgba(255, 255, 255, 0.03) 3px);
+      repeating-linear-gradient(0deg, color-mix(in oklch, var(--foreground) 3%, transparent) 0px, transparent 1px, transparent 2px, color-mix(in oklch, var(--foreground) 3%, transparent) 3px),
+      repeating-linear-gradient(90deg, color-mix(in oklch, var(--foreground) 3%, transparent) 0px, transparent 1px, transparent 2px, color-mix(in oklch, var(--foreground) 3%, transparent) 3px);
     animation: staticNoise 0.5s steps(2) infinite;
   }
   
@@ -16,9 +21,9 @@
   /* Floating pixels effect */
   .floating-pixels {
     background-image: 
-      radial-gradient(circle, #00ff9f 1px, transparent 1px),
-      radial-gradient(circle, #ff006e 1px, transparent 1px),
-      radial-gradient(circle, #00d9ff 1px, transparent 1px);
+      radial-gradient(circle, var(--primary) 1px, transparent 1px),
+      radial-gradient(circle, var(--destructive) 1px, transparent 1px),
+      radial-gradient(circle, var(--accent) 1px, transparent 1px);
     background-size: 100px 100px, 150px 150px, 200px 200px;
     background-position: 0 0, 50px 50px, 100px 100px;
     animation: floatPixels 40s linear infinite;
@@ -31,13 +36,13 @@
   
   /* Mission badge */
   .mission-badge {
-    background: rgba(0, 255, 159, 0.1);
-    border: 3px solid #00ff9f;
+    background: color-mix(in oklch, var(--primary) 10%, transparent);
+    border: 3px solid var(--primary);
     padding: 0.75rem 2rem;
     position: relative;
     box-shadow: 
-      0 0 20px rgba(0, 255, 159, 0.3),
-      inset 0 0 20px rgba(0, 255, 159, 0.1);
+      0 0 20px color-mix(in oklch, var(--primary) 30%, transparent),
+      inset 0 0 20px color-mix(in oklch, var(--primary) 10%, transparent);
     animation: badgeGlow 3s ease-in-out infinite;
   }
   
@@ -47,8 +52,8 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #00ff9f;
-    box-shadow: 0 0 10px #00ff9f;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
   }
   
   .mission-badge::before {
@@ -64,27 +69,27 @@
   @keyframes badgeGlow {
     0%, 100% {
       box-shadow: 
-        0 0 20px rgba(0, 255, 159, 0.3),
-        inset 0 0 20px rgba(0, 255, 159, 0.1);
+        0 0 20px color-mix(in oklch, var(--primary) 30%, transparent),
+        inset 0 0 20px color-mix(in oklch, var(--primary) 10%, transparent);
     }
     50% {
       box-shadow: 
-        0 0 30px rgba(0, 255, 159, 0.5),
-        inset 0 0 30px rgba(0, 255, 159, 0.2);
+        0 0 30px color-mix(in oklch, var(--primary) 50%, transparent),
+        inset 0 0 30px color-mix(in oklch, var(--primary) 20%, transparent);
     }
   }
   
   .badge-text {
-    color: #00ff9f;
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    text-shadow: 0 0 10px rgba(0, 255, 159, 0.5);
+    text-shadow: 0 0 10px color-mix(in oklch, var(--primary) 50%, transparent);
   }
   
   /* Pixel border frame - recreating the uploaded image */
   .mission-frame {
     position: relative;
-    background: #f5f0e1; /* Beige/cream color from the image */
+  background: var(--mission-frame-fill); /* Beige/cream color from the image */
     margin: 2rem 0;
   }
   
@@ -248,23 +253,23 @@
   
   /* Mission text blocks */
   .mission-text-block {
-    background: rgba(17, 24, 39, 0.3);
-    border-left: 4px solid #00ff9f;
+    background: color-mix(in oklch, var(--card) 30%, transparent);
+    border-left: 4px solid var(--primary);
     padding: 1.5rem;
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
   }
   
   .mission-text-block:hover {
-    background: rgba(17, 24, 39, 0.5);
+    background: color-mix(in oklch, var(--card) 50%, transparent);
     border-left-width: 6px;
     transform: translateX(4px);
   }
   
   /* Mission quote */
   .mission-quote {
-    background: rgba(0, 255, 159, 0.05);
-    border: 2px solid #00ff9f;
+    background: color-mix(in oklch, var(--primary) 5%, transparent);
+    border: 2px solid var(--primary);
     padding: 2rem;
     position: relative;
     margin: 2rem 0;
@@ -273,7 +278,7 @@
   .quote-decoration {
     font-family: 'Pixelify Sans', sans-serif;
     font-size: 1.5rem;
-    color: #00ff9f;
+    color: var(--primary);
     text-align: center;
     animation: decorationPulse 2s ease-in-out infinite;
   }
@@ -293,22 +298,22 @@
     background: linear-gradient(
       90deg,
       transparent,
-      #00ff9f 20%,
-      #00d9ff 50%,
-      #ff006e 80%,
+      var(--primary) 20%,
+      var(--accent) 50%,
+      var(--destructive) 80%,
       transparent
     );
-    box-shadow: 0 0 15px rgba(0, 255, 159, 0.6);
+    box-shadow: 0 0 15px color-mix(in oklch, var(--primary) 60%, transparent);
     animation: dividerScan 3s ease-in-out infinite;
   }
   
   @keyframes dividerScan {
     0%, 100% {
-      box-shadow: 0 0 15px rgba(0, 255, 159, 0.6);
+      box-shadow: 0 0 15px color-mix(in oklch, var(--primary) 60%, transparent);
       transform: scaleX(1);
     }
     50% {
-      box-shadow: 0 0 25px rgba(0, 255, 159, 0.9);
+      box-shadow: 0 0 25px color-mix(in oklch, var(--primary) 90%, transparent);
       transform: scaleX(0.95);
     }
   }
@@ -328,14 +333,14 @@
   .button-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #00ff9f, #00d9ff);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     transition: all 0.3s ease;
     z-index: 0;
   }
   
   .mission-cta-button:hover .button-bg {
-    background: linear-gradient(135deg, #00d9ff, #00ff9f);
-    box-shadow: 0 0 30px rgba(0, 255, 159, 0.6);
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    box-shadow: 0 0 30px color-mix(in oklch, var(--primary) 60%, transparent);
   }
   
   .mission-cta-button:active .button-bg {
@@ -348,7 +353,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #0a0e17;
+    color: var(--background);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
@@ -370,7 +375,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #00ff9f;
+    background: var(--primary);
     z-index: 2;
     transition: all 0.3s ease;
   }
@@ -378,13 +383,13 @@
   .mission-cta-button::before {
     top: -2px;
     left: -2px;
-    box-shadow: 0 0 10px #00ff9f;
+    box-shadow: 0 0 10px var(--primary);
   }
   
   .mission-cta-button::after {
     bottom: -2px;
     right: -2px;
-    box-shadow: 0 0 10px #00ff9f;
+    box-shadow: 0 0 10px var(--primary);
   }
   
   .mission-cta-button:hover::before,
@@ -396,14 +401,18 @@
   /* Pixel hearts row */
   .pixel-hearts-row {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
   }
   
   .pixel-heart {
     font-size: 1.5rem;
-    filter: drop-shadow(0 0 8px rgba(255, 0, 110, 0.6));
+    filter: drop-shadow(0 0 8px color-mix(in oklch, var(--destructive) 60%, transparent));
     animation: heartFloat 3s ease-in-out infinite;
+  }
+
+  .pixel-heart.last-one {
+    animation: heartFlash 1s ease-in-out infinite;
   }
   
   .pixel-heart.delay-1 { animation-delay: 0.2s; }
@@ -420,6 +429,26 @@
       transform: translateY(-15px) scale(1.1); 
       opacity: 1;
     }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1s ease-in-out infinite;
+  }
+  
+  @keyframes heartFlash {
+    0% {
+      variant: "half";
+    }
+    50% {
+      variant: "full";
+    }
+    100% {
+      variant: "half";
+    }
+  }
+  
+  .animate-heartFlash {
+    animation: heartFlash 1s ease-in-out infinite;
   }
   
   /* Responsive adjustments */

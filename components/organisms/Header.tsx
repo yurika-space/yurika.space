@@ -3,47 +3,24 @@ import Logo from "../atoms/Logo";
 import LinkButton from "../atoms/Link";
 import ThemeToggle from "../atoms/ThemeToggle";
 import BurgerMenu from "../molecules/BurgerMenu";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-
 
 const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Haccelerator", href: "/haccelerator" },
+    { name: "Eureka Launchpad", href: "/eureka-launchpad" },
+    { name: "Game Over", href: "/game-over" },
+    { name: "Mission", href: "/mission" },
+    { name: "Blog", href: "/blog" },
+    { name: "Donate", href: "/donate" },
     { name: "Contact", href: "/contact" },
+
 ];
 
 export default function Header() {
-    const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-    const [isDark, setIsDark] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-        setIsDark(document.documentElement.classList.contains("dark"));
-    }, []);
-       // Watch for dark mode changes
-       useEffect(() => {
-        const observer = new MutationObserver(() => {
-            setIsDark(document.documentElement.classList.contains("dark"));
-        });
-        
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['class']
-        });
-
-        return () => observer.disconnect();
-    }, []);
-
-    // Use dark mode state instead of theme name
-    const logo = isDark ? "/logo_white.png" : "/logo_black.png";
+    const logo = "/logo_white.png";
     const width = 164;
     const height = 96;
-
-    if (!mounted) {
-        return null; // or return a placeholder
-    }
 
     return (
         <header className="font-primary w-full bg-background border-b border-foreground/20 fixed top-0 left-0 right-0 z-50 h-20">
@@ -60,6 +37,7 @@ export default function Header() {
                                     buttonName={item.name}
                                     className="text-foreground hover:text-foreground/80 transition-colors"
                                 />
+                                
                             ))}
                         </nav>
                     </div>

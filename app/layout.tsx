@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import ThemeWrapper from "@/components/providers/ThemeWrapper";
 import "./globals.css";
 import "./retro-globals.css";
+import Head from "next/head";
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ const pressStart2p = Press_Start_2P({
   variable: "--font-press-start-2p",
 });
 
+
 export const metadata: Metadata = {
   title: "yurika.space - Community-driven Blockchain Innovation and Community Support",
   description: "yurika.space is a community-driven blockchain innovation and community support platform supporting marginalized founders and outcasts.",
@@ -57,7 +59,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${ibmPlexSans.variable} ${pixelifySans.variable} ${sixtyfour.variable} ${jetBrainsMono.variable} ${pressStart2p.variable} antialiased`}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <body className={`${ibmPlexSans.variable} ${pixelifySans.variable} ${sixtyfour.variable} ${jetBrainsMono.variable} ${pressStart2p.variable} antialiased dark`}>
         <ThemeProvider
         attribute="class"
         defaultTheme="default"

@@ -40,7 +40,7 @@ export default function EurekaLaunchpad() {
                     domain name-backed crowdfunding
                   </span>{" "}
                   for the marginalized who struggle to raise a
-                  friends-and-family round because they don't have rich parents
+                  friends-and-family round because they don&apos;t have rich parents
                   or a wealthy network.
                 </p>
               </div>

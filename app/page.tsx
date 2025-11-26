@@ -10,6 +10,7 @@ import Haccelerator from "@/components/layouts/Haccelerator";
 import EurekaLaunchpad from "@/components/layouts/EurekaLaunchpad";
 import GameOver from "@/components/layouts/GameOver";
 import Mission from "@/components/layouts/Mission";
+import JoinTheFight from "@/components/layouts/JoinTheFight";
 
 export default function Home() {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
@@ -46,6 +47,7 @@ export default function Home() {
         <EurekaLaunchpad />
         <GameOver />
         <Mission />
+        <JoinTheFight />
       </div>
       <Footer />
     </>
