@@ -7,7 +7,7 @@ interface ComponentBodyProps {
   delay?: number;
 }
 
-export default function ComponentBody({ children, className, delay, style }: ComponentBodyProps) {
+export default function ComponentBody({ children, className, delay }: ComponentBodyProps) {
   return (
     <div className={cn("flex flex-col items-center justify-center text-center animate-fade-in-up mb-8", className)} style={{ animationDelay: `${delay}ms` }}>
       {children}
