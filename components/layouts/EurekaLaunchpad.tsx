@@ -4,7 +4,6 @@ import ComponentHeader from "../atoms/ComponentHeader";
 import ComponentBody from "../atoms/ComponentBody";
 import AnimatedBackground from "../molecules/AnimatedBg";
 import FeatureCard from "../atoms/FeatureCard";
-import Typewriter from "../atoms/Typewriter";
 
 const featureCards = [
   {

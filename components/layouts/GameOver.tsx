@@ -15,25 +15,23 @@ export default function GameOver() {
   }, [])
 
   return (
-    <section className="relative min-h-screen bg-yurika-bg-primary py-16 px-4 overflow-hidden flex items-center justify-center">
-      {/* Scanline effect */}
-      <div className="scanlines absolute inset-0" />
-      
-      {/* Glitch background */}
-      <div className="glitch-bg absolute inset-0 opacity-10" />
-      
-      {/* Vignette effect */}
-      <div className="vignette absolute inset-0" />
-      
-      {/* Content container */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+    <section className="w-screen min-h-screen flex flex-col items-center justify-center">
+      <div className="relative w-full h-full bg-yurika-bg-primary py-16 px-4">
+      {/* Background effects layer */}
+      <div className="absolute inset-0 z-0">
+        {/* Scanline effect */}
+        <div className="scanlines absolute inset-0" />
         
-        {/* Game Over title with glitch effect */}
-        <div className="game-over-title-container mb-8 animate-fade-in-up">
-          {/* Progress bar decoration */}
+        {/* Glitch background */}
+        <div className="glitch-bg absolute inset-0 opacity-10" />
+        
+        {/* Vignette effect */}
+        <div className="vignette absolute inset-0" />
+
+        {/* Progress bar decoration */}
         <div
-          className="mt-8 animate-fade-in-up"
-          style={{ animationDelay: "1.4s" }}
+          className="mt-8 animate-fade-in-up absolute -top-10 left-0 w-full h-full"
+          style={{ animationDelay: "1.0s" }}
         >
           <div className="xp-bar">
             <div className="xp-bar-fill" style={{ width: "100%" }}>
@@ -41,22 +39,33 @@ export default function GameOver() {
             </div>
           </div>
         </div>
-          <div className="game-over-subtitle font-mono text-xl sm:text-2xl text-yurika-electric mt-4">
-           This is just the beginning...
+      </div>
+      
+      {/* Content container */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center w-full">
+      <ComponentHeader
+              title="Platform Preview"
+              item="🚀"
+              className="animate-fade-in-up w-3/4 mx-auto"
+              style={{ animationDelay: "0.2s" }}
+            />
+        {/* Game Over title with glitch effect */}
+        <div className="game-over-title-container mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="game-over-subtitle font-mono text-xl sm:text-2xl text-yurika-electric mt-4 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+            This is just the beginning...
           </div>
         </div>
+
+        
+      </div>
+    
 
         {/* Coming Soon - Mock-up preview */}
           <div
             className="coming-soon-section animate-fade-in-up"
             style={{ animationDelay: "0.8s" }}
           >
-            <ComponentHeader
-              title="Platform Preview"
-              item="🚀"
-              className="animate-fade-in-up w-3/4 mx-auto"
-              style={{ animationDelay: "0.2s" }}
-            />
+  
 
             {/* Info banner */}
             <div
@@ -222,7 +231,10 @@ export default function GameOver() {
         <div className="konami-hint font-mono text-xs text-yurika-text-muted opacity-30 mt-8">
           ↑ ↑ ↓ ↓ ← → ← → B A
         </div>
-      </div>
+        
+    </div>
+
     </section>
+    
   )
 }
