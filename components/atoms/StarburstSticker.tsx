@@ -26,9 +26,9 @@ export default function StarburstSticker( props: StarburstStickerProps ) {
         {/* Main badge */}
         <div className="relative z-10 bg-linear-to-br from-red-600 to-orange-600 p-2 rounded-full shadow-2xl">
           <div className="bg-yellow-400 p-[3px] rounded-full">
-            <div className="bg-red-600 rounded-full px-10 py-8 flex items-center justify-center">
+            <div className="bg-red-600 rounded-full px-12 py-10 flex items-center justify-center w-full!">
               <span 
-                className="text-6xl font-black text-yellow-300 tracking-wider"
+                className="text-4xl font-black text-yellow-300 tracking-wider leading-normal"
                 style={{ 
                   textShadow: '3px 3px 0 #991b1b, 4px 4px 0 #7f1d1d, 5px 5px 10px rgba(0,0,0,0.5)'
                 }}

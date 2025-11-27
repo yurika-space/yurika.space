@@ -18,35 +18,6 @@ export default function JoinTheFight() {
       {/* Content container */}
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="fight-badge inline-block mb-6">
-            <span className="font-pixel text-base sm:text-lg">
-              ⚔️ JOIN THE FIGHT ⚔️
-            </span>
-          </div>
-          
-          <h2 className="font-sixtyfour text-4xl sm:text-5xl md:text-7xl font-bold text-yurika-text-primary mb-8">
-            <span className="text-yurika-electric">OUR ASK IS</span>{" "}
-            <span className="text-yurika-pink">SIMPLE</span>
-          </h2>
-          
-          <div className="max-w-4xl mx-auto space-y-6">
-            <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
-              Not just financial support{" "}
-              <span className="text-yurika-text-muted">(though if you&apos;re capable of it, please give us all your money)</span>. 
-              We need <span className="text-yurika-electric font-bold">commitment</span>. 
-              A real, no-bullshit commitment to push Web3 past its current state as gambling 
-              thinly veiled as speculative asset trading and yield farming.
-            </p>
-            
-            <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
-              To usher in a new generation of creators, designers, artists, freaks, and geeks 
-              who will diversify the Web3 experience and finally—<span className="text-yurika-pink font-bold">FINALLY</span>—put 
-              us on the path to mass adoption.
-            </p>
-          </div>
-        </div>
 
         {/* Tarot Cards Grid - Three Paths */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -124,14 +95,14 @@ export default function JoinTheFight() {
                 
                 <div className="space-y-4">
                   <p className="font-mono text-sm text-yurika-text-primary leading-relaxed">
-                    There&apos;s more to collaboration than just financial support. We need mentors, 
+                    There's more to collaboration than just financial support. We need mentors, 
                     development support, organizational backup, or even just emotional support 
                     to keep us going.
                   </p>
                   
                   <p className="font-mono text-sm text-yurika-text-muted">
                     Get in touch with us by booking a meeting with our Director and tell us 
-                    how you&apos;d like to get involved.
+                    how you'd like to get involved.
                   </p>
                   
                   <button className="quest-button partner">
@@ -167,7 +138,7 @@ export default function JoinTheFight() {
                 
                 <div className="space-y-4">
                   <p className="font-mono text-sm text-yurika-text-primary leading-relaxed">
-                    It&apos;s time to put your money where your mouth is.
+                    It's time to put your money where your mouth is.
                   </p>
                   
                   <p className="font-mono text-sm text-yurika-text-muted">
@@ -231,7 +202,7 @@ export default function JoinTheFight() {
           style={{ animationDelay: "1s" }}
         >
           <p className="font-pixel text-xl sm:text-2xl text-yurika-electric">
-            Let&apos;s build the future we actually want to live in.
+            Let's build the future we actually want to live in.
           </p>
         </div>
       </div>

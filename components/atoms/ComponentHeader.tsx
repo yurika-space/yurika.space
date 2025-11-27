@@ -11,7 +11,7 @@ export default function ComponentHeader({ title, item, className, style }: Compo
           <div className="inline-block mb-4">
             <div className="power-up-badge py-4 px-4">
               <span className="badge-icon">{item}</span>
-              <span className="badge-text">{title}</span>
+              <span className="badge-text text-base!">{title}</span>
               <span className="badge-icon">{item}</span>
             </div>
           </div>

@@ -98,6 +98,22 @@
   animation: frameRotate 6s linear infinite;
 }
 
+.pixel-frame-border {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: 
+    linear-gradient(var(--color-background), var(--color-accent)) padding-box,
+    linear-gradient(135deg, #00ff9f, #00d9ff, #ff006e, #00ff9f) border-box;
+  background-size: 200% 200%;
+  animation: borderRotate 4s ease-in-out infinite;
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes frameRotate {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }

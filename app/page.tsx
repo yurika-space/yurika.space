@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CountdownTimer from "@/components/organisms/CountdownTimer";
 import Header from "@/components/organisms/Header";
 import LoadingScreen from "@/components/organisms/LoadingScreen";
 import Footer from "@/components/organisms/Footer";
@@ -9,7 +8,6 @@ import Hero from "@/components/layouts/Hero";
 import Haccelerator from "@/components/layouts/Haccelerator";
 import EurekaLaunchpad from "@/components/layouts/EurekaLaunchpad";
 import GameOver from "@/components/layouts/GameOver";
-import Mission from "@/components/layouts/Mission";
 import JoinTheFight from "@/components/layouts/JoinTheFight";
 
 export default function Home() {
@@ -46,7 +44,6 @@ export default function Home() {
         <Haccelerator />
         <EurekaLaunchpad />
         <GameOver />
-        <Mission />
         <JoinTheFight />
       </div>
       <Footer />

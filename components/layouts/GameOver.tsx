@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react'
 import '../component_stylesheets/game-over.css'
+import ComponentHeader from '../atoms/ComponentHeader'
 
 export default function GameOver() {
   const [showContinue, setShowContinue] = useState(false)
@@ -45,6 +46,130 @@ export default function GameOver() {
           </div>
         </div>
 
+        {/* Coming Soon - Mock-up preview */}
+          <div
+            className="coming-soon-section animate-fade-in-up"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <ComponentHeader
+              title="Platform Preview"
+              item="🚀"
+              className="animate-fade-in-up w-3/4 mx-auto"
+              style={{ animationDelay: "0.2s" }}
+            />
+
+            {/* Info banner */}
+            <div
+              className="info-banner animate-fade-in-up"
+              style={{ animationDelay: "1s" }}
+            >
+              <div className="info-icon">ℹ️</div>
+              <p className="info-text">
+                <strong>How it works:</strong> Secure your domain name, create
+                your campaign, and start raising funds from the community. Your
+                domain acts as proof of ownership and commitment to your
+                project.
+              </p>
+            </div>
+
+            {/* Mock-up container - retro terminal style */}
+            <div className="terminal-mockup">
+              <div className="terminal-header">
+                <div className="terminal-buttons">
+                  <span className="terminal-button red" />
+                  <span className="terminal-button yellow" />
+                  <span className="terminal-button green" />
+                </div>
+                <div className="terminal-title">eureka_launchpad.app</div>
+              </div>
+
+              <div className="terminal-body">
+                {/* Mock interface */}
+                <div className="mock-project-card">
+                  <div className="mock-header">
+                    <div className="mock-avatar">👤</div>
+                    <div className="mock-info">
+                      <div className="mock-name">Project: QuantumSocial</div>
+                      <div className="mock-domain">quantumsocial.xyz</div>
+                    </div>
+                    <div className="mock-status">LIVE</div>
+                  </div>
+
+                  <div className="mock-progress-section">
+                    <div className="mock-stats">
+                      <div className="mock-stat">
+                        <div className="mock-stat-value text-yurika-electric">
+                          $24,500
+                        </div>
+                        <div className="mock-stat-label">Raised</div>
+                      </div>
+                      <div className="mock-stat">
+                        <div className="mock-stat-value text-yurika-cyan">
+                          $50,000
+                        </div>
+                        <div className="mock-stat-label">Goal</div>
+                      </div>
+                      <div className="mock-stat">
+                        <div className="mock-stat-value text-yurika-pink">
+                          14
+                        </div>
+                        <div className="mock-stat-label">Days Left</div>
+                      </div>
+                    </div>
+
+                    <div className="mock-progress-bar">
+                      <div
+                        className="mock-progress-fill"
+                        style={{ width: "49%" }}
+                      >
+                        <span className="progress-text">49%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mock-description">
+                    <p className="font-mono text-xs text-yurika-text-muted">
+                      A decentralized social network built for privacy and owned
+                      by its users. Join us in building the future of social
+                      media.
+                    </p>
+                  </div>
+
+                  <div className="mock-actions">
+                    <button className="mock-button primary">
+                      <span>BACK PROJECT</span>
+                    </button>
+                    <button className="mock-button secondary">
+                      <span>LEARN MORE</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Coming soon overlay */}
+                <div className="coming-soon-overlay">
+                  <div className="coming-soon-badge">
+                    <span className="badge-shimmer" />
+                    <span className="font-pixel text-2xl">COMING SOON</span>
+                  </div>
+                  <p className="font-mono text-sm text-yurika-text-muted mt-4">
+                    Platform launching Q2 2025
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-8">
+              <button className="pixel-button-secondary">
+                <span className="button-text">JOIN WAITLIST</span>
+                <span className="button-decoration">→</span>
+              </button>
+              <p className="font-mono text-xs text-yurika-text-muted mt-4">
+                Be among the first to launch your project
+              </p>
+            </div>
+          </div>
+
         {/* Pixel divider */}
         <div 
           className="pixel-divider-large mb-12 animate-fade-in-up"
@@ -80,93 +205,7 @@ export default function GameOver() {
           </div>
         </div>
 
-        {/* Action buttons - Game style selection */}
-        <div 
-          className={`action-grid transition-all duration-1000 ${
-            showContinue ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {/* For Creators */}
-          <div className="action-card creator-card">
-            <div className="card-glow creator-glow" />
-            <div className="card-icon">🎨</div>
-            <h3 className="card-title font-pixel text-2xl mb-3">
-              FOR CREATORS
-            </h3>
-            <p className="card-description font-mono text-sm text-yurika-text-muted mb-6">
-              You have ideas that could change the world. Let&apos;s build them together.
-            </p>
-            <a 
-              href="/join-fight/creators"
-              className="game-button creator-button"
-            >
-              <span className="button-inner">
-                <span className="button-text">JOIN THE REVOLUTION</span>
-                <span className="button-arrow">→</span>
-              </span>
-            </a>
-            <div className="card-stats">
-              <div className="stat">
-                <span className="stat-icon">⚡</span>
-                <span className="stat-text">Launch Your Vision</span>
-              </div>
-            </div>
-          </div>
 
-          {/* For Partners */}
-          <div className="action-card partner-card">
-            <div className="card-glow partner-glow" />
-            <div className="card-icon">🤝</div>
-            <h3 className="card-title font-pixel text-2xl mb-3">
-              FOR PARTNERS
-            </h3>
-            <p className="card-description font-mono text-sm text-yurika-text-muted mb-6">
-              Connect with rebels and innovators. Find your tribe. Build something amazing.
-            </p>
-            <a 
-              href="/join-fight/partners"
-              className="game-button partner-button"
-            >
-              <span className="button-inner">
-                <span className="button-text">BE WEIRD TOGETHER</span>
-                <span className="button-arrow">→</span>
-              </span>
-            </a>
-            <div className="card-stats">
-              <div className="stat">
-                <span className="stat-icon">🌟</span>
-                <span className="stat-text">Join the Community</span>
-              </div>
-            </div>
-          </div>
-
-          {/* For Sponsors */}
-          <div className="action-card sponsor-card">
-            <div className="card-glow sponsor-glow" />
-            <div className="card-icon">🚀</div>
-            <h3 className="card-title font-pixel text-2xl mb-3">
-              FOR SPONSORS
-            </h3>
-            <p className="card-description font-mono text-sm text-yurika-text-muted mb-6">
-              Invest in the future. Back the underdogs. Shape what comes next.
-            </p>
-            <a 
-              href="/join-fight/sponsors"
-              className="game-button sponsor-button"
-            >
-              <span className="button-inner">
-                <span className="button-text">BUILD THE FUTURE</span>
-                <span className="button-arrow">→</span>
-              </span>
-            </a>
-            <div className="card-stats">
-              <div className="stat">
-                <span className="stat-icon">💎</span>
-                <span className="stat-text">Support Innovation</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Insert coin prompt */}
         <div 

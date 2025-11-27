@@ -62,13 +62,13 @@ export default function Haccelerator() {
           style={{ animationDelay: "1.2s" }}
         >
           <div className="flex flex-col items-center justify-center">
-            <p className="font-pixel text-sm game-ui-box p-4 pb-14">
+            <p className="font-pixel text-base game-ui-box p-4 pb-14">
               * Free for accepted applicants. Equity-free. No strings attached.
               Just pure support for the weird and wonderful.
             </p>
             <StarburstSticker
               text="Join Waitlist"
-              className="animate-shimmer -mt-25 cursor-pointer"
+              className="font-press-start-2p text-[10px]! animate-shimmer -mt-22 cursor-pointer"
             />
           </div>
         </div>

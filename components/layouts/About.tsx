@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PROGRAM_LEVELS } from "@/lib/haccelerator_program";
 import Typewriter from "../atoms/Typewriter";
 import "@components/component_stylesheets/haccelerator.css";
+import Mission from "./Mission";
 
 export default function About() {
     const [expandedLevel, setExpandedLevel] = useState<number | null>(null);
@@ -75,6 +76,36 @@ export default function About() {
           </div>
         </div>
             </div>
+            <Mission />
+            {/* Header */}
+        <div className="text-center mb-16 animate-fade-in-up">
+          <div className="fight-badge inline-block mb-6">
+            <span className="font-pixel text-base sm:text-lg">
+              ⚔️ JOIN THE FIGHT ⚔️
+            </span>
+          </div>
+          
+          <h2 className="font-sixtyfour text-4xl sm:text-5xl md:text-7xl font-bold text-yurika-text-primary mb-8">
+            <span className="text-yurika-electric">OUR ASK IS</span>{" "}
+            <span className="text-yurika-pink">SIMPLE</span>
+          </h2>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
+              Not just financial support{" "}
+              <span className="text-yurika-text-muted">(though if you're capable of it, please give us all your money)</span>. 
+              We need <span className="text-yurika-electric font-bold">commitment</span>. 
+              A real, no-bullshit commitment to push Web3 past its current state as gambling 
+              thinly veiled as speculative asset trading and yield farming.
+            </p>
+            
+            <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
+              To usher in a new generation of creators, designers, artists, freaks, and geeks 
+              who will diversify the Web3 experience and finally—<span className="text-yurika-pink font-bold">FINALLY</span>—put 
+              us on the path to mass adoption.
+            </p>
+          </div>
+        </div>
         </section>
     )
 }

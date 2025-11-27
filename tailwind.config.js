@@ -70,6 +70,20 @@ const config = {
           '0%, 49%': { borderColor: 'var(--primary)' },
           '50%, 100%': { borderColor: 'transparent' },
         },
+        'circuit-pattern': {
+          '0%': { backgroundPosition: '0 0' },
+          '100%': { backgroundPosition: '50px 50px' },
+        },
+        'power-up-glow': {
+          '0%, 100%': { 
+            transform: 'translate(-50%, 0) scale(1)',
+            opacity: '0.3'
+          },
+          '50%': { 
+            transform: 'translate(-50%, 0) scale(1.2)',
+            opacity: '0.5'
+          },
+        },
       },
       animation: {
         'grid-pulse': 'gridPulse 8s ease-in-out infinite',
@@ -81,6 +95,8 @@ const config = {
         'bounce-slow': 'bounce 150ms ease-in-out infinite',
         'blink': 'blink 1s steps(2, start) infinite',
         'blink-caret': 'blinkCaret 0.8s step-end infinite',
+        'circuit-pattern': 'circuit-pattern 20s linear infinite',
+        'power-up-glow': 'power-up-glow 8s ease-in-out infinite',
       },
       blur: {
         'xl': '80px',
