@@ -17,7 +17,7 @@ interface LinkProps {
 export default function LinkButton({ href, buttonName, className, target, rel, ariaLabel }: LinkProps) {
     return (
         <Link href={href} className={className} target={target} rel={rel} aria-label={ariaLabel}>
-            <RetroButton variant="default" size="default" className="font-press-start-2p cursor-pointer">
+            <RetroButton variant="default" size="sm" className="font-press-start-2p cursor-pointer">
                 {buttonName}
             </RetroButton>
         </Link>

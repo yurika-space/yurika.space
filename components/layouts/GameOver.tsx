@@ -29,11 +29,19 @@ export default function GameOver() {
         
         {/* Game Over title with glitch effect */}
         <div className="game-over-title-container mb-8 animate-fade-in-up">
-          <h2 className="game-over-title font-pixel text-6xl sm:text-7xl md:text-8xl font-bold">
-            <span className="glitch-layers" data-text="GAME OVER">GAME OVER</span>
-          </h2>
+          {/* Progress bar decoration */}
+        <div
+          className="mt-8 animate-fade-in-up"
+          style={{ animationDelay: "1.4s" }}
+        >
+          <div className="xp-bar">
+            <div className="xp-bar-fill" style={{ width: "100%" }}>
+              <span className="xp-text">YOUR JOURNEY AWAITS</span>
+            </div>
+          </div>
+        </div>
           <div className="game-over-subtitle font-mono text-xl sm:text-2xl text-yurika-electric mt-4">
-            But this is just the beginning...
+           This is just the beginning...
           </div>
         </div>
 

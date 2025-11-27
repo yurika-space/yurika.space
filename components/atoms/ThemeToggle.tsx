@@ -18,7 +18,12 @@ const themes = [
   { value: "rusty-byte", label: "Rusty Byte" },
 ];
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+  className?: string;
+  ariaLabel?: string;
+}
+
+export default function ThemeToggle({ className, ariaLabel }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
 
   // Ensure dark mode is always enabled

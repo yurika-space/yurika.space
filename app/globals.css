@@ -1,6 +1,22 @@
 @import "tailwindcss";
 @import "./retro-globals.css";
 
+@layer base {
+  html {
+    font-size: 16px;
+  }
+}
+
+@theme {
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 425px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: 1920px;
+  --breakpoint-3xl: 2560px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -15,6 +31,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Custom animations and effects for Hero component */
@@ -111,11 +139,12 @@ body {
 /* Eyebrow prefix */
 .eyebrow::before {
   margin: 0;
-  padding-right: 1rem;
-  content: '> ';
-  color: var(--destructive);
+  padding-right: 0.5rem;
+  content: '>';
+  color: green;
   display: inline-block;
   animation: spin-emoji 3s linear infinite;
+  opacity: 0.5;
 }
 
 /* Highlight underline effect */
@@ -190,37 +219,16 @@ body {
     transform: translateX(-50%) translateY(0); 
   }
   50% { 
-    transform: translateX(-50%) translateY(10px); 
+    transform: translateX(-50%) translateY(50px); 
+  }
+  75% { 
+    transform: translateX(-50%) translateY(25px); 
+  }
+  25% { 
+    transform: translateX(-50%) translateY(-25px); 
   }
 }
 
 .animate-bounce-slow {
   animation: bounce 2s ease-in-out infinite;
-}
-
-/* Combined fade-in and bounce animation for scroll indicator */
-@keyframes fadeInBounce {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(30px);
-  }
-  40% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(0);
-  }
-  75% {
-    transform: translateX(-50%) translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-.animate-fade-in-bounce {
-  opacity: 0;
-  animation: fadeInBounce 1.5s ease-out forwards, bounce 2s ease-in-out 1.5s infinite;
 }

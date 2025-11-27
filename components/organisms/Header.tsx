@@ -5,16 +5,12 @@ import ThemeToggle from "../atoms/ThemeToggle";
 import BurgerMenu from "../molecules/BurgerMenu";
 
 const navigation = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Haccelerator", href: "/haccelerator" },
-    { name: "Eureka Launchpad", href: "/eureka-launchpad" },
-    { name: "Game Over", href: "/game-over" },
-    { name: "Mission", href: "/mission" },
+    { name: "Haccelerate", href: "/haccelerator" },
+    { name: "Launch", href: "/eureka-launchpad" },
+    { name: "Coming Soon", href: "/game-over" },
+    { name: "Support Us", href: "/mission" },
     { name: "Blog", href: "/blog" },
-    { name: "Donate", href: "/donate" },
-    { name: "Contact", href: "/contact" },
-
 ];
 
 export default function Header() {
@@ -50,7 +46,7 @@ export default function Header() {
 
                         <BurgerMenu>
                             {/* Mobile Navigation */}
-                            <nav className="flex flex-col gap-3 w-full justify-self-center justify-center items-center text-center align-middle">
+                            <nav className="flex flex-col h-[70vh] w-[75%] space-y-8 items-center text-center align-center justify-center border-t border-foreground/10 pt-15 mt-10">
                                 {navigation.map((item) => (
                                     <LinkButton 
                                         key={item.name} 
@@ -62,8 +58,8 @@ export default function Header() {
                             </nav>
                             
                             {/* Mobile Theme Toggle */}
-                            <div className="pt-6 border-t border-foreground/10 mx-auto h-[20vh] w-[50%] justify-self-center justify-center items-center text-center align-middle">
-                                <ThemeToggle />
+                            <div className="flex flex-col  mt-10 pt-10 align-center border-t border-foreground/10 mx-auto w-[75%] justify-self-center justify-center items-center text-center">
+                                <ThemeToggle className="w-full" />
                             </div>
                         </BurgerMenu>
                     </div>

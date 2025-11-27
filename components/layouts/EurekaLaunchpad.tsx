@@ -1,58 +1,39 @@
 import React from "react";
 import "../component_stylesheets/eureka-launchpad.css";
+import ComponentHeader from "../atoms/ComponentHeader";
+import ComponentBody from "../atoms/ComponentBody";
 
 export default function EurekaLaunchpad() {
   return (
-    <section className="flex flex-col items-center justify-center w-full min-h-screen">
-      <div className="relative inset-0 h-full mx-auto w-full">
+    <section className="flex flex-col items-center justify-center w-screen min-h-screen">
+      <div className="relative inset-0 min-h-screen mx-auto w-full">
         <div className="absolute h-full w-full bg-yurika-bg-secondary py-16 px-4 overflow-hidden">
           {/* Animated background effects */}
-          <div className="circuit-pattern absolute inset-0 opacity-20" />
-          <div className="power-up-glow absolute top-1/4 left-1/2 -translate-x-1/2" />
+          <div className="circuit-pattern absolute inset-0 opacity-80 h-full" />
+          <div className="power-up-glow absolute top-1/4 left-1/2 -translate-x-1/2 h-full" />
         </div>
 
         {/* Content container */}
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
           {/* Power-up style header */}
           <div className="text-center mb-12">
-            <div className="power-up-badge animate-fade-in-up">
-              <span className="badge-icon">⚡</span>
-              <span className="badge-text">SPECIAL FEATURE UNLOCKED</span>
-              <span className="badge-icon">⚡</span>
-            </div>
-
-            <h2
-              className="font-pixel text-4xl sm:text-5xl md:text-6xl font-bold text-yurika-text-primary mb-6 mt-6 animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <span className="text-yurika-pink">EUREKA</span>{" "}
-              <span className="text-yurika-cyan">LAUNCHPAD</span>
-            </h2>
-
-            <div
-              className="inline-block pixel-frame mb-6 animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <div className="pixel-frame-content">
+            <ComponentHeader title="Special Feature Unlocked" item="⚡" className="animate-fade-in-up w-3/4 mx-auto" style={{ animationDelay: "0.2s" }} />
+            <ComponentBody className="animate-fade-in-up" delay={400}>
                 <p className="font-mono text-base sm:text-lg text-yurika-text-muted leading-relaxed">
-                  We also offer{" "}
-                  <span className="text-yurika-electric font-bold">
-                    domain name-backed crowdfunding
+                  <span className="pixel-frame text-background font-bold">
+                    Domain Name-backed Crowdfunding
                   </span>{" "}
-                  for the marginalized who struggle to raise a
-                  friends-and-family round because they don&apos;t have rich parents
-                  or a wealthy network.
+                  for those without rich parents or a wealthy network.
                 </p>
-              </div>
-            </div>
+            </ComponentBody>
           </div>
 
           {/* Feature cards */}
           <div
-            className="grid sm:grid-cols-2 gap-4 mb-12 animate-fade-in-up"
+            className="grid w-[90%] sm:grid-cols-2 gap-4 mb-12 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
-            <div className="feature-card">
+            <div className="game-ui-box">
               <div className="feature-icon">🌐</div>
               <h3 className="feature-title">Domain-Backed</h3>
               <p className="feature-description">

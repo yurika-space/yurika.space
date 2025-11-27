@@ -13,10 +13,10 @@ export default function Hero() {
 
   return (
     <section className="flex flex-col items-center justify-center h-screen w-full px-4 overflow-hidden">
-      <div className=" relative h-full w-screen">
+      <div className=" relative h-screen w-screen">
         <div className="relative h-full w-full">
           {/* Grid background - needs custom CSS */}
-          <div className="grid-bg absolute inset-0 opacity-80 animate-grid-pulse" />
+          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse" />
           {/* Glowing orbs with float animation */}
           <div
             className="absolute w-[400px] h-[400px] rounded-full bg-brown-300 blur-[80px] opacity-40 -top-24 -left-24 animate-float"
@@ -45,7 +45,7 @@ export default function Hero() {
 
           {/* Subtitle with highlights */}
           <p
-            className="relative font-pixel text-2xl px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
+            className="relative font-pixel text-2xl tracking-wide px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
             For the{" "}
@@ -100,7 +100,7 @@ export default function Hero() {
           </div>
           {/* Scroll indicator */}
           <div
-            className="scroll-indicator absolute bottom-10 before:text-6xl! left-1/2 -translate-x-1/2 opacity-100 animate-fade-in-up animate-bounce-slow duration-500 ease-in-out"
+            className="scroll-indicator absolute bottom-10 before:text-6xl! left-1/2 -translate-x-1/2 opacity-100 before:animate-fade-in-up animate-bounce-slow ease-in-out"
             style={{ animationDelay: "1.4s" }}
           />
         </div>
