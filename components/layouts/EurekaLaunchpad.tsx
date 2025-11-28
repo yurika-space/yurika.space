@@ -4,6 +4,7 @@ import ComponentHeader from "../atoms/ComponentHeader";
 import ComponentBody from "../atoms/ComponentBody";
 import AnimatedBackground from "../molecules/AnimatedBg";
 import FeatureCard from "../atoms/FeatureCard";
+import ProgressBarSeparator from "../atoms/ProgressBarHR";
 
 const featureCards = [
   {
@@ -73,7 +74,7 @@ export default function EurekaLaunchpad() {
               )
             )}
           </div>
-        </div>
+        </div>  
       </AnimatedBackground>
     </section>
   );

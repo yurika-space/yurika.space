@@ -6,10 +6,12 @@ interface Props {
   speed?: number
   delay?: number
   className?: string
+  style?: React.CSSProperties
+  spanItem?: '_' | string
 }
 
-export default function Typewriter({ text, speed = 100, delay = 2000, className = '' }: Props) {
-  const [displayText, setDisplayText] = useState('')
+export default function Typewriter({ text, speed = 100, delay = 2000, className = '', spanItem = '_' }: Props) {
+  const [displayText, setDisplayText] = useState(text)
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function Typewriter({ text, speed = 100, delay = 2000, className 
 
   return (
     <span className={`${className} animate-pulse`}>
-      {displayText}<span className="animate-pulse">_</span>
+      {displayText}<span className="animate-pulse">{spanItem}</span>
     </span>
   )
 }

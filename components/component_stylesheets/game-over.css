@@ -44,8 +44,8 @@
   position: relative;
   color: #e5e7eb;
   text-shadow: 
-    3px 3px 0 #00ff9f,
-    -3px -3px 0 #ff006e;
+    1px 1px 0 #00ff9f,
+    -2px -2px 0 #ff006e;
 }
 
 .glitch-layers {
@@ -120,12 +120,12 @@
 
 /* Game over subtitle */
 .game-over-subtitle {
-  animation: subtitleBlink 3s ease-in-out infinite;
+  animation: subtitleBlink 500ms ease-in-out infinite;
 }
 
 @keyframes subtitleBlink {
   0%, 90%, 100% { opacity: 1; }
-  95% { opacity: 0.3; }
+  95% { opacity: 0.5; }
 }
 
 /* Pixel divider large */
@@ -443,6 +443,42 @@
 .konami-hint {
   letter-spacing: 0.2em;
   user-select: none;
+}
+
+.box-pixel {
+  position: relative;
+  padding: 2rem;
+  background: #0a0e17;
+  z-index: 1;
+}
+
+.box-pixel::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background: 
+    linear-gradient(90deg, 
+      #00ff9f 0%, #00ff9f 33%, 
+      #00d9ff 33%, #00d9ff 66%,
+      #ff006e 66%, #ff006e 100%
+    );
+  background-size: 300% 100%;
+  animation: pixelSlide 3s steps(3) infinite;
+  z-index: -1;
+  image-rendering: pixelated;
+}
+
+.box-pixel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0a0e17;
+  z-index: -1;
+}
+
+@keyframes pixelSlide {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
 }
 
 /* Responsive adjustments */

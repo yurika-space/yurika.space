@@ -12,7 +12,7 @@ export default function JoinTheFight() {
   return (
     <section className="relative min-h-screen w-full bg-yurika-bg-primary py-16 px-4 overflow-hidden">
       {/* Animated background */}
-      <div className="battle-grid absolute inset-0 opacity-20" />
+      <div className="battle-grid absolute inset-0 opacity-30" />
       <div className="energy-particles absolute inset-0" />
       
       {/* Content container */}

@@ -38,7 +38,7 @@ const CountdownTimer = ({ targetDate }: { targetDate: Datetime }) => {
   }
 
   return (
-    <div className="flex countdown-timer text-2xl w-screen h-screen justify-self-center justify-center items-center text-center align-items-center gap-4 md:text-4xl">
+    <div className="flex countdown-timer text-2xl w-screen justify-self-center justify-center items-center text-center align-items-center gap-4 md:text-4xl">
       <span>{timeRemaining.days}d </span>
       <span>{timeRemaining.hours}h </span>
       <span>{timeRemaining.minutes}m </span>

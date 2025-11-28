@@ -103,6 +103,17 @@ export default function About() {
               To usher in a new generation of creators, designers, artists, freaks, and geeks 
               who will diversify the Web3 experience and finally—<span className="text-yurika-pink font-bold">FINALLY</span>—put 
               us on the path to mass adoption.
+              Take a
+              module. Join a team. Support a project. Complete a quest to help
+              an up-and-coming visionary.
+              <p className="font-mono text-base sm:text-lg text-yurika-text-primary leading-relaxed">
+              Stick around, unleash your voice, and connect with other
+              like-minded rebels. You might just find your own{" "}
+              <span className="text-yurika-electric font-bold">
+                &quot;Yurika!&quot;
+              </span>{" "}
+              moment.
+            </p>
             </p>
           </div>
         </div>

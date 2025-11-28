@@ -42,6 +42,8 @@ function Button({
   variant,
   size,
   asChild = false,
+  onClick,
+  disabled,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -95,7 +97,7 @@ export interface RetroButtonProps
 
 
   function RetroButton({ children, asChild, ...props }: RetroButtonProps) {
-    const { variant, size, className, font } = props;
+    const { variant, size, className, font, onClick, disabled } = props;
   
     return (
       <Button
@@ -110,7 +112,7 @@ export interface RetroButtonProps
         asChild={asChild}
       >
         {asChild ? (
-          <span className="relative inline-flex items-center justify-center gap-1.5">
+          <span className="relative inline-flex items-center justify-center gap-1.5" >
             {children}
   
             {variant !== "ghost" && variant !== "link" && size !== "icon" && (
@@ -152,9 +154,13 @@ export interface RetroButtonProps
             )}
           </span>
         ) : (
-          <>
+          <span
+            aria-disabled={disabled}
+            tabIndex={disabled ? -1 : 0}
+            onClick={disabled ? undefined : onClick}
+          >
             {children}
-  
+
             {variant !== "ghost" && variant !== "link" && size !== "icon" && (
               <>
                 {/* Pixelated border */}
@@ -192,7 +198,7 @@ export interface RetroButtonProps
                 <div className="absolute bottom-1 -right-1 w-[5px] md:w-1.5 h-1/2 bg-foreground dark:bg-ring pointer-events-none" />
               </>
             )}
-          </>
+          </span>
         )}
       </Button>
     );
