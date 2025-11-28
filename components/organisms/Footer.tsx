@@ -1,7 +1,7 @@
 import LinkButton from "@/components/atoms/Link";
 
 const FooterProps = [
-    { href: "https://www.instagram.com/atlanticjohnson?igsh=MWFpdDM0Y3A0OWR1NA==", buttonName: "Instagram" },
+    { href: "https://www.instagram.com/atlanticjohnson?igsh=MWFpdDM0Y3A0OWR1NA==", buttonName: "Linktree" },
     // { href: "/terms-of-service", buttonName: "Terms of Service" },
     // { href: "/contact", buttonName: "Contact" },
 ]
@@ -15,6 +15,8 @@ export default function Footer() {
                     <LinkButton key={item.href} href={item.href} buttonName={item.buttonName} className="text-foreground font-bold hover:text-foreground/80 transition-colors hover:bg-foreground/10 p-1" />
                     ))}
                 </nav>
+                <p className="font-sixtyfour text-[8px] text-foreground/50">Made by TeenyWeeny Studios</p>
+                <p className="font-sixtyfour text-[8px] text-foreground/50">Copyright © 2025 yurika.space</p>
         </div>
     );
 }

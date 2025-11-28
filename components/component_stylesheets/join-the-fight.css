@@ -151,8 +151,7 @@
 .tarot-card-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 3;
-  overflow: hidden;
+  aspect-ratio: 2 / 4;
   background: linear-gradient(135deg, color-mix(in oklch, var(--accent) 10%, transparent), color-mix(in oklch, var(--primary) 10%, transparent));
 }
 
@@ -175,7 +174,7 @@
 
 /* Tarot card content */
 .tarot-card-content {
-  padding: 1.5rem;
+
   background: color-mix(in oklch, var(--background) 90%, transparent);
 }
 
