@@ -81,7 +81,7 @@ export default function JoinTheFight() {
             style={{ animationDelay: "0.2s" }}
           >
             <div className="tarot-card">
-              <div className="tarot-card-image flex flex-col items-center justify-center">
+              <div className="tarot-card-image flex flex-col items-center justify-center align-center">
                 <ComponentHeader
                   title="CREATORS"
                   item=" ⚔️ "
@@ -90,13 +90,13 @@ export default function JoinTheFight() {
                 <Image
                   src="/king_cups.png"
                   alt="Knight of Cups - For Creators"
-                  width={600}
+                  width={1455}
                   height={900}
-                  className="-mt-15 pr-5 w-full h-full object-cover"
+                  className="-mt-35 pr-5"
                 />
               </div>
 
-              <div className="tarot-card-content">
+              <div className="tarot-card-content -mt-10">
                 <div className="space-y-6">
                   <div className="path-option">
                     <p className="font-mono text-sm text-yurika-text-primary mb-3">
@@ -134,8 +134,8 @@ export default function JoinTheFight() {
             className="tarot-card-container animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <div className="tarot-card">
-              <div className="tarot-card-image">
+            <div className="tarot-card ">
+              <div className="tarot-card-image flex flex-col items-center justify-center space-y-10">
                 <ComponentHeader
                   title="PARTNERS"
                   item=" 🤝 "
@@ -144,13 +144,13 @@ export default function JoinTheFight() {
                 <Image
                   src="/three_cups.png"
                   alt="Three of Cups - For Partners"
-                  width={600}
+                  width={1455}
                   height={900}
-                  className="-mt-15 pr-6 w-full object-cover"
+                  className="-mt-20 pr-6"
                 />
               </div>
 
-              <div className="tarot-card-content">
+              <div className="tarot-card-content -mt-20">
                 <div className="path-option space-y-4">
                   <p className="font-mono text-sm text-yurika-text-primary leading-relaxed">
                     There's more to collaboration than just financial support.
@@ -191,13 +191,13 @@ export default function JoinTheFight() {
                 <Image
                   src="/six_coins.png"
                   alt="Six of Pentacles - For Sponsors"
-                  width={600}
+                  width={1455}
                   height={900}
-                  className="-mt-30 w-full h-full object-cover"
+                  className="-mt-25 pr"
                 />
               </div>
 
-              <div className="tarot-card-content">
+              <div className="tarot-card-content -mt-10">
                 <div className="path-option space-y-4">
                   <p className="font-mono text-sm text-yurika-text-primary leading-relaxed">
                     It's time to put your money where your mouth is.
@@ -236,16 +236,6 @@ export default function JoinTheFight() {
         </div>
 
         {/* Final message */}
-        <div
-          className="text-center mt-12 animate-fade-in-up"
-          style={{ animationDelay: "1s" }}
-        >
-          <Typewriter
-            text="Let's build the future we actually want"
-            speed={100}
-            delay={1000}
-          />
-        </div>
       </div>
 
       {/* Modals */}

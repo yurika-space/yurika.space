@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="absolute z-5 inset-0 w-full text-center">
           {/* Title with glitch effect */}
           <h1
-            className="eyebrow font-pixel text-4xl pt-30 lg:text-8xl font-bold leading-tight mb-8 opacity-0 animate-fade-in-up"
+            className="font-pixel text-4xl pt-30 lg:text-8xl font-bold leading-tight mb-8 opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
             <span className="glitch-text animate-glitch tracking-tight px-2">

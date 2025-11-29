@@ -149,27 +149,28 @@
 
 /* Tarot card image */
 .tarot-card-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 100% !important;
+ 
   background: linear-gradient(135deg, color-mix(in oklch, var(--accent) 10%, transparent), color-mix(in oklch, var(--primary) 10%, transparent));
 }
 
 .tarot-card-image img {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+ height: 100% !important;
   object-fit: cover;
   transition: transform 0.4s ease;
+  aspect-ratio: 1 / 2 !important;
+  
+  overflow: hidden;
 }
 
 .tarot-card:hover .tarot-card-image img {
   transform: scale(1.05);
-}
-
-.pixelated {
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
 }
 
 /* Tarot card content */

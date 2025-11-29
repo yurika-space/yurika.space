@@ -1,5 +1,3 @@
-"use client";
-import React, { useState } from "react";
 import "../component_stylesheets/haccelerator.css";
 import Typewriter from "../atoms/Typewriter";
 import ComponentHeader from "../atoms/ComponentHeader";
