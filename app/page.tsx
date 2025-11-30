@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <LoadingScreen isLoaded={assetsLoaded} />
       <div
-        className={`flex flex-col items-center justify-center min-h-screen w-full bg-background text-foreground overflow-x-hidden line-height-1.6 font-jetbrains-mono transition-opacity duration-500 ${
+        className={`flex flex-col items-center justify-center min-h-screen w-screen bg-background text-foreground overflow-x-hidden line-height-1.6 font-jetbrains-mono transition-opacity duration-500 ${
           assetsLoaded ? "opacity-100" : "opacity-0"
         }`}
         aria-busy={!assetsLoaded}

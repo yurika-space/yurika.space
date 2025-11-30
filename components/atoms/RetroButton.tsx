@@ -22,6 +22,7 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        xs: "h-6 rounded-md gap-1 px-2 has-[>svg]:px-1.5",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         full: "w-full h-8 rounded-md",
@@ -76,6 +77,7 @@ export const retroButtonVariants = cva("", {
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        xs: "h-6 rounded-md gap-1 px-2 has-[>svg]:px-1.5",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         full: "w-full h-8 rounded-md",
@@ -98,7 +100,7 @@ export interface RetroButtonProps
 
   function RetroButton({ children, asChild, ...props }: RetroButtonProps) {
     const { variant, size, className, font, onClick, disabled } = props;
-  
+
     return (
       <Button
         {...props}
@@ -114,7 +116,7 @@ export interface RetroButtonProps
         {asChild ? (
           <span className="relative inline-flex items-center justify-center gap-1.5" >
             {children}
-  
+
             {variant !== "ghost" && variant !== "link" && size !== "icon" && (
               <>
                 {/* Pixelated border */}
@@ -133,7 +135,7 @@ export interface RetroButtonProps
                     {/* Top shadow */}
                     <div className="absolute top-0 left-0 w-full h-1.5 bg-foreground/20" />
                     <div className="absolute top-1.5 left-0 w-3 h-1.5 bg-foreground/20" />
-  
+
                     {/* Bottom shadow */}
                     <div className="absolute bottom-0 left-0 w-full h-1.5 bg-foreground/20" />
                     <div className="absolute bottom-1.5 right-0 w-3 h-1.5 bg-foreground/20" />
@@ -141,7 +143,7 @@ export interface RetroButtonProps
                 )}
               </>
             )}
-  
+
             {size === "icon" && (
               <>
                 <div className="absolute top-0 left-0 w-full h-[5px] md:h-1.5 bg-foreground dark:bg-ring pointer-events-none" />
@@ -179,7 +181,7 @@ export interface RetroButtonProps
                     {/* Top shadow */}
                     <div className="absolute top-0 left-0 w-full h-1.5 bg-foreground/20" />
                     <div className="absolute top-1.5 left-0 w-3 h-1.5 bg-foreground/20" />
-  
+
                     {/* Bottom shadow */}
                     <div className="absolute bottom-0 left-0 w-full h-1.5 bg-foreground/20" />
                     <div className="absolute bottom-1.5 right-0 w-3 h-1.5 bg-foreground/20" />
@@ -187,7 +189,7 @@ export interface RetroButtonProps
                 )}
               </>
             )}
-  
+
             {size === "icon" && (
               <>
                 <div className="absolute top-0 left-0 w-full h-[5px] md:h-1.5 bg-foreground dark:bg-ring pointer-events-none" />
@@ -203,6 +205,5 @@ export interface RetroButtonProps
       </Button>
     );
   }
-  
+
   export { RetroButton };
-  

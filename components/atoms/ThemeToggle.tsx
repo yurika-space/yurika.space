@@ -32,7 +32,7 @@ export default function ThemeToggle({ className, ariaLabel }: ThemeToggleProps) 
   }, []);
 
   return (
-    <div className="flex items-center gap-4">
+    <div className={`flex items-center ${className}`} aria-label={ariaLabel}>
       <div className="relative inline-block">
         <select
           value={theme || "default"}

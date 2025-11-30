@@ -7,7 +7,7 @@ const LOADING_MESSAGES = [
   "Decrypting retro assets...",
   "Bootstrapping synthwave shaders...",
   "Synchronizing countdown timers...",
-  "Establishing link to the Outcast Network..."
+  "Establishing link to the Outcast Network...",
 ];
 
 interface LoadingScreenProps {
@@ -29,7 +29,7 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
     }
 
     const isLineComplete = charIndex >= currentMessage.length;
-    const delay = isLineComplete ? 1100 : 55;
+    const delay = isLineComplete ? 1000 : 50;
 
     const timeoutId = window.setTimeout(() => {
       if (isLineComplete) {
@@ -45,7 +45,7 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-9999 flex flex-col items-center justify-center gap-6 bg-background text-foreground transition-opacity duration-500 ${
+      className={`fixed inset-0 flex flex-col items-center justify-center gap-6 bg-background text-foreground transition-opacity duration-500 ${
         isLoaded ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       aria-hidden={isLoaded}
@@ -56,7 +56,7 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
         </p>
         <p className="text-2xl font-semibold font-mono">
           {currentMessage.slice(0, charIndex)}
-          <span className="animate-pulse">▌</span>
+          <span className="animate-pulse"></span>
         </p>
       </div>
 
@@ -80,5 +80,3 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
     </div>
   );
 }
-
-

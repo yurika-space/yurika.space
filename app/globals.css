@@ -8,13 +8,11 @@
 }
 
 @theme {
-  --breakpoint-xs: 375px;
-  --breakpoint-sm: 425px;
-  --breakpoint-md: 768px;
+  --breakpoint-sm: 420px;
+  --breakpoint-md: 750px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
   --breakpoint-2xl: 1920px;
-  --breakpoint-3xl: 2560px;
 }
 
 @theme inline {
@@ -49,19 +47,27 @@ body {
 
 /* Grid background pattern */
 .grid-bg {
-  background-image: 
-    linear-gradient(color-mix(in oklch, var(--primary) 10%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklch, var(--primary) 10%, transparent) 1px, transparent 1px);
+  background-image:
+    linear-gradient(
+      color-mix(in oklch, var(--primary) 10%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in oklch, var(--primary) 10%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 50px 50px;
 }
 
 /* Grid pulse animation */
 @keyframes gridPulse {
-  0%, 100% { 
-    transform: perspective(500px) rotateX(60deg) scale(1); 
+  0%,
+  100% {
+    transform: perspective(500px) rotateX(60deg) scale(1);
   }
-  50% { 
-    transform: perspective(500px) rotateX(60deg) scale(1.1); 
+  50% {
+    transform: perspective(500px) rotateX(60deg) scale(1.1);
   }
 }
 
@@ -71,14 +77,15 @@ body {
 
 /* Float animation for glowing orbs */
 @keyframes float {
-  0%, 100% { 
-    transform: translate(0, 0); 
+  0%,
+  100% {
+    transform: translate(0, 0);
   }
-  33% { 
-    transform: translate(30px, -30px); 
+  33% {
+    transform: translate(30px, -30px);
   }
-  66% { 
-    transform: translate(-20px, 20px); 
+  66% {
+    transform: translate(-20px, 20px);
   }
 }
 
@@ -104,20 +111,22 @@ body {
 
 /* Glitch effect for title */
 @keyframes glitchPulse {
-  0%, 90%, 100% {
-    text-shadow: 
+  0%,
+  90%,
+  100% {
+    text-shadow:
       2px 2px 0 var(--primary),
       -2px -2px 0 var(--destructive);
   }
   95% {
-    text-shadow: 
+    text-shadow:
       -2px 2px 0 var(--primary),
       2px -2px 0 var(--destructive);
   }
 }
 
 .glitch-text {
-  text-shadow: 
+  text-shadow:
     2px 2px 0 var(--primary),
     -2px -2px 0 var(--destructive);
 }
@@ -140,7 +149,7 @@ body {
 .eyebrow::before {
   margin: 0;
   padding-right: 0.5rem;
-  content: '>';
+  content: ">";
   color: green;
   display: inline-block;
   animation: spin-emoji 3s linear infinite;
@@ -153,7 +162,7 @@ body {
 }
 
 .highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -164,25 +173,31 @@ body {
 }
 
 @keyframes underlinePulse {
-  0%, 100% { 
-    opacity: 1; 
-    transform: scaleX(1); 
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
   }
-  50% { 
-    opacity: 0.5; 
-    transform: scaleX(0.8); 
+  50% {
+    opacity: 0.5;
+    transform: scaleX(0.8);
   }
 }
 
 /* Button shimmer effect */
 .btn-shimmer::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--foreground) 30%, transparent), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklch, var(--foreground) 30%, transparent),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -192,7 +207,7 @@ body {
 
 /* Button fill effect */
 .btn-fill::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -209,23 +224,24 @@ body {
 
 /* Scroll indicator */
 .scroll-indicator::before {
-  content: '↓';
+  content: "↓";
   font-size: 2rem;
   color: var(--primary);
 }
 
 @keyframes bounce {
-  0%, 100% { 
-    transform: translateX(-50%) translateY(0); 
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
   }
-  50% { 
-    transform: translateX(-50%) translateY(50px); 
+  50% {
+    transform: translateX(-50%) translateY(50px);
   }
-  75% { 
-    transform: translateX(-50%) translateY(25px); 
+  75% {
+    transform: translateX(-50%) translateY(25px);
   }
-  25% { 
-    transform: translateX(-50%) translateY(-25px); 
+  25% {
+    transform: translateX(-50%) translateY(-25px);
   }
 }
 

@@ -1,7 +1,4 @@
-import Link from "next/link";
 import React from "react";
-
-
 
 export default function Hero() {
     const motivations = [
@@ -12,18 +9,18 @@ export default function Hero() {
     ];
 
   return (
-    <section className="flex flex-col items-center justify-center h-screen w-full px-4 overflow-hidden">
+    <section className="flex flex-col items-center justify-center min-h-screen w-full px-4 overflow-hidden">
       <div className=" relative h-screen w-screen">
         <div className="relative h-full w-full">
           {/* Grid background - needs custom CSS */}
           <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse" />
           {/* Glowing orbs with float animation */}
           <div
-            className="absolute w-[400px] h-[400px] rounded-full bg-brown-300 blur-[80px] opacity-40 -top-24 -left-24 animate-float"
-            style={{ animationDelay: "0s" }}
+            className="absolute w-[400px] h-[400px] rounded-full bg-indigo-400 blur-[80px] opacity-40 -top-24 -left-24 animate-float"
+            style={{ animationDelay: "1s" }}
           />
           <div
-            className="absolute w-[300px] h-[300px] rounded-full bg-sidebar-accent blur-[80px] opacity-5 -bottom-12 -right-12 animate-float"
+            className="absolute w-[300px] h-[300px] rounded-full bg-sidebar-accent blur-[80px] opacity-50 -bottom-12 -right-12 animate-float"
             style={{ animationDelay: "7s" }}
           />
           <div
@@ -45,7 +42,7 @@ export default function Hero() {
 
           {/* Subtitle with highlights */}
           <p
-            className="relative font-pixel text-2xl tracking-wide px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
+            className="hidden sm:block relative font-pixel text-lg sm:text-xl tracking-wide px-8 lg:text-4xl font-medium mb-6 leading-relaxed opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
             For the{" "}
@@ -72,9 +69,9 @@ export default function Hero() {
             experience, and entrepreneurship.
           </p>
 
-          <div className="flex flex-col justify-center flex-wrap opacity-0 animate-fade-in-up" style={{ animationDelay: "1s" }}>
+          <div className="hidden sm:flex flex-col justify-center flex-wrap opacity-0 animate-fade-in-up" style={{ animationDelay: "1s" }}>
             {motivations.map((motivation, index) => (
-              <h2 key={index} className="font-sixtyfour text- px-2 text-yurika-text-muted lg:text-3xl font-bold mb-4 opacity-0 animate-fade-in-up leading-relaxed">
+              <h2 key={index} className="hidden sm:block font-sixtyfour text- px-2 text-yurika-text-muted lg:text-3xl font-bold mb-4 opacity-0 animate-fade-in-up leading-relaxed">
                 {motivation}
               </h2>
             ))}

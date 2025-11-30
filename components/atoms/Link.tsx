@@ -14,10 +14,10 @@ export interface LinkProps extends RetroButtonProps{
 
 export default function LinkButton({ href, buttonName, className, target, rel, ariaLabel, size }: LinkProps) {
     return (
-        <Link href={href} className={className} target={target} rel={rel} aria-label={ariaLabel}>
-            <RetroButton variant="default" size={size as RetroButtonProps["size"]} className="font-press-start-2p cursor-pointer">
+        <RetroButton variant="default" size={size as RetroButtonProps["size"]} className={`cursor-pointer ${className}`}>
+            <Link href={href} target={target} rel={rel} aria-label={ariaLabel} className={`flex items-center justify-center font-press-start-2p text-black text-[10px]!`}>
                 {buttonName}
-            </RetroButton>
-        </Link>
+            </Link>
+        </RetroButton>
     )
 }
