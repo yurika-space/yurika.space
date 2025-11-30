@@ -1,4 +1,7 @@
-import FiniteComponentGallery from '@/components/molecules/FiniteGalerry';
+'use client';
+
+import { useRef } from 'react';
+import FiniteComponentGallery from '@/components/molecules/FiniteGallery';
 
 // Example slide components
 function HeroSlide() {
@@ -12,7 +15,13 @@ function HeroSlide() {
 	);
 }
 
-function ProjectSlide({ title, description, tech }: { title: string; description: string; tech: string[] }) {
+interface ProjectSlideProps {
+	title: string;
+	description: string;
+	tech: string[];
+}
+
+function ProjectSlide({ title, description, tech }: ProjectSlideProps) {
 	return (
 		<div className="w-full h-full bg-white rounded-2xl shadow-2xl p-12 flex flex-col justify-between">
 			<div>
@@ -22,8 +31,8 @@ function ProjectSlide({ title, description, tech }: { title: string; description
 			<div>
 				<h3 className="text-sm font-semibold text-gray-500 uppercase mb-3">Technologies</h3>
 				<div className="flex flex-wrap gap-2">
-					{tech.map((t, i) => (
-						<span key={i} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">
+					{tech.map((t) => (
+						<span key={t} className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium text-gray-700">
 							{t}
 						</span>
 					))}
@@ -33,26 +42,18 @@ function ProjectSlide({ title, description, tech }: { title: string; description
 	);
 }
 
-function QuoteSlide({ quote, author }: { quote: string; author: string }) {
+interface QuoteSlideProps {
+	quote: string;
+	author: string;
+}
+
+function QuoteSlide({ quote, author }: QuoteSlideProps) {
 	return (
 		<div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl shadow-2xl flex items-center justify-center text-white p-12">
 			<div className="text-center max-w-2xl">
 				<p className="text-3xl font-serif italic mb-6">&ldquo;{quote}&rdquo;</p>
 				<p className="text-lg opacity-75">— {author}</p>
 			</div>
-		</div>
-	);
-}
-
-function ImageSlide({ src, caption }: { src: string; caption?: string }) {
-	return (
-		<div className="w-full h-full bg-black rounded-2xl shadow-2xl overflow-hidden">
-			<img src={src} alt={caption} className="w-full h-full object-cover" />
-			{caption && (
-				<div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-					<p className="text-white text-lg">{caption}</p>
-				</div>
-			)}
 		</div>
 	);
 }
@@ -70,8 +71,8 @@ function SkillsSlide() {
 		<div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl shadow-2xl p-12 text-white">
 			<h2 className="text-4xl font-bold mb-8">Skills</h2>
 			<div className="space-y-6">
-				{skills.map((skill, i) => (
-					<div key={i}>
+				{skills.map((skill) => (
+					<div key={skill.name}>
 						<div className="flex justify-between mb-2">
 							<span className="text-lg font-medium">{skill.name}</span>
 							<span className="text-lg font-medium">{skill.level}%</span>
@@ -90,43 +91,66 @@ function SkillsSlide() {
 }
 
 export default function ComponentGalleryExample() {
-	// Define your slides
-	const slides = [
-		<HeroSlide key="hero" />,
-		<ProjectSlide
-			key="project1"
-			title="E-Commerce Platform"
-			description="A full-stack e-commerce solution with real-time inventory management and AI-powered recommendations."
-			tech={['Next.js', 'PostgreSQL', 'Stripe', 'TensorFlow']}
-		/>,
-		<QuoteSlide
-			key="quote1"
-			quote="Design is not just what it looks like and feels like. Design is how it works."
-			author="Steve Jobs"
-		/>,
-		<ProjectSlide
-			key="project2"
-			title="Social Media Dashboard"
-			description="Analytics dashboard for tracking social media metrics across multiple platforms with real-time updates."
-			tech={['React', 'D3.js', 'WebSocket', 'Node.js']}
-		/>,
-		<SkillsSlide key="skills" />,
-		<ProjectSlide
-			key="project3"
-			title="Blockchain Wallet"
-			description="Secure cryptocurrency wallet with multi-chain support and DeFi integration."
-			tech={['Solidity', 'Web3.js', 'React', 'Hardhat']}
-		/>,
-		<QuoteSlide
-			key="quote2"
-			quote="I create; therefore I am."
-			author="Your Philosophy"
-		/>,
-	];
+	const nextSectionRef = useRef<HTMLElement>(null);
 
 	const handleScrollEnd = () => {
 		console.log('Finished viewing all slides');
+		nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
 	};
+
+	// Define your slides
+	const slides = [
+		{ component: <HeroSlide />, id: 'hero' },
+		{
+			component: (
+				<ProjectSlide
+					title="E-Commerce Platform"
+					description="A full-stack e-commerce solution with real-time inventory management and AI-powered recommendations."
+					tech={['Next.js', 'PostgreSQL', 'Stripe', 'TensorFlow']}
+				/>
+			),
+			id: 'project1',
+		},
+		{
+			component: (
+				<QuoteSlide
+					quote="Design is not just what it looks like and feels like. Design is how it works."
+					author="Steve Jobs"
+				/>
+			),
+			id: 'quote1',
+		},
+		{
+			component: (
+				<ProjectSlide
+					title="Social Media Dashboard"
+					description="Analytics dashboard for tracking social media metrics across multiple platforms with real-time updates."
+					tech={['React', 'D3.js', 'WebSocket', 'Node.js']}
+				/>
+			),
+			id: 'project2',
+		},
+		{ component: <SkillsSlide />, id: 'skills' },
+		{
+			component: (
+				<ProjectSlide
+					title="Blockchain Wallet"
+					description="Secure cryptocurrency wallet with multi-chain support and DeFi integration."
+					tech={['Solidity', 'Web3.js', 'React', 'Hardhat']}
+				/>
+			),
+			id: 'project3',
+		},
+		{
+			component: (
+				<QuoteSlide
+					quote="I create; therefore I am."
+					author="Your Philosophy"
+				/>
+			),
+			id: 'quote2',
+		},
+	];
 
 	return (
 		<main className="min-h-screen bg-black">
@@ -148,7 +172,7 @@ export default function ComponentGalleryExample() {
 				/>
 
 				{/* Overlay instructions */}
-				<div className="absolute bottom-10 left-0 right-0 text-center">
+				<div className="absolute bottom-10 left-0 right-0 text-center pointer-events-none">
 					<div className="inline-flex flex-col items-center gap-2 text-white">
 						<p className="font-mono uppercase text-[11px] font-semibold">
 							Use mouse wheel or arrow keys to navigate
@@ -161,7 +185,7 @@ export default function ComponentGalleryExample() {
 			</section>
 
 			{/* Next Section */}
-			<section className="min-h-screen bg-white text-black flex items-center justify-center">
+			<section ref={nextSectionRef} className="min-h-screen bg-white text-black flex items-center justify-center">
 				<div className="max-w-4xl px-8 py-20 text-center">
 					<h2 className="text-5xl md:text-7xl font-bold mb-8">
 						Get In Touch

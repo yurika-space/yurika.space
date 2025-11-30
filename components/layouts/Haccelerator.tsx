@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import "../component_stylesheets/haccelerator.css";
 import Typewriter from "../atoms/Typewriter";
 import ComponentHeader from "../atoms/ComponentHeader";
@@ -8,6 +10,27 @@ import NesHeart from "../atoms/NesHeart";
 import '@/components/component_stylesheets/mission.css';
 
 export default function Haccelerator() {
+  /**
+   * Track if we're on a large screen (1024px+) to conditionally render hearts.
+   * Using useState + useEffect pattern to avoid hydration mismatch since
+   * window is undefined during server-side rendering in Next.js.
+   */
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    // Check initial screen size
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    
+    // Run on mount
+    checkScreenSize();
+    
+    // Update on resize for responsive behavior
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full bg-yurika-bg-primary py-2 px-4">
       {/* Animated grid background - stays in background */}
@@ -71,17 +94,24 @@ export default function Haccelerator() {
               className="font-press-start-2p text-[10px]! animate-shimmer -mt-22 cursor-pointer"
             />
           </div>
-          {window.innerWidth >= 1024 ? <div
-          className="flex justify-center lg:mt-26! xl:hidden animate-fade-in-up"
-          style={{ animationDelay: "1.6s" }}
-        >
-          <div className="pixel-hearts-row space-x-4">
-            <span className="pixel-heart"><NesHeart variant="full" size={8} /></span>
-            <span className="pixel-heart delay-1"><NesHeart variant="full" size={8} /></span>
-            <span className="pixel-heart delay-2"><NesHeart variant="full" size={8} /></span>
-            <span className="pixel-heart delay-3"><NesHeart variant="half" size={8} /></span>
-          </div>
-        </div> : null}
+          {/* 
+            Hearts row only shown on large screens (lg breakpoint: 1024px+).
+            Using isLargeScreen state instead of window.innerWidth directly
+            to prevent Next.js hydration errors since window is undefined on server.
+          */}
+          {isLargeScreen && (
+            <div
+              className="flex justify-center lg:mt-26! xl:hidden animate-fade-in-up"
+              style={{ animationDelay: "1.6s" }}
+            >
+              <div className="pixel-hearts-row space-x-4">
+                <span className="pixel-heart"><NesHeart variant="full" size={8} /></span>
+                <span className="pixel-heart delay-1"><NesHeart variant="full" size={8} /></span>
+                <span className="pixel-heart delay-2"><NesHeart variant="full" size={8} /></span>
+                <span className="pixel-heart delay-3"><NesHeart variant="half" size={8} /></span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import ComponentHeader from "../atoms/ComponentHeader";
 import LinkButton from "../atoms/Link";
 import Logo from "../atoms/Logo";
@@ -17,6 +18,31 @@ export default function Header() {
   const logo = "/logo_white.png";
   const width = 164;
   const height = 96;
+
+  /**
+   * Track viewport width for responsive button sizing.
+   * Using useState + useEffect to avoid hydration mismatch since
+   * window is undefined during server-side rendering in Next.js.
+   * Default to larger screen values to prevent layout shift on desktop.
+   */
+  const [viewportWidth, setViewportWidth] = useState(1440);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setViewportWidth(window.innerWidth);
+    };
+    
+    // Set initial width on mount
+    updateWidth();
+    
+    // Update on resize
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
+
+  // Derive responsive values from viewport width
+  const isSmallDesktop = viewportWidth < 1440;
+  const isMobile = viewportWidth < 800;
 
   return (
     <header className="w-screen bg-background border-b border-foreground/20 fixed top-0 left-0 right-0 z-50 h-20 md:h-25 lg:h-25 px-8 lg:pt-4">
@@ -38,8 +64,8 @@ export default function Header() {
                   href={item.href}
                   buttonName={item.name}
                   className="text-foreground block hover:text-foreground/80 transition-colors"
-                  size={window.innerWidth <1440 ? "xs" : "default"}
-                  variant={window.innerWidth <1440 ? "ghost" : "default"}
+                  size={isSmallDesktop ? "xs" : "default"}
+                  variant={isSmallDesktop ? "ghost" : "default"}
                 />
               ))}
             </nav>
@@ -69,7 +95,7 @@ export default function Header() {
                         href={item.href}
                         buttonName={item.name}
                         className="flex justify-self-center font-bold items-center align-middle text-foreground text-center hover:text-foreground/80 hover:bg-foreground/10 p-0 transition-colors w-full lg:text-[8px]!"
-                        size={window.innerWidth < 800 ? "full" : "xs"}
+                        size={isMobile ? "full" : "xs"}
                       />
                     ))}
                   </nav>
