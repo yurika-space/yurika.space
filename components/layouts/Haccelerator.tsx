@@ -4,6 +4,8 @@ import ComponentHeader from "../atoms/ComponentHeader";
 import ComponentBody from "../atoms/ComponentBody";
 import HealthBar from "../molecules/HealthBar";
 import StarburstSticker from "../atoms/StarburstSticker";
+import NesHeart from "../atoms/NesHeart";
+import '@/components/component_stylesheets/mission.css';
 
 export default function Haccelerator() {
   return (
@@ -18,7 +20,7 @@ export default function Haccelerator() {
       <div className="relative z-10 w-full max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex flex-col items-center justify-center text-center animate-fade-in-up pt-8">
-          <ComponentHeader title="Haccelerator Program" item=" ★ " />
+          <ComponentHeader title="Haccelerator Program" item=" ★ " className="-mt-18 sm:-mt-26! mb-8"/>
           <Typewriter
             text="16 WEEKS TO LAUNCH"
             speed={100}
@@ -27,7 +29,7 @@ export default function Haccelerator() {
           />
 
           <ComponentBody>
-            <p className="font-pixel text-[1.1rem] tracking-normal leading-relaxed">
+            <p className="font-pixel text-xl md:text-2xl lg:text-3xl tracking-normal leading-relaxed py-10">
               From idea to launch, we&apos;ll provide tech and business support,
               because we can&apos;t all go to Harvard, Wharton, or whatever
               fancy school is gatekeeping success this week.
@@ -41,7 +43,7 @@ export default function Haccelerator() {
 
         {/* Stats display - Gaming UI style */}
         <div
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-4 animate-fade-in-up"
+          className="flex flex-col sm:flex-row gap-4 justify-center my-8 animate-fade-in-up w-full md:-mt-4 "
           style={{ animationDelay: "0.2s" }}
         >
             <ComponentBody>
@@ -69,6 +71,17 @@ export default function Haccelerator() {
               className="font-press-start-2p text-[10px]! animate-shimmer -mt-22 cursor-pointer"
             />
           </div>
+          {window.innerWidth >= 1024 ? <div
+          className="flex justify-center lg:mt-26! xl:hidden animate-fade-in-up"
+          style={{ animationDelay: "1.6s" }}
+        >
+          <div className="pixel-hearts-row space-x-4">
+            <span className="pixel-heart"><NesHeart variant="full" size={8} /></span>
+            <span className="pixel-heart delay-1"><NesHeart variant="full" size={8} /></span>
+            <span className="pixel-heart delay-2"><NesHeart variant="full" size={8} /></span>
+            <span className="pixel-heart delay-3"><NesHeart variant="half" size={8} /></span>
+          </div>
+        </div> : null}
         </div>
       </div>
     </section>

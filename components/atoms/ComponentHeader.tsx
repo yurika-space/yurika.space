@@ -13,7 +13,7 @@ export default function ComponentHeader({
 }: ComponentHeaderProps) {
   return (
     <div
-      className={`text-center mt-16 sm:mt-6! md:mt-6 lg:mt-0 mb-6 sm:-mb-8! md:mb-8 lg:mb-8 animate-fade-in-up ${className}`}
+      className={`text-center animate-fade-in-up ${className}`}
       style={style}
     >
       <div className="inline-block mb-8 sm:mb-4! sm:mt-4! md:mb-4 lg:mb-4 sm:p-4!">

@@ -19,37 +19,37 @@ export default function Header() {
   const height = 96;
 
   return (
-    <header className="w-screen bg-background border-b border-foreground/20 fixed top-0 left-0 right-0 z-50 h-20 md:h-25 lg:h-25 px-8 md:px-4">
-      <div className="flex md:items-start md:justify-start md:space-around items-center align-middle justify-center align-center lg:justify-self-center w-full">
-        <div className="flex items-center align-middle justify-center align-center mb-4 space-around justify-self-center lg:w-full lg:space-center p-4 pl-4 md:pt-6 lg:-ml-5">
+    <header className="w-screen bg-background border-b border-foreground/20 fixed top-0 left-0 right-0 z-50 h-20 md:h-25 lg:h-25 px-8 lg:pt-4">
+      <div className="flex md:items-start md:justify-start md:space-around items-center align-middle justify-center align-center lg:justify-self-center w-full lg:flex lg:flex-row lg:justify-between lg:items-center lg:align-middle lg:space-center lg:w-full lg:pl-12">
+        <div className="flex items-center align-center justify-center align-center mb-4 space-around justify-self-center lg:space-center p-4 pl-4 md:pt-6 lg:-mt-15">
           {/* Left section: Logo + Desktop Navigation */}
-          <div className="flex w-[50%] justify-start items-start align-middle lg:items-center lg:align-middle lg:justify-center lg:gap-1 lg:-ml-35">
+          <div className="flex w-[50%] lg:w-screen justify-start items-start align-middle lg:items-center lg:align-middle lg:justify-center lg:gap-1 lg:-ml-35">
             <Logo
               src={logo}
               alt={"Logo"}
               width={width}
               height={height}
-              className="box-content w-full h-auto justify-self-start items-start align-middle pl-20 md:pl-10 md:-mt-4!"
+              className="box-content w-full h-auto md:w-[70%] lg:w-[15%] lg:h-[10%] justify-self-start items-start align-middle pl-20 md:pl-10 md:-mt-4! lg:pl-30 lg:pt-2 xl:px-6"
             />
-            <nav className="hidden lg:flex lg:pl-5 lg:font-bold lg:items-center lg:gap-6">
+            <nav className="hidden lg:flex lg:pl-5 lg:font-bold lg:items-center lg:gap-6 xl:gap-9">
               {navigation.map((item) => (
                 <LinkButton
                   key={item.name}
                   href={item.href}
                   buttonName={item.name}
                   className="text-foreground block hover:text-foreground/80 transition-colors"
-                  size="xs"
+                  size={window.innerWidth <1440 ? "xs" : "default"}
+                  variant={window.innerWidth <1440 ? "ghost" : "default"}
                 />
               ))}
             </nav>
+            <div className="hidden lg:block lg:pl-6 xl:pl-9">
+              <ThemeToggle className="lg:w-[10vh] lg:h-[10vh] xl:w-[15vh]! xl:h-[15vh]!" />
+            </div>
           </div>
 
           {/* Right section: Theme toggle + Burger menu */}
           <div className="flex w-screen justify-between space-between items-center align-middle lg:gap-4 md:-mr-[30vh] ">
-            <div className="hidden lg:flex lg:items-center lg:align-middle lg:justify-center lg:w-auto lg:-mr-30">
-              <ThemeToggle />
-            </div>
-
             <BurgerMenu className="h-10 flex flex-col shrink-0 items-center align-center justify-center border-box md:items-end mt-1 pl-25! md:-pt-10! w-full lg:hidden">
               {/* Mobile Navigation */}
               {/* Mobile Theme Toggle */}

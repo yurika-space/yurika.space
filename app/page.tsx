@@ -42,6 +42,7 @@ export default function Home() {
         <Header />
         <Hero />
         <Haccelerator />
+
         <EurekaLaunchpad />
         <GameOver />
         <JoinTheFight />
