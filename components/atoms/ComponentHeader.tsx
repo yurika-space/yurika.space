@@ -13,18 +13,18 @@ export default function ComponentHeader({
 }: ComponentHeaderProps) {
   return (
     <div
-      className={`text-center animate-fade-in-up ${className}`}
+      className={`text-center animate-fade-in-up p-6 ${className}`}
       style={style}
     >
-      <div className="inline-block mb-8 sm:mb-4! sm:mt-4! md:mb-4 lg:mb-4 sm:p-4!">
-        <div className="power-up-badge py-4 sm:p-4! md:px-4 lg:px-4">
-          <span className="badge-icon text-xl! sm:text-2xl! md:text-3xl! lg:text-4xl!">
+      <div className="inline-block p-6">
+        <div className="power-up-badge py-2!">
+          <span className="badge-icon ">
             {item}
           </span>
-          <span className="badge-text text-xl! sm:text-2xl! md:text-3xl! lg:text-4xl!">
+          <span className="badge-text ">
             {title}
           </span>
-          <span className="badge-icon text-xl! sm:text-2xl! md:text-3xl! lg:text-4xl!">
+          <span className="badge-icon ">
             {item}
           </span>
         </div>

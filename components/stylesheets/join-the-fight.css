@@ -1,0 +1,407 @@
+/* Join the Fight Component Styles - Tarot Card Theme */
+
+:root {
+  --fight-gold: color-mix(in oklch, var(--secondary) 70%, var(--primary) 30%);
+  --fight-primary-strong: color-mix(in oklch, var(--primary) 80%, black);
+  --fight-accent-strong: color-mix(in oklch, var(--accent) 80%, black);
+  --fight-destructive-strong: color-mix(in oklch, var(--destructive) 80%, black);
+}
+
+/* Battle grid background */
+.battle-grid {
+  background-image:
+    repeating-linear-gradient(0deg, color-mix(in oklch, var(--primary) 5%, transparent) 0px, transparent 2px, transparent 4px, color-mix(in oklch, var(--primary) 5%, transparent) 6px),
+    repeating-linear-gradient(90deg, color-mix(in oklch, var(--destructive) 5%, transparent) 0px, transparent 2px, transparent 4px, color-mix(in oklch, var(--destructive) 5%, transparent) 6px);
+  animation: battleShift 20s linear infinite;
+}
+
+@keyframes battleShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(20px, 20px); }
+}
+
+/* Energy particles */
+.energy-particles {
+  background-image:
+    radial-gradient(circle, var(--primary) 1px, transparent 1px),
+    radial-gradient(circle, var(--destructive) 1px, transparent 1px),
+    radial-gradient(circle, var(--accent) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 160px 160px;
+  background-position: 0 0, 40px 40px, 80px 80px;
+  animation: particleDrift 60s linear infinite;
+  opacity: 0.15;
+}
+
+@keyframes particleDrift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(100px, -100px) rotate(360deg); }
+}
+
+/* Fight badge */
+.fight-badge {
+  background: linear-gradient(135deg, color-mix(in oklch, var(--primary) 20%, transparent), color-mix(in oklch, var(--destructive) 20%, transparent));
+  border: 3px solid;
+  border-image: linear-gradient(45deg, var(--primary), var(--destructive)) 1;
+  padding: 0.75rem 2.5rem;
+  position: relative;
+  box-shadow:
+    0 0 30px color-mix(in oklch, var(--primary) 30%, transparent),
+    inset 0 0 30px color-mix(in oklch, var(--primary) 10%, transparent);
+  animation: badgeIntense 2s ease-in-out infinite;
+}
+
+@keyframes badgeIntense {
+  0%, 100% {
+    box-shadow:
+      0 0 30px color-mix(in oklch, var(--primary) 30%, transparent),
+      inset 0 0 30px color-mix(in oklch, var(--primary) 10%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 50px color-mix(in oklch, var(--destructive) 50%, transparent),
+      inset 0 0 50px color-mix(in oklch, var(--destructive) 20%, transparent);
+  }
+}
+
+.fight-badge::before,
+.fight-badge::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--destructive);
+  animation: cornerPulse 2s ease-in-out infinite;
+}
+
+.fight-badge::before {
+  top: -4px;
+  left: -4px;
+}
+
+.fight-badge::after {
+  bottom: -4px;
+  right: -4px;
+}
+
+@keyframes cornerPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px currentColor;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor;
+    transform: scale(1.2);
+  }
+}
+
+/* Tarot card container */
+.tarot-card-container {
+  perspective: 1000px;
+}
+
+.tarot-card {
+  /*background: color-mix(in oklch, var(--card) 80%, transparent);*//* Gold border like the cards */
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px color-mix(in oklch, var(--fight-gold) 10%, transparent);
+}
+
+.tarot-card:hover {
+  transform: translateY(-12px) rotateY(5deg);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 40px color-mix(in oklch, var(--fight-gold) 40%, transparent),
+    inset 0 0 30px color-mix(in oklch, var(--fight-gold) 20%, transparent);
+}
+
+/* Tarot card glow effect */
+.tarot-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, color-mix(in oklch, var(--fight-gold) 30%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tarot-card:hover::before {
+  opacity: 1;
+  animation: cardGlow 3s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.1);
+  }
+}
+
+/* Tarot card image */
+.tarot-card-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, color-mix(in oklch, var(--accent) 10%, transparent), color-mix(in oklch, var(--primary) 10%, transparent));
+}
+
+.tarot-card-image img {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  aspect-ratio: 1 / 2 !important;
+
+  overflow: hidden;
+}
+
+.tarot-card:hover .tarot-card-image img {
+  transform: scale(1.05);
+}
+
+/* Tarot card content */
+.tarot-card-content {
+
+  background: color-mix(in oklch, var(--background) 90%, transparent);
+}
+
+/* Path options */
+.path-option {
+  padding: 1rem;
+  background: color-mix(in oklch, var(--card) 50%, transparent);
+  border-left: 3px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.path-option:hover {
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border-left-color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* Path divider */
+.path-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--fight-gold) 50%, transparent), transparent);
+  margin: 1rem 0;
+}
+
+/* Quest buttons */
+.quest-button {
+  width: 100%;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.quest-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Button glow effect */
+.button-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, currentColor, transparent);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.button-text,
+.button-icon {
+  position: relative;
+  z-index: 1;
+}
+
+.button-icon {
+  transition: transform 0.3s ease;
+}
+
+.quest-button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+/* Creator buttons */
+.quest-button.creator {
+  background: var(--primary);
+  color: var(--background);
+}
+
+.quest-button.creator:hover {
+  background: var(--fight-primary-strong);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3), 0 0 20px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+/* Partner buttons */
+.quest-button.partner {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.quest-button.partner:hover {
+  background: var(--fight-accent-strong);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3), 0 0 20px color-mix(in oklch, var(--accent) 50%, transparent);
+}
+
+/* Sponsor buttons */
+.quest-button.sponsor {
+  background: var(--destructive);
+  color: var(--foreground);
+}
+
+.quest-button.sponsor:hover {
+  background: var(--fight-destructive-strong);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3), 0 0 20px color-mix(in oklch, var(--destructive) 50%, transparent);
+}
+
+/* Sponsor alternative buttons (outline style) */
+.quest-button.sponsor-alt {
+  background: transparent;
+  color: var(--destructive);
+  border: 2px solid var(--destructive);
+  box-shadow: none;
+}
+
+.quest-button.sponsor-alt:hover {
+  background: color-mix(in oklch, var(--destructive) 10%, transparent);
+  border-color: var(--destructive);
+  box-shadow: 0 0 20px color-mix(in oklch, var(--destructive) 30%, transparent);
+}
+
+.quest-button.sponsor-alt:active {
+  transform: translateY(0);
+}
+
+/* Contact section */
+.contact-section {
+  margin-top: 4rem;
+}
+
+.contact-box {
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border: 3px solid var(--primary);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow:
+    0 0 30px color-mix(in oklch, var(--primary) 20%, transparent),
+    inset 0 0 30px color-mix(in oklch, var(--primary) 5%, transparent);
+}
+
+.contact-box::before,
+.contact-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.contact-box::before {
+  top: -2px;
+  left: -2px;
+}
+
+.contact-box::after {
+  bottom: -2px;
+  right: -2px;
+}
+
+/* Contact button */
+.quest-button.contact {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--background);
+}
+
+.quest-button.contact:hover {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.3), 0 0 30px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tarot-card {
+    border-radius: 12px;
+  }
+
+  .tarot-card-content {
+    padding: 1rem;
+  }
+
+  .tarot-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .quest-button {
+    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .contact-box {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fight-badge {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .tarot-card-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .path-option {
+    padding: 0.75rem;
+  }
+
+  .quest-button {
+    font-size: 0.7rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}

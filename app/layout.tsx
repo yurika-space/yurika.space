@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, Pixelify_Sans, Sixtyfour, JetBrains_Mono, Press_Start_2P } from "next/font/google";
+import { Sixtyfour, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import ThemeWrapper from "@/components/providers/ThemeWrapper";
+import ThemeWrapper from "@/lib/ThemeWrapper";
 import "./globals.css";
 import "./retro-globals.css";
 import Head from "next/head";
 
-const ibmPlexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  variable: "--font-ibm-plex-sans",
-});
-const pixelifySans = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-pixelify-sans",
-});
 const sixtyfour = Sixtyfour({
   subsets: ["latin"],
   weight: ["400"],
@@ -62,7 +52,7 @@ export default function RootLayout({
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body className={`${ibmPlexSans.variable} ${pixelifySans.variable} ${sixtyfour.variable} ${jetBrainsMono.variable} ${pressStart2p.variable} antialiased dark`}>
+      <body className={`${sixtyfour.variable} ${jetBrainsMono.variable} ${pressStart2p.variable} antialiased dark min-h-screen w-screen overflow-x-hidden`}>
         <ThemeProvider
         attribute="class"
         defaultTheme="default"

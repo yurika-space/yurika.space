@@ -1,0 +1,439 @@
+/* Haccelerator Component Styles - Retro Gaming UI */
+
+:root {
+  --hacc-primary-strong: color-mix(in oklch, var(--primary) 80%, black);
+}
+
+/* Subtle grid background */
+.grid-bg-subtle {
+  background-image: 
+    linear-gradient(color-mix(in oklch, var(--primary) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklch, var(--primary) 5%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridScroll 20s linear infinite;
+}
+
+@keyframes gridScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Pixel particles effect */
+.pixel-particles {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, var(--primary) 1px, transparent 1px),
+    radial-gradient(circle, var(--destructive) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0.5;
+  animation: particleFloat 30s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+/* Pixel badge */
+.pixel-badge {
+  display: inline-block;
+
+ 
+  
+ 
+  
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 
+    0 0 10px color-mix(in oklch, var(--primary) 30%, transparent),
+    inset 0 0 10px color-mix(in oklch, var(--primary) 10%, transparent);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 10px color-mix(in oklch, var(--primary) 30%, transparent), inset 0 0 10px color-mix(in oklch, var(--primary) 10%, transparent); }
+  50% { box-shadow: 0 0 20px color-mix(in oklch, var(--primary) 50%, transparent), inset 0 0 20px color-mix(in oklch, var(--primary) 20%, transparent); }
+}
+
+/* Subtle glitch for titles */
+.glitch-text-subtle {
+  text-shadow: 
+    1px 1px 0 var(--primary),
+    -1px -1px 0 var(--destructive);
+  animation: glitchSubtle 4s ease-in-out infinite;
+}
+
+@keyframes glitchSubtle {
+  0%, 95%, 100% {
+    text-shadow: 1px 1px 0 var(--primary), -1px -1px 0 var(--destructive);
+  }
+  97% {
+    text-shadow: -1px 1px 0 var(--primary), 1px -1px 0 var(--destructive);
+  }
+}
+
+/* Stats boxes - Gaming UI style */
+.stat-box {
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  border: 2px solid var(--primary);
+
+
+
+  box-shadow: 0 4px 0 0 color-mix(in oklch, var(--primary) 30%, transparent);
+  transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--accent), var(--destructive), var(--primary));
+  background-size: 300% 300%;
+  animation: borderGlow 3s ease infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-box:hover::before {
+  opacity: 0.5;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.stat-label {
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Level cards - Game progression style */
+.level-card {
+ 
+  border: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
+  border-left: 4px solid var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.level-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--primary) 10%, transparent), transparent);
+  transition: left 0.5s ease;
+}
+
+.level-card:hover::before {
+  left: 100%;
+}
+
+.level-card:hover {
+  background: color-mix(in oklch, var(--card) 90%, transparent);
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: -4px 4px 0 0 color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.level-header {
+ 
+  gap: 1rem;
+}
+
+.level-number {
+
+  font-weight: 700;
+  color: var(--primary);
+  background: color-mix(in oklch, var(--primary) 10%, transparent);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 10px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.level-title {
+
+  font-weight: 600;
+
+}
+
+
+
+.level-icon {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.level-card:hover .level-icon {
+  transform: translateX(4px);
+}
+
+.level-details {
+  animation: expandDown 0.3s ease-out;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+
+.pixel-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  margin-bottom: 1rem;
+  animation: dividerPulse 2s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Game UI box */
+.game-ui-box {
+
+  border: 3px solid var(--primary);
+position: relative;
+  box-shadow: 
+    0 0 20px color-mix(in oklch, var(--primary) 20%, transparent),
+    inset 0 0 20px color-mix(in oklch, var(--primary) 5%, transparent);
+}
+
+.game-ui-box::before,
+.game-ui-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  box-shadow: 0 0 10px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.game-ui-box::before {
+  top: -2px;
+  left: -2px;
+}
+
+.game-ui-box::after {
+  bottom: -2px;
+  right: -2px;
+}
+
+/* Pixel button primary */
+.pixel-button-primary {
+
+  font-weight: 700;
+
+  background: var(--primary);
+ 
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+position: relative;
+  transition: all 0.3s ease;
+  display: inline-flex;
+
+  gap: 0.5rem;
+  box-shadow: 
+    0 4px 0 0 var(--hacc-primary-strong),
+    0 8px 20px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.pixel-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 0 0 var(--hacc-primary-strong),
+    0 12px 30px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+.pixel-button-primary:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 0 0 var(--hacc-primary-strong),
+    0 4px 10px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.pixel-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--foreground) 40%, transparent), transparent);
+  transition: left 0.5s ease;
+}
+
+.pixel-button-primary:hover::before {
+  left: 100%;
+}
+
+.button-decoration {
+  animation: bounceRight 1s ease-in-out infinite;
+}
+
+@keyframes bounceRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* XP Bar (Progress bar) */
+.xp-bar {
+  width: 100%;
+  height: 2.5rem;
+
+  border: 2px solid var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: xpFill 2s ease-out;
+  box-shadow: 0 0 20px color-mix(in oklch, var(--primary) 50%, transparent);
+}
+
+@keyframes xpFill {
+  from { width: 0 !important; }
+}
+
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--foreground) 30%, transparent), transparent);
+  animation: xpShimmer 2s ease-in-out infinite;
+}
+
+@keyframes xpShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.xp-text {
+
+  font-weight: 700;
+  color: var(--background);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+}
+
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .level-number {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .level-title {
+    font-size: 0.875rem;
+  }
+  
+  .level-description {
+    font-size: 0.75rem;
+  }
+  
+  .stat-box {
+    min-width: 100px;
+    padding: 0.75rem 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(1%); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 5px var(--warning)); }
+  50% { filter: drop-shadow(0 0 15px var(--warning)) drop-shadow(0 0 20px var(--warning)); }
+}
+
+.animate-shimmer {
+  animation: shimmer 200s linear infinite, glow 20s linear infinite;
+}
+
+/* MAX text animation - gold shine with scale pulse */
+.max-glow {
+  display: inline-block;
+  color: var(--warning);
+  text-shadow:
+    0 0 10px var(--warning),
+    0 0 20px color-mix(in oklch, var(--warning) 85%, black),
+    0 0 30px color-mix(in oklch, var(--warning) 70%, black);
+  animation: maxPulse 2s ease-in-out infinite;
+  animation-delay: 3s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes maxPulse {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow:
+      0 0 10px var(--warning),
+      0 0 20px color-mix(in oklch, var(--warning) 85%, black),
+      0 0 30px color-mix(in oklch, var(--warning) 70%, black);
+  }
+  50% {
+    transform: scale(1.25);
+    text-shadow:
+      0 0 15px var(--warning),
+      0 0 30px var(--warning),
+      0 0 45px color-mix(in oklch, var(--warning) 85%, black),
+      0 0 60px color-mix(in oklch, var(--warning) 70%, black);
+  }
+}
