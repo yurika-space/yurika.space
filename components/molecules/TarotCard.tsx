@@ -1,13 +1,13 @@
 "use client";
 
 import Button, { ButtonProps } from "@/components/atoms/Button";
-import ComponentHeader from "@/components/atoms/ComponentHeader";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 import "../stylesheets/join-the-fight.css";
 
 interface QuestButton extends ButtonProps {
   text: string;
+  variant: ButtonProps["variant"];
 }
 
 interface ContentParagraph {
@@ -23,7 +23,7 @@ interface TarotCardProps {
 
   // Image
   imageSrc: string;
-  //imageAlt: string;
+  imageAlt?: string;
   imageClassName?: string;
 
   // Content
@@ -41,15 +41,12 @@ interface TarotCardProps {
 }
 
 export function TarotCard({
-  title,
-  icon,
   imageSrc,
   //imageAlt,
   imageClassName,
   paragraphs = [],
   buttons = [],
   className: cardClassName,
-  headerClassName,
   contentClassName,
   animationDelay = "0s",
   showDivider = true,
@@ -58,14 +55,13 @@ export function TarotCard({
     "tarot-card-container flex flex-col items-center justify-center animate-fade-in-up h-full",
     cardClassName
   );
-  const headerClassNames = cn("text-foreground pt-12", headerClassName);
   const contentClassNames = cn(
     "tarot-card-content text-center relative z-10",
     contentClassName
   );
   return (
     <div className={containerClassNames} style={{ animationDelay }}>
-      <div className="tarot-card w-auto h-[620px] relative overflow-hidden rounded-2xl">
+      <div className="tarot-card w-auto h-[580px] lg:h-[620px] relative overflow-hidden rounded-2xl">
         <div
           className={cn(
             "absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50",
@@ -105,13 +101,7 @@ export function TarotCard({
                 <Button
                   key={index}
                   variant={
-                    button.variant === "creator"
-                      ? "primary"
-                      : button.variant === "partner"
-                        ? "secondary"
-                        : button.variant === "sponsor"
-                          ? "destructive"
-                          : "purple"
+                    button.variant
                   }
                   size="lg"
                   onClick={button.onClick}

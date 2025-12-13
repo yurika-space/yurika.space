@@ -120,7 +120,7 @@ export default function CTA() {
         </div>
 
         {/* Card 1: For Creators - King of Cups */}
-        <div className="flex flex-col items-center justify-center align-center w-full max-w-4xl space-y-12">
+        <div className="lg:grid lg:grid-cols-3 lg:align-center lg:h-[80vh] lg:grid-rows-1 lg:mx-auto lg:gap-4 lg:items-center lg:justify-center lg:max-w-7xl flex flex-col items-center justify-center align-center w-full max-w-4xl space-y-12">
         <TarotCard
           title="CREATORS"
           icon="⚔️"
@@ -140,7 +140,7 @@ export default function CTA() {
             {
               text: "Join our Waitlist",
               icon: "→",
-              variant: "creator",
+              variant: "primary",
               onClick: () => {
                 setUserType("founder");
                 setSubmitted(false);
@@ -151,7 +151,7 @@ export default function CTA() {
             {
               text: "Create a Project on Eureka",
               icon: "→",
-              variant: "creator",
+              variant: "primary",
               hidden: true,
             },
           ]}
@@ -182,7 +182,7 @@ export default function CTA() {
             {
               text: "Book a Meeting",
               icon: "📅",
-              variant: "partner",
+              variant: "secondary",
               onClick: () => setActiveModal("call"),
             },
           ]}
@@ -192,6 +192,7 @@ export default function CTA() {
         {/* Card 3: For Sponsors - Six of Pentacles */}
         <TarotCard
           title="SPONSORS"
+          className="md:-translate-y-6"
           icon="💰"
           imageSrc="/six_coins.png"
           imageAlt="Six of Pentacles - For Sponsors"
@@ -212,7 +213,7 @@ export default function CTA() {
             {
               text: "Request Pitch Deck",
               icon: "📖",
-              variant: "sponsor-alt",
+              variant: "purple",
               onClick: () => console.log("Request pitch deck"),
             },
           ]}

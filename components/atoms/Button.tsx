@@ -51,7 +51,7 @@ export interface ButtonProps
   extends
     Omit<HTMLMotionProps<"button">, "children">,
     VariantProps<typeof buttonVariants> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   isLoading?: boolean;
   icon?: React.ReactNode;
 }
