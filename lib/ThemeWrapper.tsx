@@ -15,7 +15,7 @@ export default function ThemeWrapper({
 
     // Remove all theme classes
     root.classList.remove(
-      "theme-default",
+      "theme-terminal",
       "theme-sega",
       "theme-nintendo",
       "theme-gameboy",

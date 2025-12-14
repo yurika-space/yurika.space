@@ -35,9 +35,7 @@
    Lime / Purple / Cyan on Black
    ============================================ */
 
-   :root,
-   :root.theme-terminal.dark,
-   :root.dark {
+   :root, :root.theme-terminal.dark{
      --primary: oklch(0.8 0.22 125);
      --primary-foreground: oklch(0.1 0.02 125);
      --background: oklch(0.08 0.005 0);

@@ -1,10 +1,9 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect } from "react";
 
 const themes = [
-  { value: "default", label: "Default" },
+  { value: "terminal", label: "Terminal" },
   { value: "sega", label: "Sega" },
   { value: "nintendo", label: "Nintendo" },
   { value: "gameboy", label: "Game Boy" },
@@ -15,7 +14,7 @@ const themes = [
   { value: "vhs", label: "VHS" },
   { value: "pacman", label: "Pac-Man" },
   { value: "cassette", label: "Cassette" },
-  { value: "rusty-byte", label: "Rusty Byte" },
+  { value: "rusty-byte", label: "Rusty Bit" },
 ];
 
 interface ThemeToggleProps {
@@ -24,24 +23,19 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ className, ariaLabel }: ThemeToggleProps) {
-  const { theme, setTheme } = useTheme();
-
-  // Ensure dark mode is always enabled
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
+  const { theme, setTheme } = useTheme()
 
   return (
     <div className={`flex items-center justify-center ${className}`} aria-label={ariaLabel}>
       <div className="relative inline-block">
         <select
-          value={theme || "default"}
+          value={theme || "terminal"}
           onChange={(e) => setTheme(e.target.value)}
-          className="appearance-none lg:text-[12px] xl:text-[16px] lg:w-[8vh] xl:w-[16vh] bg-background border border-border text-foreground px-4 py-2 pr-8 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          className="appearance-none lg:text-[12px] xl:text-[14px] lg:w-[12vh] xl:w-[14vh] bg-background border border-border text-foreground px-4 py-2 pr-8 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-300"
           aria-label="Select theme"
         >
           {themes.map((themeOption) => (
-            <option key={themeOption.value} value={themeOption.value}>
+            <option key={themeOption.value} value={themeOption.value} className="text-theme-foreground">
               {themeOption.label}
             </option>
           ))}
