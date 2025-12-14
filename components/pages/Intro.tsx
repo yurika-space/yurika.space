@@ -44,9 +44,9 @@ const SpaceIntro: React.FC = () => {
   ];
 
   return (
-    <Section sectionId="about" background={null} className="flex items-center justify-center align-center overflow-hidden relative">
+    <Section sectionId="about" background={null} className="flex items-center justify-center align-center overflow-hidden relative bg-theme-card">
 
-        <div className="absolute min-h-[110vh] min-w-screen bg-secondary">
+        <div className="absolute min-h-[110vh] min-w-screen">
 
           {/* Circuit pattern - now the animation class works! */}
           <div
@@ -54,7 +54,7 @@ const SpaceIntro: React.FC = () => {
             style={{
               backgroundImage: `
                 linear-gradient(90deg, var(--primary) 1px, transparent 1px),
-                linear-gradient(180deg, var(--primary) 1px, transparent 1px)
+                linear-gradient(180deg, var(--glow-primary) 1px, transparent 1px)
               `,
               backgroundSize: '50px 50px'
             }}
@@ -64,7 +64,7 @@ const SpaceIntro: React.FC = () => {
           <div
             className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full opacity-30 blur-3xl animate-power-up-glow"
             style={{
-              background: 'radial-gradient(circle, var(--primary) 0%, var(--destructive) 50%, transparent 60%)'
+              background: 'radial-gradient(circle, var(--primary) 0%, var(--glow-primary) 50%, transparent 60%)'
             }}
           />
         </div>
@@ -80,8 +80,8 @@ const SpaceIntro: React.FC = () => {
               style={{ animationDelay: "0.2s" }}
             />
             <ComponentBody className="animate-fade-in-up pt-6" delay={400}>
-              <p className="font-pixel text-base sm:text-3xl text-yurika-text-muted leading-relaxed">
-                <span className="pixel-frame text-background font-bold">
+              <p className="font-jetbrains-mono text-theme-secondary text-base sm:text-3xl text-yurika-text-muted leading-relaxed">
+                <span className="pixel-frame text-theme-primary text-background font-bold">
                   Domain Name-backed Crowdfunding
                 </span>{" "}
                 for those without rich parents or a wealthy network.
@@ -91,7 +91,7 @@ const SpaceIntro: React.FC = () => {
 
           {/* Feature cards */}
           <div
-            className="grid w-[90%] md:grid-cols-2 gap-4 mb-12 animate-fade-in-up"
+            className="grid w-[90%] md:grid-cols-2 gap-4 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
             {featureCards.map((item) => (

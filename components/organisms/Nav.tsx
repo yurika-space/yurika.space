@@ -22,7 +22,7 @@ export const navLinkVariants = cva(
       // Active state for current section
       active: {
         true: "bg-theme-primary text-theme-primary",
-        false: "text-theme-muted",
+        false: "bg-theme-secondary text-theme-secondary",
       },
     },
     defaultVariants: {
@@ -121,8 +121,8 @@ export default function Nav() {
         The header stays fixed at the top of the viewport
       */}
       <motion.header
-        className={cn("fixed top-0 left-0 right-0 z-50 border-b border-theme-secondary", isScrolled ? "bg-theme-primary" : "transparent", isScrolled ? "text-theme-primary" : "text-theme-secondary")}
-        style={{ backdropFilter: isScrolled ? "blur(16px)" : "blur(0px)", transition: "background-color 0.3s ease, backdrop-filter 0.3s ease" }}
+        className={cn("fixed top-0 left-0 right-0 z-50 border-b border-theme-primary","transparent bg-transparent ", isScrolled ? "text-theme-primary" : "text-theme-secondary")}
+        style={{ backdropFilter: isScrolled ? "blur(16px)" : "blur(12px)", transition: "background-color 0.3s ease, backdrop-filter 0.3s ease" }}
       >
         <div className="max-w-[1280px] mx-auto items-center justify-between align-center relative">
           <div className="flex items-center align-center justify-between mx-auto h-20">
@@ -137,7 +137,7 @@ export default function Nav() {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                src={isScrolled ? "/logo_black.png" : "/logo_white.png"}
+                src={"/logo_white.png"}
                 alt="Yurika Space"
                 width={150}
                 height={18.5}
@@ -149,7 +149,7 @@ export default function Nav() {
               DESKTOP NAVIGATION
               Horizontal list of section links, hidden on mobile
             */}
-            <nav className="hidden md:flex items-center font-press-start-2p relative">
+            <nav className="hidden lg:flex items-center font-press-start-2p relative">
               <ul
                 ref={navRef}
                 className="flex items-center gap-1 list-none m-0 p-0"
@@ -211,7 +211,7 @@ export default function Nav() {
               />
             </nav>
 
-            <ThemeToggle className="hidden md:block" />
+            <ThemeToggle className="hidden lg:block" />
 
             {/*
               MOBILE MENU BUTTON
@@ -223,7 +223,7 @@ export default function Nav() {
               ariaLabel={mobileMenuOpen ? "Close menu" : "Open menu"}
               variant="ghost"
               size="icon"
-              className="md:hidden flex flex-col justify-center items-center text-theme-accent px-4"
+              className="lg:hidden flex flex-col justify-center items-center text-theme-primary px-4"
             />
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function Nav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-theme-background/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-theme-card backdrop-blur-3xl lg:hidden"
           >
             <nav className="flex flex-col items-center justify-center h-full pt-20">
               <ul className="flex flex-col items-center gap-y-4 list-none m-0 p-0">
@@ -256,8 +256,8 @@ export default function Nav() {
                       className={cn(
                         "font-press-start-2p text-xl uppercase tracking-wider px-6 py-3 cursor-pointer",
                         activeSection === section.id
-                          ? "text-terminal-lime bg-terminal-lime/10"
-                          : "text-gray-400"
+                          ? "text-theme-card border-b-2 border-[var(--secondary-foreground)]"
+                          : "text-[var(--accent)]"
                       )}
                     >
                       {section.label}
@@ -270,7 +270,7 @@ export default function Nav() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col items-center justify-center align-center text-center border-t-4 border-terminal-lime/30 pt-6 w-[50%] mx-auto mt-4"
+                className="flex flex-col items-center justify-center align-center text-center border-t-2 border-[var(--primary)] pt-6 w-[50%] mx-auto mt-4"
               >
                 <ThemeToggle className="w-full mx-auto" />
               </motion.div>

@@ -14,10 +14,10 @@ export const buttonVariants = cva(
       variant: {
       // Primary: themed accent color
       primary:
-        "bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)] hover:shadow-[0_0_30px_var(--accent)] active:scale-95",
+        "bg-[var(--primary)] text-[var(--primary-foreground)] border-[var(--primary)] hover:shadow-[0_0_10px_var(--primary)] hover:bg-[rgba(10,10,10,0.7)] hover:border-[var(--primary)] hover:text-[var(--secondary-foreground)] active:scale-95",
       // Secondary: outlined button that still highlights accent
       secondary:
-        "bg-transparent text-[var(--accent)] border-[var(--accent)] hover:bg-[var(--accent)] hover:shadow-[0_0_20px_var(--accent)]",
+        "bg-transparent text-[var(--secondary-foreground)] border-[var(--primary)] hover:bg-[var(--primary)] hover:shadow-[0_0_10px_var(--primary)] hover:text-[var(--primary-foreground)]",
       // Terminal: dark shell style
       terminal:
         "bg-[var(--sidebar)] text-[var(--sidebar-foreground)] border-[var(--sidebar-ring)] hover:border-[var(--accent)] hover:shadow-[0_0_15px_var(--sidebar)]",
@@ -26,12 +26,12 @@ export const buttonVariants = cva(
         "bg-[var(--secondary)] text-[var(--secondary-foreground)] border-[var(--secondary)] hover:bg-[var(--secondary)] hover:shadow-[0_0_25px_var(--secondary)]",
       // Ghost: minimal link
       ghost:
-        "bg-transparent text-[var(--muted-foreground)] border-transparent hover:text-[var(--accent)] hover:bg-[var(--accent)]",
+        "bg-transparent border-transparent hover:border-theme-accent hover:bg-theme-primary",
       // Destructive: warning/danger actions
       destructive:
         "bg-[var(--destructive)] text-white border-[var(--destructive)] hover:bg-[var(--destructive)] hover:shadow-[0_0_20px_var(--destructive)]",
       },
-      // Size variants
+      // Size variantscurren
       size: {
         sm: "px-3 py-1.5 text-xs",
         md: "px-5 py-2.5 text-sm",

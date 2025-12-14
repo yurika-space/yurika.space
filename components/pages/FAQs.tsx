@@ -228,25 +228,24 @@ function PixelAlert({ children, ...props }: BitAlertProps) {
         variant={variant}
         className={cn(
           "relative rounded-none border-none bg-background",
-          font !== "normal" && "retro",
-          className
+          className, font === "retro" && "retro"
         )}
       >
         {children}
       </Alert>
 
-      <div className="absolute -top-1.5 w-1/2 left-1.5 h-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute -top-1.5 w-1/2 right-1.5 h-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute -bottom-1.5 w-1/2 left-1.5 h-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute -bottom-1.5 w-1/2 right-1.5 h-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute top-0 left-0 size-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute top-0 right-0 size-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute bottom-0 left-0 size-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute bottom-0 right-0 size-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute top-1.5 -left-1.5 h-1/2 w-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute bottom-1.5 -left-1.5 h-1/2 w-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute top-1.5 -right-1.5 h-1/2 w-1.5 bg-foreground dark:bg-ring" />
-      <div className="absolute bottom-1.5 -right-1.5 h-1/2 w-1.5 bg-foreground dark:bg-ring" />
+      <div className="absolute -top-1.5 w-1/2 left-1.5 h-1.5 bg-theme-primary" />
+      <div className="absolute -top-1.5 w-1/2 right-1.5 h-1.5 bg-theme-primary" />
+      <div className="absolute -bottom-1.5 w-1/2 left-1.5 h-1.5 bg-theme-primary" />
+      <div className="absolute -bottom-1.5 w-1/2 right-1.5 h-1.5 bg-theme-primary" />
+      <div className="absolute top-0 left-0 size-1.5 bg-theme-primary" />
+      <div className="absolute top-0 right-0 size-1.5 bg-theme-primary" />
+      <div className="absolute bottom-0 left-0 size-1.5 bg-theme-primary" />
+      <div className="absolute bottom-0 right-0 size-1.5 bg-theme-primary" />
+      <div className="absolute top-1.5 -left-1.5 h-1/2 w-1.5 bg-theme-primary" />
+      <div className="absolute bottom-1.5 -left-1.5 h-1/2 w-1.5 bg-theme-primary" />
+      <div className="absolute top-1.5 -right-1.5 h-1/2 w-1.5 bg-theme-primary" />
+      <div className="absolute bottom-1.5 -right-1.5 h-1/2 w-1.5 bg-theme-primary" />
     </div>
   );
 }

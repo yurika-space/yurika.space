@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen w-screen font-jetbrains-mono theme-terminal!important dark">
+    <div className="flex flex-col min-h-screen w-screen dark">
       <Nav />
       <main className="grow w-full">
         <Hero />

@@ -20,17 +20,17 @@ export default function BurgerButton({ handleClick, isOpen, className, ariaLabel
         variant={variant}
         size={size}
       >
-        <span className={`block transition-all duration-300 ease-out bg-foreground
+        <span className={`block transition-all duration-300 ease-out bg-theme-primary
                         h-0.5 w-6 rounded-sm ${isOpen ?
                         'rotate-45 translate-y-1' : '-translate-y-0.5'
                         }`} >
         </span>
-        <span className={`bg-foreground block transition-all duration-300 ease-out
+        <span className={`bg-theme-primary block transition-all duration-300 ease-out
                         h-0.5 w-6 rounded-sm my-0.5 ${isOpen ?
                         'opacity-0' : 'opacity-100'
                         }`} >
         </span>
-        <span className={`bg-foreground block transition-all duration-300 ease-out
+        <span className={`bg-theme-primary block transition-all duration-300 ease-out
                         h-0.5 w-6 rounded-sm ${isOpen ?
                         '-rotate-45 -translate-y-1' : 'translate-y-0.5'
                         }`} >

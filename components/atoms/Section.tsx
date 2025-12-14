@@ -111,11 +111,11 @@ export function SectionHeader({
         className
       )}
     >
-      <h2 className="font-mono text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+      <h2 className="text-3xl md:text-5xl font-bold text-theme-secondary mb-4 tracking-tight">
         {title}
       </h2>
       {subtitle && (
-        <p className="font-mono text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-theme-secondary max-w-3xl mx-auto">
           {subtitle}
         </p>
       )}

@@ -1,3 +1,5 @@
+import { PixelAlert } from "../pages/FAQs";
+
 interface ComponentHeaderProps {
   title: string;
   item: string;
@@ -13,21 +15,21 @@ export default function ComponentHeader({
 }: ComponentHeaderProps) {
   return (
     <div
-      className={`text-center animate-fade-in-up p-6 ${className}`}
+      className={`text-center animate-fade-in-up pb-12 ${className}`}
       style={style}
     >
-      <div className="inline-block p-6">
-        <div className="power-up-badge py-2!">
-          <span className="badge-icon ">
+      <div className="flex items-center justify-center">
+        <PixelAlert className="text-theme-secondary-foreground hover:translate-y-[-2px] transition-all duration-300">
+          <span className="badge-icon px-2">
             {item}
           </span>
-          <span className="badge-text ">
+          <span className="font-jetbrains-mono text-theme-secondary font-bold px-2">
             {title}
           </span>
-          <span className="badge-icon ">
+          <span className="badge-icon px-2">
             {item}
           </span>
-        </div>
+        </PixelAlert>
       </div>
     </div>
   );

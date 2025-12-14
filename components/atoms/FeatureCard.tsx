@@ -17,10 +17,10 @@ export default function FeatureCard({
       style={{ animationDelay: "0.8s" }}
     >
       <div className="feature-icon text-2xl pt-4 m-0">{icon}</div>
-      <div className="feature-title text-base font-bold -mt-4 mb-2">
+      <div className="text-2xl md:text-3xl lg:text-4xl text-[var(--accent)] font-bold -mt-4 mb-2">
         {title}
       </div>
-      <p className="feature-description text-md p-4 leading-relaxed pl-8 mb-2">
+      <p className="text-2xl p-4 leading-relaxed pl-8 mb-2 text-[var(--secondary-foreground)]">
         {description}
       </p>
     </div>

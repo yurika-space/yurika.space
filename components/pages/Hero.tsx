@@ -75,28 +75,27 @@ export default function Hero() {
       />
       <Section
         sectionId="hero"
-        background="gradient-purple"
-        className="min-h-screen w-screen flex items-center justify-center align-center overflow-hidden relative bg-background text-foreground"
+        className="min-h-screen w-screen flex items-center justify-center align-center overflow-hidden relative text-theme-secondary"
         style={{
           backgroundImage:
-            "linear-gradient(180deg, var(--background), var(--card))",
+            "linear-gradient(180deg, var(--muted), var(--card))",
         }}
       >
         <div
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-60 animate-pulse"
           style={{
             backgroundImage:
-              "radial-gradient(circle, color-mix(in oklch, var(--accent) 90%, transparent 10%) 1px, transparent 1px)",
+              "radial-gradient(circle, color-mix(in oklch, var(--secondary) 90%, transparent 10%) 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
-        <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.35)] via-transparent to-[rgba(0,0,0,0.9)]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.35)] via-transparent to-[rgba(0,0,0,0.7)]"/>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center items-center justify-center">
           <ComponentHeader
             title="BETA LAUNCH Q2 2026"
             item="🔥"
-            className="text-center items-center justify-center animate-pulse"
+            className="text-center items-center justify-center animate-pulse py-12"
           />
 
           <div className="relative z-10 text-center px-4">
@@ -111,10 +110,9 @@ export default function Hero() {
                   animate="visible"
                   className={cn(
                     "text-xl sm:text-xl md:text-xl font-bold text-center",
-                    "border-4 px-3 md:px-5 py-1",
-                    "border-foreground",
-                    "hover:bg-accent hover:text-accent-foreground hover:border-accent",
-                    "transition-colors duration-200 cursor-default font-mono"
+                    "border-2 border-theme-primary px-3 md:px-5 py-1",
+                    "hover:text-[var(--primary-foreground)] hover:bg-[var(--chart-5)] hover:border-[var(--chart-4)]!",
+                    "transition-colors duration-200 cursor-default font-press-start-2p"
                   )}
                 >
                   {letter}
@@ -122,18 +120,18 @@ export default function Hero() {
               ))}
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="text-foreground">RAISE CAPITAL.</span>
+            <h1 className="font-jetbrains-mono text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-theme-secondary">RAISE CAPITAL.</span>
               <br />
               <span
-                className="text-accent"
-                style={{ textShadow: "0 0 20px color-mix(in oklch, var(--accent) 50%, transparent)" }}
+                className="text-[var(--primary)]"
+                style={{ textShadow: "0 0 20px color-mix(in oklch, var(--glow-primary) 50%, transparent)" }}
               >
                 NO GATEKEEPERS.
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-3xl lg:text-4xl text-muted-foreground max-w-7xl mx-auto mb-8">
               Tokenize your domain. Fund your dream.
               <span className="text-secondary"> No warm intros</span>,
               <span className="text-secondary-foreground"> no pedigree</span>,
@@ -141,7 +139,7 @@ export default function Hero() {
               and a community ready to back it.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col md:flex-row gap-4 justify-center mb-12">
               <Button
                 size="lg"
                 icon={<Icons.Rocket />}
@@ -170,7 +168,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+            <div className="flex flex-wrap flex-col font-press-start-2p md:flex-row justify-center gap-8 md:gap-16">
               {[
                 { v: 1000, s: "+", l: "Founders Waiting" },
                 { v: 300, s: "K", l: "Target First Raise" },
@@ -188,7 +186,7 @@ export default function Hero() {
             </div>
             {/* Scroll indicator */}
             <div
-              className="scroll-indicator flex items-center justify-center pt-15 align-center xl:hidden! md:before:text-6xl! before:text-4xl! opacity-100 before:animate-fade-in-up animate-bounce-slow ease-in-out"
+              className="scroll-indicator flex items-center justify-center pt-15 align-center text-theme-secondary before:text-6xl! opacity-100 before:animate-fade-in-up animate-bounce-slow ease-in-out font-sixtyfour"
               style={{ animationDelay: "1.4s" }}
             />
           </div>
