@@ -6,7 +6,7 @@
 
 /* Subtle grid background */
 .grid-bg-subtle {
-  background-image: 
+  background-image:
     linear-gradient(color-mix(in oklch, var(--primary) 5%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in oklch, var(--primary) 5%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -22,9 +22,9 @@
 .pixel-particles {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     radial-gradient(circle, var(--primary) 1px, transparent 1px),
-    radial-gradient(circle, var(--destructive) 1px, transparent 1px);
+    radial-gradient(circle, var(--glow-primary) 1px, transparent 1px);
   background-size: 50px 50px, 80px 80px;
   background-position: 0 0, 40px 40px;
   opacity: 0.5;
@@ -40,13 +40,13 @@
 .pixel-badge {
   display: inline-block;
 
- 
-  
- 
-  
+
+
+
+
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  box-shadow: 
+  box-shadow:
     0 0 10px color-mix(in oklch, var(--primary) 30%, transparent),
     inset 0 0 10px color-mix(in oklch, var(--primary) 10%, transparent);
   animation: badgePulse 2s ease-in-out infinite;
@@ -59,7 +59,7 @@
 
 /* Subtle glitch for titles */
 .glitch-text-subtle {
-  text-shadow: 
+  text-shadow:
     1px 1px 0 var(--primary),
     -1px -1px 0 var(--destructive);
   animation: glitchSubtle 4s ease-in-out infinite;
@@ -129,7 +129,7 @@
 
 /* Level cards - Game progression style */
 .level-card {
- 
+
   border: 2px solid color-mix(in oklch, var(--primary) 30%, transparent);
   border-left: 4px solid var(--primary);
   cursor: pointer;
@@ -162,7 +162,7 @@
 }
 
 .level-header {
- 
+
   gap: 1rem;
 }
 
@@ -224,7 +224,7 @@
 
   border: 3px solid var(--primary);
 position: relative;
-  box-shadow: 
+  box-shadow:
     0 0 20px color-mix(in oklch, var(--primary) 20%, transparent),
     inset 0 0 20px color-mix(in oklch, var(--primary) 5%, transparent);
 }
@@ -255,7 +255,7 @@ position: relative;
   font-weight: 700;
 
   background: var(--primary);
- 
+
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -264,21 +264,21 @@ position: relative;
   display: inline-flex;
 
   gap: 0.5rem;
-  box-shadow: 
+  box-shadow:
     0 4px 0 0 var(--hacc-primary-strong),
     0 8px 20px color-mix(in oklch, var(--primary) 30%, transparent);
 }
 
 .pixel-button-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 
+  box-shadow:
     0 6px 0 0 var(--hacc-primary-strong),
     0 12px 30px color-mix(in oklch, var(--primary) 50%, transparent);
 }
 
 .pixel-button-primary:active {
   transform: translateY(2px);
-  box-shadow: 
+  box-shadow:
     0 2px 0 0 var(--hacc-primary-strong),
     0 4px 10px color-mix(in oklch, var(--primary) 30%, transparent);
 }
@@ -374,20 +374,20 @@ position: relative;
     height: 2.5rem;
     font-size: 1.25rem;
   }
-  
+
   .level-title {
     font-size: 0.875rem;
   }
-  
+
   .level-description {
     font-size: 0.75rem;
   }
-  
+
   .stat-box {
     min-width: 100px;
     padding: 0.75rem 1rem;
   }
-  
+
   .stat-value {
     font-size: 1.25rem;
   }

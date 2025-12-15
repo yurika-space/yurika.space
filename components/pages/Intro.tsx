@@ -44,13 +44,12 @@ const SpaceIntro: React.FC = () => {
   ];
 
   return (
-    <Section sectionId="about" background={null} className="flex items-center justify-center align-center overflow-hidden relative bg-theme-card">
+    <Section sectionId="about" background={null} className="flex items-center justify-center align-center overflow-hidden relative bg-theme-card py-8! md:py-12! pb-14! md:pb-22!">
 
         <div className="absolute min-h-[110vh] min-w-screen">
-
           {/* Circuit pattern - now the animation class works! */}
           <div
-            className="absolute opacity-5 animate-circuit-pattern inset-0"
+            className="absolute opacity-5 animate-circuit-pattern inset-0 bg-theme-card"
             style={{
               backgroundImage: `
                 linear-gradient(90deg, var(--primary) 1px, transparent 1px),
@@ -59,6 +58,7 @@ const SpaceIntro: React.FC = () => {
               backgroundSize: '50px 50px'
             }}
           />
+          <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.9)] via-transparent to-[rgba(0,0,0,0.4)]"/>
 
           {/* Power-up glow - now the animation class works! */}
           <div
@@ -74,7 +74,7 @@ const SpaceIntro: React.FC = () => {
           {/* Power-up style header */}
           <div className="text-center mb-2">
             <ComponentHeader
-              title="Feature Unlocked"
+              title="FEATURE UNLOCKED"
               item="⚡"
               className="animate-fade-in-up w-3/4 mx-auto"
               style={{ animationDelay: "0.2s" }}

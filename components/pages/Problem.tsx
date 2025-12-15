@@ -5,34 +5,35 @@ import "../stylesheets/haccelerator.css";
 
 export default function TheProblem() {
   const stats = [
-    { label: "Women-led teams funded", value: "2.3%", color: "text-theme-destructive" },
-    { label: "Black founders funded", value: "0.4%", color: "text-theme-secondary" },
-    { label: "LGBTQ+ founders funded", value: "0.5%", color: "text-theme-accent" },
+    { label: "Women-led teams funded", value: "2.3%", color: "text-[var(--accent)]" },
+    { label: "Black founders funded", value: "0.4%", color: "text-[var(--secondary)]" },
+    { label: "LGBTQ+ founders funded", value: "0.5%", color: "text-[var(--warning)]" },
   ];
   return (
     <Section
       sectionId="problem"
       background={null}
-      className="min-h-screen min-w-screen flex items-center justify-center align-center overflow-hidden relative"
+      className="min-h-screen min-w-screen flex items-center justify-center align-center overflow-hidden relative bg-theme-card py-8! md:py-12!"
     >
-      <div className="grid-bg-subtle absolute min-w-screen min-h-[110vh] opacity-30" />
+      <div className="grid-bg-subtle absolute w-screen min-h-[110vh] opacity-30" />
       <div className="pixel-particles absolute inset-0 z-0" />
+      <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.5)] via-transparent to-[rgba(0,0,0,0.7)]"/>
       <div className="max-w-6xl mx-auto z-10 relative w-full">
-      <div className="text-center mb-16">
+      <div className="text-center">
       <ComponentHeader
               title="THE PROBLEM"
               item="🔥"
               className="animate-fade-in-up w-3/4 mx-auto"
               style={{ animationDelay: "0.2s" }}
             />
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">VC Funding is <span className="text-theme-destructive">Broken</span></h2>
-            <p className="text-theme-muted max-w-2xl mx-auto text-lg">The traditional funding game is rigged. If you don&apos;t have the &quot;right&quot; connections, you&apos;re invisible.</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-theme-secondary">VC Funding is <span className="text-[var(--destructive)]">Broken</span></h2>
+            <p className="text-theme-muted max-w-2xl mx-auto text-lg ">The traditional funding game is rigged. If you don&apos;t have the &quot;right&quot; connections, you&apos;re invisible.</p>
           </div>
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-4 mb-12">
           {stats.map((item, i) => (
             <div
               key={i}
-              className="bg-theme-card/50 border border-theme-border p-8 text-center"
+              className="bg-transparent backdrop-blur-xl border border-[var(--primary)] p-4 text-center"
             >
               <div
                 className={`text-5xl md:text-6xl font-bold ${item.color} mb-2`}
