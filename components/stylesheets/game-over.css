@@ -35,7 +35,7 @@
 
 /* Vignette effect */
 .vignette {
-  background: radial-gradient(circle, transparent 50%, color-mix(in oklch, var(--background) 80%, transparent) 100%);
+  background: radial-gradient(circle, transparent 50%, color-mix(in oklch, var(--primary-foreground) 80%, transparent) 100%);
   pointer-events: none;
 }
 
@@ -486,20 +486,20 @@
   .game-over-title {
     font-size: 3rem;
   }
-  
+
   .action-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .card-icon {
     font-size: 2.5rem;
   }
-  
+
   .card-title {
     font-size: 1.5rem;
   }
-  
+
   .game-button {
     font-size: 0.875rem;
   }
@@ -509,15 +509,15 @@
   .game-over-title {
     font-size: 2.5rem;
   }
-  
+
   .game-over-subtitle {
     font-size: 1rem;
   }
-  
+
   .message-box {
     padding: 1.5rem;
   }
-  
+
   .action-card {
     padding: 1.5rem;
   }

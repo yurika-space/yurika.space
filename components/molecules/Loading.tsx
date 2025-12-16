@@ -15,12 +15,23 @@ interface LoadingScreenProps {
 }
 
 export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
-  const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
+  const [randomIndex, setRandomIndex] = useState(0);
+
+  const array = [LOADING_MESSAGES]
+
+  function getRandom(){
+    if (randomIndex === 0){
+      return
+    } else {
+    setRandomIndex(() =>
+      Math.floor(Math.random() * array.length))
+    }
+  }
 
   const currentMessage = useMemo(
-    () => LOADING_MESSAGES[lineIndex] ?? "",
-    [lineIndex]
+    () => LOADING_MESSAGES[randomIndex] ?? "",
+    [randomIndex]
   );
 
   useEffect(() => {
@@ -34,7 +45,7 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
     const timeoutId = window.setTimeout(() => {
       if (isLineComplete) {
         setCharIndex(Math.floor(Math.random() * currentMessage.length));
-        setLineIndex((prev) => (prev + 1) % LOADING_MESSAGES.length);
+        setRandomIndex((prev) => (prev + 1) % LOADING_MESSAGES.length);
       } else {
         setCharIndex((prev) => prev + 1);
       }
@@ -51,10 +62,10 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
       aria-hidden={isLoaded}
     >
       <div className="flex flex-col items-center gap-4 text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+        <p className="text-xl font-sixtyfour uppercase tracking-[0.3em] text-muted-foreground">
           Loading Interface
         </p>
-        <p className="text-2xl font-semibold font-mono">
+        <p className="text-2xl font-semibold font-press-start-2p">
           {currentMessage.slice(0, charIndex)}
           <span className="animate-pulse"></span>
         </p>

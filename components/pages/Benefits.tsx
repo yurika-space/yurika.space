@@ -40,23 +40,26 @@ export default function Benefits() {
       />
       <Section
         sectionId="business-model"
-        background="dark"
-        className="min-h-screen w-screen flex flex-col items-center justify-center align-center overflow-hidden relative"
+        className="min-h-screen w-screen flex flex-col items-center justify-center align-center overflow-hidden relative bg-theme-primary-foreground"
       >
         <div className="absolute h-screen w-screen inset-0">
           {/* Grid background - needs custom CSS */}
-          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse" />
+          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse h-full w-full" />
           {/* Glowing orbs with float animation */}
           <div
             className="absolute w-[400px] h-[400px] rounded-full bg-theme-secondary blur-[80px] opacity-40 -top-24 -left-24 animate-float"
             style={{ animationDelay: "1s" }}
           />
           <div
-            className="absolute w-[300px] h-[300px] rounded-full bg-sidebar-accent blur-[80px] opacity-50 -bottom-12 -right-12 animate-float"
+            className="absolute w-[300px] h-[300px] rounded-full bg-theme-accent blur-[80px] opacity-50 -bottom-12 -right-12 animate-float"
             style={{ animationDelay: "7s" }}
           />
           <div
-            className="absolute w-[250px] h-[250px] rounded-full bg-theme-success blur-[80px] opacity-20 top-1/2 right-[20%] animate-float"
+            className="absolute w-[300px] h-[300px] rounded-full bg-[var(--primary)] blur-[80px] opacity-50 top-[45%] left-[40%] animate-float"
+            style={{ animationDelay: "7s" }}
+          />
+          <div
+            className="absolute w-[250px] h-[250px] rounded-full bg-[var(--chart-4)]  blur-[80px] opacity-20 top-[55%] right-[20%] animate-float"
             style={{ animationDelay: "14s" }}
           />
         </div>

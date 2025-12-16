@@ -1,5 +1,5 @@
-const TerminalWindow = ({ title, children }: { title: string, children: React.ReactNode }) => (
-  <div className="border-2 border-[var(--primary)]/60 bg-black overflow-hidden">
+const TerminalWindow = ({ title, children, className }: { title: string, children: React.ReactNode, className?: string }) => (
+  <div className={`border-2 border-[var(--primary)]/60 bg-black overflow-hidden mx-auto max-w-3xl ${className}`}>
     <div className="flex items-center gap-3 px-4 py-3 border-b-2 border-[var(--primary)]/60 bg-gradient-to-r from-[var(--card)] to-[var(--sidebar)]">
       <div className="flex gap-2">
         <span className="w-3 h-3 rounded-full bg-red-500"/>
