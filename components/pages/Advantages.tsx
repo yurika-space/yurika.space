@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Badge, badgeVariants } from "../atoms/Badge";
 import { Card } from "../atoms/Card";
 import { Section, SectionHeader } from "../atoms/Section";
+import ComponentHeader from "../atoms/ComponentHeader";
+import { InvaderField } from "../atoms/SpaceInvader";
 
 export const CompetitionSection: React.FC = () => {
   const competitors = [
@@ -54,11 +56,12 @@ export const CompetitionSection: React.FC = () => {
   ];
 
   return (
-    <Section sectionId="competition" background="gradient">
-      <SectionHeader title="OUR UNFAIR ADVANTAGES" align="center" />
+    <Section sectionId="competition" className="bg-[var(--primary-foreground)] relative">
+      <InvaderField count={12} color="var(--primary)" className="absolute inset-0"/>
+      <ComponentHeader title="OUR ADVANTAGES" item="" className="font-jetbrains-mono"/>
 
       {/* Advantages badges */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className=" hidden md:flex flex-wrap justify-center gap-3 mb-12">
         {advantages.map((adv, i) => {
           const badgeVariantOptions: VariantProps<
             typeof badgeVariants
@@ -67,7 +70,7 @@ export const CompetitionSection: React.FC = () => {
             badgeVariantOptions[i % badgeVariantOptions.length];
 
           return (
-            <Badge key={adv} variant={badgeVariant} size="md" pulse animated>
+            <Badge key={adv} variant={badgeVariant} size="md" animated>
               {adv}
             </Badge>
           );
@@ -78,22 +81,41 @@ export const CompetitionSection: React.FC = () => {
       <Card
         variant="window"
         padding="none"
-        className="max-w-5xl mx-auto overflow-hidden"
+        className="w-3/4 max-w-5xl mx-auto overflow-hidden"
       >
-        <div className="flex justify-center gap-1.5 py-3 bg-linear-to-r from-(--card) to-(--sidebar)">
+        <div className="flex justify-start gap-1.5 py-3 bg-linear-to-r from-(--card) to-(--sidebar) pl-6 border-b-2 border-theme-border">
           <span className="w-3 h-3 rounded-full bg-green-500" />
           <span className="w-3 h-3 rounded-full bg-yellow-500" />
           <span className="w-3 h-3 rounded-full bg-red-500" />
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full font-mono text-sm">
+          <table className="md:hidden table w-full font-mono text-sm">
             <thead className="bg-theme-card">
               <tr>
-                <th className="p-4 text-left text-foreground">Platform</th>
-                <th className="p-4 text-left text-foreground">Asset</th>
-                <th className="p-4 text-center text-foreground">Accredited?</th>
-                <th className="p-4 text-center text-foreground">Liquidity</th>
-                <th className="p-4 text-center text-foreground">Web3</th>
+                <th className="p-4 text-center text-theme-card font-bold">
+                  Yurika.space
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {advantages.map((adv, i) => (
+                <tr key={i} className={cn(
+                  "border-t border-theme-border",
+                  i === advantages.length - 1 && "border-b border-theme-border"
+                )}>
+                  <td className="p-4 text-center bg-theme-success text-theme-primary">{adv}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <table className="hidden md:table w-full font-mono text-sm">
+            <thead className="bg-theme-card">
+              <tr>
+                <th className="p-4 text-left text-theme-card font-bold">Platform</th>
+                <th className="p-4 text-left text-theme-card font-bold">Asset</th>
+                <th className="p-4 text-center text-theme-card font-bold">Accredited?</th>
+                <th className="p-4 text-center text-theme-card font-bold">Liquidity</th>
+                <th className="p-4 text-center text-theme-card font-bold">Web3</th>
               </tr>
             </thead>
             <tbody>
@@ -105,10 +127,10 @@ export const CompetitionSection: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   className={cn(
-                    "border-t border-theme-border",
+                    "border-t border-theme-border text-theme-secondary",
                     comp.highlight
-                      ? "bg-[color-mix(in_oklch,var(--primary)_10%,transparent)]"
-                      : "bg-background"
+                      ? "bg-[var(--primary)] text-theme-primary"
+                      : "bg-[var(--card)] text-theme-secondary"
                   )}
                 >
                   <td
@@ -119,11 +141,11 @@ export const CompetitionSection: React.FC = () => {
                   >
                     {comp.name}
                   </td>
-                  <td className="p-4 text-theme-muted">{comp.asset}</td>
-                  <td className="p-4 text-center text-theme-muted">
+                  <td className={cn("p-4", comp.highlight && "text-theme-primary")}>{comp.asset}</td>
+                  <td className={cn("p-4 text-center", comp.highlight && "text-theme-primary")}>
                     {comp.accredited}
                   </td>
-                  <td className="p-4 text-center">
+                  <td className={cn("p-4 text-center", comp.highlight && "text-theme-primary")}>
                     {comp.liquidity ? "✓" : "✗"}
                   </td>
                   <td className="p-4 text-center">{comp.web3 ? "✓" : "✗"}</td>

@@ -22,7 +22,7 @@ export const sections = [
   { id: "competition", label: "Competition", hash: "#competition" },
   { id: "roadmap", label: "Roadmap", hash: "#roadmap" },
   { id: "cta", label: "Join Us", hash: "#cta" },
-  { id: "ask", label: "FAQ", hash: "#ask" },
+  //{ id: "ask", label: "FAQ", hash: "#ask" },
 ] as const;
 
 export type SectionId = (typeof sections)[number]["id"];

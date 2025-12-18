@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const LOADING_MESSAGES = [
   "Spooling up the Yurika.Space mainframe...",
@@ -16,24 +16,17 @@ interface LoadingScreenProps {
 
 export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
   const [charIndex, setCharIndex] = useState(0);
-  const [randomIndex, setRandomIndex] = useState(0);
+  const [currentMessage, setCurrentMessage] = useState(LOADING_MESSAGES[0]);
 
-  const array = [LOADING_MESSAGES]
 
-  function getRandom(){
-    if (randomIndex === 0){
-      return
-    } else {
-    setRandomIndex(() =>
-      Math.floor(Math.random() * array.length))
-    }
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * LOADING_MESSAGES.length);
+      setCurrentMessage(LOADING_MESSAGES[randomIndex]);
+    }, 0);
 
-  const currentMessage = useMemo(
-    () => LOADING_MESSAGES[randomIndex] ?? "",
-    [randomIndex]
-  );
-
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     if (isLoaded) {
       return;
@@ -44,8 +37,9 @@ export default function LoadingScreen({ isLoaded }: LoadingScreenProps) {
 
     const timeoutId = window.setTimeout(() => {
       if (isLineComplete) {
-        setCharIndex(Math.floor(Math.random() * currentMessage.length));
-        setRandomIndex((prev) => (prev + 1) % LOADING_MESSAGES.length);
+        const randomIndex = Math.floor(Math.random() * LOADING_MESSAGES.length);
+        setCurrentMessage(LOADING_MESSAGES[randomIndex]);
+        setCharIndex(0);
       } else {
         setCharIndex((prev) => prev + 1);
       }

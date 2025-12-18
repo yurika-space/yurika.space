@@ -54,7 +54,7 @@ export default function Home() {
         <CompetitionSection />
         <RoadmapSection />
         <CTA />
-        <FAQs player={true} />
+        {/*<FAQs player={true} />*/}
       </main>
       <Footer />
     </div>

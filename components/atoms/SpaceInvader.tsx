@@ -145,7 +145,7 @@ const pseudoRandom = (seed: number) => {
 export function InvaderField({
   count = 12,
   className = "",
-  color = "currentColor",
+  color = "var(--primary)",
   opacity = 0.1,
 }: InvaderFieldProps) {
   const invaders = React.useMemo(() => {

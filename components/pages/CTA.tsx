@@ -52,23 +52,22 @@ export default function CTA() {
       />
       <Section
         sectionId="cta"
-        background="dark"
-        className="py-20 md:py-32 px-4 relative bg-background text-foreground overflow-hidden"
+        className="py-20 md:py-32 px-4 relative text-foreground overflow-hidden linear-gradient(to bottom, color-mix(in oklch, var(--primary-foreground), var(--primary) 40%), color-mix(in oklch, var(--accent) 30%,"
         style={{
           backgroundImage:
-            "linear-gradient(135deg, var(--background), color-mix(in oklch, var(--background) 50%, var(--accent) 50%))",
+            `linear-gradient(to bottom, color-mix(in oklch, var(--primary), var(--primary-foreground) 60%), color-mix(in oklch, var(--accent) 30%, transparent))`
         }}
       >
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
           <SpaceInvader
             size="lg"
-            color="var(--primary)"
+            color="var(--primary-foreground)"
             className="mx-auto mb-8"
           />
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-theme-secondary leading-12 grid grid-cols-1 gap-4 lg:grid-rows-1 lg:grid-cols-2 lg:gap-0">
             The Future of Funding is{" "}
             <span
-              className="text-theme-primary"
+              className="text-[var(--primary-foreground)] bg-[var(--primary)] px-2 py-1 rounded-md w-[50%] mx-auto lg:mx-0 lg:w-[65%]"
               style={{
                 textShadow:
                   "0 0 20px color-mix(in oklch, var(--primary) 50%, transparent)",
@@ -77,24 +76,23 @@ export default function CTA() {
               Permissionless
             </span>
           </h2>
-          <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-            We&apos;re building infrastructure for everyone that VCs have
-            ignored. Join the waitlist. Be part of the uprising.
+          <p className="text-muted-foreground text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto">
+            Join the waitlist. Be part of the uprising.
           </p>
           {/* Animated background */}
           <div className="battle-grid absolute inset-0 opacity-30" />
           <div className="energy-particles absolute inset-0" />
 
-          <div
+          {/*<div
             className="relative z-10 pixel-divider-large mb-12 animate-fade-in-up max-w-4xl mx-auto"
             style={{ animationDelay: "0.3s" }}
-          />
+          />*/}
           <div
             className={`flex flex-col items-center justify-center w-full insert-coin max-w-4xl mx-auto transition-opacity duration-1000 delay-500 ${showContinue ? "opacity-100" : "opacity-0"}`}
           >
             <div className="coin-prompt font-pixel text-sm text-yurika-text-muted mt-12">
-              <span className="blink">█  </span>  PRESS ANY BUTTON TO CONTINUE  {" "}
-              <span className="blink"> ⏩ </span>
+              <span className="blink">█  </span>{" "}  PRESS ANY BUTTON TO CONTINUE  {" "}
+              <span className="blink">█  </span>
             </div>
           </div>
           {/* Main message */}

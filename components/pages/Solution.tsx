@@ -22,7 +22,6 @@ return (
         <div className="absolute inset-0">
           {/* Scanline effect */}
           <div className="scanlines absolute inset-0" />
-					<div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.5)] via-transparent to-[rgba(0,0,0,0.7)] "/>
           {/* Glitch background */}
           <div className="glitch-bg absolute inset-0 opacity-10" />
 
@@ -32,7 +31,7 @@ return (
         </div>
 	</div>
 
-<div className="max-w-6xl mx-auto relative text-center h-full">
+<div className="max-w-6xl mx-auto relative text-center">
 	<div className="flex flex-col align-center items-center justify-center text-center mb-12">
 		<ComponentHeader title="THE SOLUTION" item="🔥" className="animate-fade-in-up w-3/4 mx-auto" style={{ animationDelay: "0.2s" }} />
 		<h2 className="text-theme-secondary text-3xl md:text-5xl font-bold pb-15">Domain-Backed <span className="text-[var(--primary)]">Crowdfunding</span></h2>
