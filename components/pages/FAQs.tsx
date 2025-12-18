@@ -45,7 +45,7 @@ export default function FAQs(
     },
   ];
   return (
-    <Section sectionId="ask" background="terminal" className={className}>
+    <Section sectionId="hero" background="terminal" className={className}>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <ComponentHeader title="FAQ" item="🤔" className="mb-4" />

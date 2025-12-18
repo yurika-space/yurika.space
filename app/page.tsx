@@ -6,7 +6,7 @@ import Nav from "@/components/organisms/Nav";
 import { CompetitionSection } from "@/components/pages/Advantages";
 import Benefits from "@/components/pages/Benefits";
 import CTA from "@/components/pages/CTA";
-import FAQs from "@/components/pages/FAQs";
+//import FAQs from "@/components/pages/FAQs";
 import Hero from "@/components/pages/Hero";
 import SpaceIntro from "@/components/pages/Intro";
 import TheProblem from "@/components/pages/Problem";
