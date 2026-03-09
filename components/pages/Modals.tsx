@@ -168,9 +168,12 @@ export default function Modals({
                   <p className="text-theme-muted mb-6">
                     Book a 15-minute call to discuss partnerships or investment.
                   </p>
-                  <Button variant="purple" size="lg" className="w-full">
+                  <a href="https://calendly.com/eureka-yurika/30min" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button variant="purple" size="lg" className="w-full">
                     Open Calendly
                   </Button>
+                  </a>
+
                   <p className="text-theme-muted text-xs mt-4">
                     Or email: eureka@yurika.space
                   </p>

@@ -23,7 +23,7 @@ export default function TheProblem() {
       <div className="text-center">
       <ComponentHeader
               title="THE PROBLEM"
-              item="🔥"
+              item=""
               className="animate-fade-in-up w-3/4 mx-auto"
               style={{ animationDelay: "0.2s" }}
             />

@@ -75,7 +75,7 @@ const SpaceIntro: React.FC = () => {
           <div className="text-center mb-2">
             <ComponentHeader
               title="FEATURE UNLOCKED"
-              item="⚡"
+              item=""
               className="animate-fade-in-up w-3/4 mx-auto"
               style={{ animationDelay: "0.2s" }}
             />

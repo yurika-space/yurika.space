@@ -33,7 +33,7 @@ return (
 
 <div className="max-w-6xl mx-auto relative text-center">
 	<div className="flex flex-col align-center items-center justify-center text-center mb-12">
-		<ComponentHeader title="THE SOLUTION" item="🔥" className="animate-fade-in-up w-3/4 mx-auto" style={{ animationDelay: "0.2s" }} />
+		<ComponentHeader title="THE SOLUTION" item="" className="animate-fade-in-up w-3/4 mx-auto" style={{ animationDelay: "0.2s" }} />
 		<h2 className="text-theme-secondary text-3xl md:text-5xl font-bold pb-15">Domain-Backed <span className="text-[var(--primary)]">Crowdfunding</span></h2>
 		<p className="text-theme-secondary font-press-start-2p max-w-2xl mx-auto text-lg leading-10 tracking-tighter">Your domain is your equity. Tokenize it. Let your community own a piece.</p>
 	</div>
