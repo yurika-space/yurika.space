@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "../atoms/Button";
-import Icons from "../atoms/Icons";
-import { SpaceInvader } from "../atoms/SpaceInvader";
-import Modals from "./Modals";
 import { Section } from "../atoms/Section";
+import { SpaceInvader } from "../atoms/SpaceInvader";
 import TarotCard from "../molecules/TarotCard";
+import Modals from "./Modals";
 
 type ModalType = "waitlist" | "call" | "donate" | null;
 
@@ -74,8 +72,7 @@ export default function CTA() {
         sectionId="cta"
         className="py-20 md:py-32 px-4 relative text-foreground overflow-hidden linear-gradient(to bottom, color-mix(in oklch, var(--primary-foreground), var(--primary) 40%), color-mix(in oklch, var(--accent) 30%,"
         style={{
-          backgroundImage:
-            `linear-gradient(to bottom, color-mix(in oklch, var(--primary), var(--primary-foreground) 60%), color-mix(in oklch, var(--accent) 30%, transparent))`
+          backgroundImage: `linear-gradient(to bottom, color-mix(in oklch, var(--primary), var(--primary-foreground) 60%), color-mix(in oklch, var(--accent) 30%, transparent))`,
         }}
       >
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -111,8 +108,8 @@ export default function CTA() {
             className={`flex flex-col items-center justify-center w-full insert-coin max-w-4xl mx-auto transition-opacity duration-1000 delay-500 ${showContinue ? "opacity-100" : "opacity-0"}`}
           >
             <div className="coin-prompt font-pixel text-sm text-yurika-text-muted mt-12">
-              <span className="blink">█  </span>{" "}  PRESS ANY BUTTON TO CONTINUE  {" "}
-              <span className="blink">█  </span>
+              <span className="blink">█ </span> PRESS ANY BUTTON TO CONTINUE{" "}
+              <span className="blink">█ </span>
             </div>
           </div>
           {/* Main message */}
@@ -139,104 +136,104 @@ export default function CTA() {
 
         {/* Card 1: For Creators - King of Cups */}
         <div className="lg:grid lg:grid-cols-3 lg:align-center lg:h-[80vh] lg:grid-rows-1 lg:mx-auto lg:gap-4 lg:items-center lg:justify-center lg:max-w-7xl flex flex-col items-center justify-center align-center w-full max-w-4xl space-y-12">
-        <TarotCard
-          title="CREATORS"
-          icon="⚔️"
-          imageSrc="/king_cups.png"
-          imageAlt="Knight of Cups - For Creators"
-          paragraphs={[
-            {
-              text: "Serious about making a difference but no idea where to start?",
-              className: "text-wrap",
-            },
-            {
-              text: "Already have an idea but struggling to get it out there?",
-              hidden: true,
-            },
-          ]}
-          buttons={[
-            {
-              text: "Join our Waitlist",
-              icon: "→",
-              variant: "primary",
-              onClick: () => {
-                setUserType("founder");
-                setSubmitted(false);
-                setEmail("");
-                setActiveModal("waitlist");
+          <TarotCard
+            title="CREATORS"
+            icon="⚔️"
+            imageSrc="/king_cups.png"
+            imageAlt="Knight of Cups - For Creators"
+            paragraphs={[
+              {
+                text: "Serious about making a difference but no idea where to start?",
+                className: "text-wrap",
               },
-            },
-            {
-              text: "Create a Project on Eureka",
-              icon: "→",
-              variant: "primary",
-              hidden: true,
-            },
-          ]}
-          showDivider={true}
-          animationDelay="0.2s"
-        />
+              {
+                text: "Already have an idea but struggling to get it out there?",
+                hidden: true,
+              },
+            ]}
+            buttons={[
+              {
+                text: "Join our Waitlist",
+                icon: "",
+                variant: "primary",
+                onClick: () => {
+                  setUserType("founder");
+                  setSubmitted(false);
+                  setEmail("");
+                  setActiveModal("waitlist");
+                },
+              },
+              {
+                text: "Create a Project on Eureka",
+                icon: "",
+                variant: "primary",
+                hidden: true,
+              },
+            ]}
+            showDivider={true}
+            animationDelay="0.2s"
+          />
 
-        {/* Card 2: For Partners - Three of Cups */}
-        <TarotCard
-          title="PARTNERS"
-          icon="🤝"
-          imageSrc="/three_cups.png"
-          imageAlt="Three of Cups - For Partners"
-          imageClassName=""
-          contentClassName=""
-          paragraphs={[
-            {
-              text: "There's more to collaboration than just financial support.",
-              className: "leading-relaxed",
-            },
-            {
-              text: "Get in touch with us by booking a meeting with our Director and tell us how you'd like to get involved.",
-              className: "text-yurika-text-muted",
-              hidden: true,
-            },
-          ]}
-          buttons={[
-            {
-              text: "Book a Meeting",
-              icon: "📅",
-              variant: "secondary",
-              onClick: () => setActiveModal("call"),
-            },
-          ]}
-          animationDelay="0.4s"
-        />
+          {/* Card 2: For Partners - Three of Cups */}
+          <TarotCard
+            title="PARTNERS"
+            icon="🤝"
+            imageSrc="/three_cups.png"
+            imageAlt="Three of Cups - For Partners"
+            imageClassName=""
+            contentClassName=""
+            paragraphs={[
+              {
+                text: "There's more to collaboration than just financial support.",
+                className: "leading-relaxed",
+              },
+              {
+                text: "Get in touch with us by booking a meeting with our Director and tell us how you'd like to get involved.",
+                className: "text-yurika-text-muted",
+                hidden: true,
+              },
+            ]}
+            buttons={[
+              {
+                text: "Book a Meeting",
+                icon: "",
+                variant: "secondary",
+                onClick: () => setActiveModal("call"),
+              },
+            ]}
+            animationDelay="0.4s"
+          />
 
-        {/* Card 3: For Sponsors - Six of Pentacles */}
-        <TarotCard
-          title="SPONSORS"
-          className="md:-translate-y-6"
-          icon="💰"
-          imageSrc="/six_coins.png"
-          imageAlt="Six of Pentacles - For Sponsors"
-          imageClassName=""
-          contentClassName=""
-          paragraphs={[
-            {
-              text: "It's time to put your money where your mouth is.",
-              className: "leading-relaxed",
-            },
-            {
-              text: "We need your support to build infrastructure for independent creators. Fund tools, gamification, or projects in our catalogue.",
-              className: "text-yurika-text-muted",
-              hidden: true,
-            },
-          ]}
-          buttons={[
-            {
-              text: "Request Pitch Deck",
-              icon: "📖",
-              variant: "purple",
-              onClick: () => console.log("Request pitch deck"),
-            },
-          ]}
-          animationDelay="0.6s"
-        />
+          {/* Card 3: For Sponsors - Six of Pentacles */}
+          <TarotCard
+            title="SPONSORS"
+            className="md:-translate-y-6"
+            icon="💰"
+            imageSrc="/six_coins.png"
+            imageAlt="Six of Pentacles - For Sponsors"
+            imageClassName=""
+            contentClassName=""
+            paragraphs={[
+              {
+                text: "It's time to put your money where your mouth is.",
+                className: "leading-relaxed",
+              },
+              {
+                text: "We need your support to build infrastructure for independent creators. Fund tools, gamification, or projects in our catalogue.",
+                className: "text-yurika-text-muted",
+                hidden: true,
+              },
+            ]}
+            buttons={[
+              {
+                text: "Request Pitch Deck",
+                icon: "",
+                variant: "purple",
+                onClick: () => console.log("Request pitch deck"),
+              },
+            ]}
+            animationDelay="0.6s"
+          />
         </div>
       </Section>
     </>

@@ -95,7 +95,7 @@ export default function Benefits() {
               <div className="flex flex-col items-center justify-center w-full">
                 <ComponentHeader
                   title="FOR FOUNDERS"
-                  item="🔥"
+                  item=""
                   className="animate-fade-in-up w-3/4 mx-auto text-center"
                   style={{ animationDelay: "0.2s" }}
                 />
@@ -177,7 +177,7 @@ export default function Benefits() {
           <div className="pt-12">
           <ComponentHeader
                 title="FOR INVESTORS"
-                item="🔥"
+                item=""
                 className="animate-fade-in-up w-3/4 mx-auto"
                 style={{ animationDelay: "0.2s" }}
               />
