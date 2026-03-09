@@ -190,28 +190,31 @@ export default function Modals({
                       Help us build the future of founder funding.
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {["$25", "$50", "$100"].map((amt) => (
-                      <button
-                        key={amt}
-                        className="p-4 border-2 border-theme-border hover:border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_10%,_transparent)] transition-all font-bold"
-                      >
-                        {amt}
-                      </button>
-                    ))}
-                  </div>
-                  <input
-                    type="number"
-                    placeholder="Custom amount ($)"
-                    min="1"
-                    className="w-full bg-black/50 border-2 border-theme-border focus:border-theme-destructive px-4 py-3 text-foreground placeholder-theme-muted outline-none"
-                  />
                   <Button
                     size="lg"
                     className="w-full bg-theme-destructive border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_90%,_transparent)]"
+                    onClick={() => {
+                      setActiveModal(null);
+                      const kofi = (window as unknown as Record<string, unknown>).kofiWidgetOverlay as
+                        | { draw: (username: string, options: Record<string, string>) => void }
+                        | undefined;
+                      if (kofi) {
+                        kofi.draw("yurika_space", {
+                          "type": "floating-chat",
+                          "floating-chat.donateButton.text": "Support",
+                          "floating-chat.donateButton.background-color": "#ff5e5b",
+                          "floating-chat.donateButton.text-color": "#fff",
+                        });
+                      } else {
+                        window.open("https://ko-fi.com/yurika_space", "_blank");
+                      }
+                    }}
                   >
-                    <Icons.Heart /> Donate Now
+                    <Icons.Heart /> Donate via Ko-fi
                   </Button>
+                  <p className="text-center text-theme-muted text-xs">
+                    Powered by Ko-fi. Every bit helps.
+                  </p>
                 </div>
               )}
             </div>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { JetBrains_Mono, Press_Start_2P, Sixtyfour } from "next/font/google";
 import Head from "next/head";
+import Script from "next/script";
 import "./globals.css";
 import "./retro-globals.css";
 
@@ -67,6 +68,11 @@ export default function RootLayout({
       <body
         className={`${sixtyfour.variable} ${jetBrainsMono.variable} ${pressStart2p.variable} antialiased min-h-screen w-screen overflow-x-hidden`}
       >
+        <Script
+          id="kofi-widget"
+          src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"
+          strategy="lazyOnload"
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="terminal"
