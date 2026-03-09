@@ -17,6 +17,7 @@ export default function Modals({
   userType,
   setUserType,
   isSubmitting,
+  submitError,
 }: {
   activeModal: ModalType;
   setActiveModal: Dispatch<SetStateAction<ModalType>>;
@@ -28,6 +29,7 @@ export default function Modals({
   userType: "founder" | "investor";
   setUserType: Dispatch<SetStateAction<"founder" | "investor">>;
   isSubmitting: boolean;
+  submitError: string | null;
 }) {
   return (
     <>
@@ -116,6 +118,12 @@ export default function Modals({
                       className="w-full bg-black/50 border-2 border-theme-border focus:border-theme-primary px-4 py-3 text-foreground placeholder-theme-muted outline-none"
                     />
                   </div>
+
+                  {submitError && (
+                    <p className="text-red-400 text-sm text-center">
+                      {submitError}
+                    </p>
+                  )}
 
                   <Button
                     type="submit"
