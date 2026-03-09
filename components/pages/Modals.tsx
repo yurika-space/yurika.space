@@ -190,28 +190,19 @@ export default function Modals({
                       Help us build the future of founder funding.
                     </p>
                   </div>
-                  <Button
-                    size="lg"
-                    className="w-full bg-theme-destructive border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_90%,_transparent)]"
-                    onClick={() => {
-                      setActiveModal(null);
-                      const kofi = (window as unknown as Record<string, unknown>).kofiWidgetOverlay as
-                        | { draw: (username: string, options: Record<string, string>) => void }
-                        | undefined;
-                      if (kofi) {
-                        kofi.draw("yurika_space", {
-                          "type": "floating-chat",
-                          "floating-chat.donateButton.text": "Support",
-                          "floating-chat.donateButton.background-color": "#ff5e5b",
-                          "floating-chat.donateButton.text-color": "#fff",
-                        });
-                      } else {
-                        window.open("https://ko-fi.com/yurika_space", "_blank");
-                      }
-                    }}
+                  <a
+                    href="https://ko-fi.com/yurika_space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
                   >
-                    <Icons.Heart /> Donate via Ko-fi
-                  </Button>
+                    <Button
+                      size="lg"
+                      className="w-full bg-theme-destructive border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_90%,_transparent)]"
+                    >
+                      <Icons.Heart /> Donate via Ko-fi
+                    </Button>
+                  </a>
                   <p className="text-center text-theme-muted text-xs">
                     Powered by Ko-fi. Every bit helps.
                   </p>
