@@ -17,6 +17,7 @@ export default function Modals({
   userType,
   setUserType,
   isSubmitting,
+  submitError,
 }: {
   activeModal: ModalType;
   setActiveModal: Dispatch<SetStateAction<ModalType>>;
@@ -28,6 +29,7 @@ export default function Modals({
   userType: "founder" | "investor";
   setUserType: Dispatch<SetStateAction<"founder" | "investor">>;
   isSubmitting: boolean;
+  submitError: string | null;
 }) {
   return (
     <>
@@ -117,6 +119,12 @@ export default function Modals({
                     />
                   </div>
 
+                  {submitError && (
+                    <p className="text-red-400 text-sm text-center">
+                      {submitError}
+                    </p>
+                  )}
+
                   <Button
                     type="submit"
                     className="w-full"
@@ -182,28 +190,22 @@ export default function Modals({
                       Help us build the future of founder funding.
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {["$25", "$50", "$100"].map((amt) => (
-                      <button
-                        key={amt}
-                        className="p-4 border-2 border-theme-border hover:border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_10%,_transparent)] transition-all font-bold"
-                      >
-                        {amt}
-                      </button>
-                    ))}
-                  </div>
-                  <input
-                    type="number"
-                    placeholder="Custom amount ($)"
-                    min="1"
-                    className="w-full bg-black/50 border-2 border-theme-border focus:border-theme-destructive px-4 py-3 text-foreground placeholder-theme-muted outline-none"
-                  />
-                  <Button
-                    size="lg"
-                    className="w-full bg-theme-destructive border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_90%,_transparent)]"
+                  <a
+                    href="https://ko-fi.com/yurika_space"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
                   >
-                    <Icons.Heart /> Donate Now
-                  </Button>
+                    <Button
+                      size="lg"
+                      className="w-full bg-theme-destructive border-theme-destructive hover:bg-[color-mix(in_oklch,_var(--destructive)_90%,_transparent)]"
+                    >
+                      <Icons.Heart /> Donate via Ko-fi
+                    </Button>
+                  </a>
+                  <p className="text-center text-theme-muted text-xs">
+                    Powered by Ko-fi. Every bit helps.
+                  </p>
                 </div>
               )}
             </div>

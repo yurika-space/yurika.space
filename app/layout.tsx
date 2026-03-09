@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { JetBrains_Mono, Press_Start_2P, Sixtyfour } from "next/font/google";
 import Head from "next/head";
+
 import "./globals.css";
 import "./retro-globals.css";
 
