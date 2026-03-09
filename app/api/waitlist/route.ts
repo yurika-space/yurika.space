@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -12,6 +12,7 @@ export async function POST(request: Request) {
       );
     }
 
+    const supabase = getSupabase();
     const { error } = await supabase.from("waitlist").insert([
       {
         email,
