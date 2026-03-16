@@ -232,7 +232,7 @@ export default function CTA() {
               text: "Request Pitch Deck",
               icon: "📖",
               variant: "purple",
-              onClick: () => console.log("Request pitch deck"),
+              onClick: () => window.open("/pitch-deck", "_blank"),
             },
           ]}
           animationDelay="0.6s"
