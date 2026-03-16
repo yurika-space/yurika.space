@@ -64,7 +64,7 @@ export default function Benefits() {
       >
         <div className="absolute h-screen w-screen inset-0">
           {/* Grid background - needs custom CSS */}
-          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse h-full w-full" />
+          <div className="grid-bg absolute inset-0 opacity-50 animate-grid-pulse min-h-screen w-full" />
           {/* Glowing orbs with float animation */}
           <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.8)] via-transparent to-[rgba(0,0,0,0.4)]" />
           <div
@@ -181,7 +181,7 @@ export default function Benefits() {
                 className="animate-fade-in-up w-3/4 mx-auto"
                 style={{ animationDelay: "0.2s" }}
               />
-              <h2 className="text-3xl text-theme-secondary grid grid-cols-1 grid-rows-2 md:text-5xl font-bold mb-6 text-center font-press-start-2p leading-16 tracking-tight">
+              <h2 className="text-3xl text-theme-secondary grid grid-cols-1 md:grid-rows-2 md:text-5xl font-bold mb-6 text-center font-press-start-2p leading-16 tracking-tight">
                 Back Founders.<span className="text-[var(--secondary)]">Earn Returns.</span>
               </h2>
               <p className="text-theme-muted text-xl max-w-2xl mx-auto mb-8 text-center">
