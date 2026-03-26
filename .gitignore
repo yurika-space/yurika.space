@@ -1,0 +1,64 @@
+# ── Environment ───────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.*.local
+*.env
+
+# ── Node / Frontend ───────────────────────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+.pnpm-store/
+pnpm-lock.yaml
+
+# ── Python / Backend ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.venv/
+venv/
+.uv/
+uv.lock
+staticfiles/
+mediafiles/
+*.sqlite3
+*.log
+
+# ── Contracts ────────────────────────────────────────────────────
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/.env
+
+# ── Build artifacts ───────────────────────────────────────────────
+build/
+*.egg-info/
+.eggs/
+
+# ── IDE ───────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# ── OS ────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── Testing ───────────────────────────────────────────────────────
+.coverage
+htmlcov/
+.pytest_cache/
+coverage.xml
+
+# ── Sentry ────────────────────────────────────────────────────────
+.sentryclirc
+
+# ── Docker ───────────────────────────────────────────────────────
+*.override.yml
