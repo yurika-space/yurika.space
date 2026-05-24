@@ -1,19 +1,18 @@
+import { Suspense } from "react"
 import { CuratorMarketplaceTable } from "@/components/app/CuratorMarketplaceTable"
+import { ProjectConfigurator } from "@/components/app/ProjectConfigurator"
 import { DomainVaultWizard } from "@/components/app/DomainVaultWizard"
 import { ShardLaunchConfigurator } from "@/components/app/ShardLaunchConfigurator"
-
-const statusRows = [
-  { label: "Domain Vault Engine", value: "ONLINE", tone: "#ccff00" },
-  { label: "Shard Marketplace", value: "STANDBY", tone: "#9d00ff" },
-  { label: "Knowledge Graph", value: "SYNCING", tone: "#ffaa00" },
-  { label: "Forge Pipeline", value: "ACTIVE", tone: "#ccff00" },
-]
+import { GraphExplorerPanel } from "@/components/app/GraphExplorerPanel"
+import { ContractStatus } from "@/components/app/ContractStatus"
+import { FounderDashboard } from "@/components/app/FounderDashboard"
+import Link from "next/link"
 
 const launchTasks = [
-  "Connect founder wallet",
-  "Verify domain ownership",
+  "Create project & upload deck",
+  "Mint / vault domain",
   "Configure shard economics",
-  "Publish funding campaign",
+  "Publish campaign (attach project)",
 ]
 
 export default function AppHomePage() {
@@ -28,21 +27,16 @@ export default function AppHomePage() {
             COMMAND CENTER <span className="text-[#ccff00] glow-lime">INITIALIZED</span>
           </h1>
           <p className="max-w-2xl text-[12px] font-mono leading-loose text-[#888]">
-            This is the founder control surface for vaulting domains, launching shard offerings,
-            and tracking execution through Forge. Phase 2 introduces the application shell and
-            workflow modules that connect your marketing surface to usable product operations.
+            Founder control surface for vaulting domains, launching shard offerings,
+            and tracking execution through Forge. Wired to Django API at{" "}
+            <span className="text-[#9d00ff]">
+              {process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"}
+            </span>
+            .
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {statusRows.map((row) => (
-              <div key={row.label} className="border border-[#2a2a2a] bg-[#141414] px-4 py-3">
-                <p className="text-[9px] font-mono tracking-widest text-[#666]">{row.label}</p>
-                <p className="mt-1 text-[11px] font-mono font-bold" style={{ color: row.tone }}>
-                  {row.value}
-                </p>
-              </div>
-            ))}
-          </div>
+          <ContractStatus />
+          <FounderDashboard />
         </div>
 
         <aside className="terminal-window terminal-body p-6 lg:col-span-4">
@@ -58,21 +52,39 @@ export default function AppHomePage() {
               </li>
             ))}
           </ol>
-          <div className="mt-8 border-t border-[#2a2a2a] pt-4 text-[10px] font-mono text-[#666]">
-            STATUS: <span className="text-[#ccff00]">READY FOR INTEGRATION</span>
-          </div>
+          <nav className="mt-6 space-y-2 border-t border-[#2a2a2a] pt-4 text-[10px] font-mono">
+            <Link href="/marketplace" className="block text-[#888] hover:text-[#ccff00]">
+              → Public marketplace
+            </Link>
+            <Link href="/app/portfolio" className="block text-[#888] hover:text-[#ccff00]">
+              → Curator portfolio
+            </Link>
+            <Link href="/app/forge" className="block text-[#888] hover:text-[#ccff00]">
+              → Forge milestones
+            </Link>
+          </nav>
         </aside>
+
+        <div className="lg:col-span-12">
+          <ProjectConfigurator />
+        </div>
 
         <div className="lg:col-span-6">
           <DomainVaultWizard />
         </div>
 
         <div className="lg:col-span-6">
-          <ShardLaunchConfigurator />
+          <Suspense fallback={<p className="text-[10px] font-mono text-[#666]">Loading configurator...</p>}>
+            <ShardLaunchConfigurator />
+          </Suspense>
         </div>
 
         <div className="lg:col-span-12">
           <CuratorMarketplaceTable />
+        </div>
+
+        <div className="lg:col-span-12">
+          <GraphExplorerPanel />
         </div>
       </div>
     </section>

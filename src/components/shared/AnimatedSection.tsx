@@ -35,7 +35,7 @@ export function AnimatedSection({
     <motion.section
       className={className}
       {...scrollReveal}
-      transition={{ ...scrollReveal.transition, delay }}
+      transition={{ duration: 0.5, ease: "easeOut" as const, delay }}
     >
       {children}
     </motion.section>

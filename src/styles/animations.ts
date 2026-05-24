@@ -5,7 +5,7 @@ export const scrollReveal = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.5, ease: "easeOut" },
+  transition: { duration: 0.5, ease: "easeOut" as const },
 }
 
 // ── Stagger container for lists of items ─────────────────────────
@@ -32,7 +32,7 @@ export const staggerItem: { variants: Variants } = {
 export const fadeInUp = {
   initial: { opacity: 0, y: 32 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
+  transition: { duration: 0.6, ease: "easeOut" as const },
 }
 
 // ── Typewriter text reveal ────────────────────────────────────────

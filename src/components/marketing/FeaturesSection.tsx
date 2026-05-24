@@ -2,7 +2,16 @@
 
 import { motion } from "framer-motion"
 
-const FEATURES = [
+const FEATURES: Array<{
+  id: string
+  anchorId?: string
+  name: string
+  tagline: string
+  body: string
+  stat: string
+  statLabel: string
+  accent: string
+}> = [
   {
     id: "01",
     name: "THE VAULT",
@@ -16,7 +25,7 @@ const FEATURES = [
     id: "02",
     name: "SHARD MARKETPLACE",
     tagline: "A high-frequency terminal for trading fractional ownership.",
-    body: "Invest in the names that will define the next decade of the web. ERC-20 and ERC-1155 strategies per campaign. Live order book, bid/ask management, and shard-holder governance voting.",
+    body: "Invest in the names that will define the next decade of the web. ERC-20 and ERC-1155 strategies per campaign. Primary shard offerings live now; secondary order book — coming soon.",
     stat: "ERC-20/1155",
     statLabel: "TOKEN STANDARD",
     accent: "#9d00ff",

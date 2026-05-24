@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { SessionBar } from "@/components/app/SessionBar"
 
 export default function AppLayout({
   children,
@@ -13,9 +14,19 @@ export default function AppLayout({
             YURIKA.SPACE // COMMAND CENTER
           </Link>
           <nav className="flex items-center gap-4">
-            <Link href="/" className="text-[9px] font-mono tracking-widest text-[#888] hover:text-[#ccff00]">
-              RETURN TO LANDING
+            <Link href="/marketplace" className="text-[9px] font-mono tracking-widest text-[#888] hover:text-[#ccff00]">
+              MARKETPLACE
             </Link>
+            <Link href="/app/portfolio" className="text-[9px] font-mono tracking-widest text-[#888] hover:text-[#ccff00]">
+              PORTFOLIO
+            </Link>
+            <Link href="/app/forge" className="text-[9px] font-mono tracking-widest text-[#888] hover:text-[#ccff00]">
+              FORGE
+            </Link>
+            <Link href="/" className="text-[9px] font-mono tracking-widest text-[#888] hover:text-[#ccff00]">
+              LANDING
+            </Link>
+            <SessionBar compact />
           </nav>
         </div>
       </header>

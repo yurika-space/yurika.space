@@ -1,7 +1,27 @@
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
+import { Inter, JetBrains_Mono, Press_Start_2P } from "next/font/google"
 import { Providers } from "./providers"
 import "./globals.css"
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+})
+
+const pressStart = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -45,7 +65,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${jetbrains.variable} ${pressStart.variable} ${pressStart.variable}`}
+    >
       <body className="bg-bg-primary text-text-primary font-body antialiased">
         <Providers>{children}</Providers>
         <Analytics />

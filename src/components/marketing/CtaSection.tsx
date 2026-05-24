@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { WaitlistForm } from "@/components/marketing/WaitlistForm"
 
 export function CtaSection() {
   return (
@@ -26,17 +27,22 @@ export function CtaSection() {
             next generation of domain-first founders is already forging.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
               href="/app"
               className="btn-primary text-[10px] py-4 px-10 glitch-hover"
             >
               [ BOOTSTRAP YOUR PROJECT ]
             </Link>
-            <Link href="#shards" className="btn-ghost text-[10px] py-4 px-10">
+            <Link href="/pitch-deck" className="btn-ghost text-[10px] py-4 px-10">
+              [ REQUEST PITCH DECK ]
+            </Link>
+            <Link href="/marketplace" className="btn-ghost text-[10px] py-4 px-10">
               View Active Shards
             </Link>
           </div>
+
+          <WaitlistForm />
 
           {/* Blinking cursor */}
           <div className="mt-12 flex items-center justify-center gap-2">

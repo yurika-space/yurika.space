@@ -50,7 +50,7 @@ export function ProblemSection() {
                     ["Asset Class", "Equity / Rewards", "Fractional Domain (RWA)"],
                     ["Liquidity", "Low / Locked", "High — tradeable on-chain"],
                     ["Governance", "Centralized", "Decentralized via token rights"],
-                    ["Access", "Accredited only", "Inclusive micro-investment"],
+                    ["Access", "Accredited only", "Micro-investment (subject to eligibility)"],
                     ["Transparency", "Private", "Immutable blockchain ledger"],
                   ].map(([feature, bad, good]) => (
                     <tr key={feature} className="border-b border-[#1a1a1a]">

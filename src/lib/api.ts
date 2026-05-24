@@ -6,7 +6,20 @@ class ApiError extends Error {
     public data: unknown
   ) {
     super(`API Error ${status}`)
+    this.name = "ApiError"
   }
+}
+
+function detailMessage(data: unknown): string {
+  if (!data || typeof data !== "object") return "Request failed"
+  const d = data as Record<string, unknown>
+  if (typeof d.detail === "string") return d.detail
+  if (Array.isArray(d.detail)) return String(d.detail[0])
+  const firstKey = Object.keys(d)[0]
+  const val = d[firstKey]
+  if (Array.isArray(val)) return `${firstKey}: ${val[0]}`
+  if (typeof val === "string") return `${firstKey}: ${val}`
+  return "Request failed"
 }
 
 class ApiClient {
@@ -22,7 +35,7 @@ class ApiClient {
       ...(options.headers as Record<string, string>),
     }
     if (this.accessToken) {
-      headers["Authorization"] = `Bearer ${this.accessToken}`
+      headers.Authorization = `Bearer ${this.accessToken}`
     }
 
     const res = await fetch(`${BASE_URL}${path}`, { ...options, headers })
@@ -32,7 +45,6 @@ class ApiClient {
       throw new ApiError(res.status, errorData)
     }
 
-    // Handle 204 No Content
     if (res.status === 204) return undefined as T
     return res.json()
   }
@@ -41,10 +53,10 @@ class ApiClient {
     return this.request<T>(path)
   }
 
-  post<T>(path: string, data: unknown) {
+  post<T>(path: string, data?: unknown) {
     return this.request<T>(path, {
       method: "POST",
-      body: JSON.stringify(data),
+      body: data !== undefined ? JSON.stringify(data) : undefined,
     })
   }
 
@@ -68,4 +80,4 @@ class ApiClient {
 }
 
 export const api = new ApiClient()
-export { ApiError }
+export { ApiError, detailMessage }

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 
@@ -34,9 +35,9 @@ export function ForgeSection() {
               yurika.space provides the automated infrastructure to take your
               sharded project from concept to code in record time.
             </p>
-            <button className="btn-primary text-[10px] py-3 px-8">
+            <Link href="/app/forge" className="btn-primary text-[10px] py-3 px-8 inline-block">
               [ ENTER THE FORGE ]
-            </button>
+            </Link>
           </AnimatedSection>
 
           {/* Pipeline visualization */}

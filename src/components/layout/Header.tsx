@@ -3,12 +3,13 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { SessionBar } from "@/components/app/SessionBar"
 
 const NAV_LINKS = [
-  { label: "THE VAULT", href: "#vault" },
-  { label: "SHARDS", href: "#shards" },
-  { label: "GRAPH", href: "#graph" },
-  { label: "THE FORGE", href: "#forge" },
+  { label: "THE VAULT", href: "/app" },
+  { label: "SHARDS", href: "/marketplace" },
+  { label: "GRAPH", href: "/#graph" },
+  { label: "THE FORGE", href: "/app/forge" },
 ]
 
 export function Header() {
@@ -47,6 +48,7 @@ export function Header() {
 
         {/* CTA */}
         <div className="flex items-center gap-3">
+          <SessionBar compact />
           <Link
             href="/app"
             className="btn-primary text-[9px] py-2 px-4 hidden sm:block"

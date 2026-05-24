@@ -1,10 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ── Yurika Terminal Design System ──────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap");
-
 :root {
   /* Color Tokens — The Neon Ledger */
   --color-bg-primary: #0d0d0d;       /* The Void — deep obsidian */
@@ -27,11 +23,6 @@
   --color-border-accent: #ccff0033;  /* Lime border glow */
 
   /* Typography */
-  --font-display: "Press Start 2P";  /* Pixel headings */
-  --font-heading: "Press Start 2P";
-  --font-body: "Inter";
-  --font-mono: "JetBrains Mono";
-
   /* Spacing */
   --radius: 0px;                     /* No rounded corners — terminal sharp */
 }

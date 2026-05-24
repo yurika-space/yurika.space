@@ -29,7 +29,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-display)", "monospace"],   // Press Start 2P
-        heading: ["var(--font-heading)", "monospace"],
+        heading: ["var(--font-display)", "monospace"],
         body: ["var(--font-body)", "sans-serif"],        // Inter
         mono: ["var(--font-mono)", "monospace"],         // JetBrains Mono
       },
